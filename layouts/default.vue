@@ -1,16 +1,16 @@
 <template>
 	<div>
 		<CommonsDebugComp v-if="isDebug" />
-		<NavigationComp class="fixed z-30" />
+		<NavigationBar class="fixed top-0 w-screen z-50" />
 		<main class="">
 			<slot />
 		</main>
-		<!-- <Footer /> -->
+		<LayoutsFooter />
 	</div>
 </template>
 
 <script setup>
-import NavigationComp from '../components/Navigation/NavigationComp.vue';
+import NavigationBar from '../components/Navigation/NavigationBar.vue';
 
 const route = useRoute()
 const isDebug = route.query.debug === "1"

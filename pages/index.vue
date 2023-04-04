@@ -1,30 +1,36 @@
 <template>
-	<section class="lg:pt-16 lg:pb-24">
-		<div class="container max-w-2xl text-center pt-6 lg:pt-0">
-			<p
-				class="inline-block mx-auto text-text-description typ-caption-small-regular lg:typ-description-large-light pt-3 pb-2 mb-6 lg:pt-0 lg:mb-12 border-b-2 border-border-button"
-			>
-				Welcome
-			</p>
-			<div
-				class="typ-heading-large-bold lg:typ-display-large-bold text-text-default pb-8 px-6 pt-6 lg:px-0 lg:pt-0"
-			>
-				<h1>
-					Implement <span class="text-text-button">Ideas</span> <br />
-					Through Code;
-				</h1>
+	<section class="container mx-auto my-24">
+		<div class="pt-20">
+			<div class="text-6xl font-black">
+				Communicate ideas through pixel, shape, and colors.
 			</div>
-			<div
-				class="typ-description-large-regular lg:typ-description-xlarge-regular pb-12 px-6 md:px-20 lg:pb-10 lg:px-0 text-text-description"
-			>
-				As a <span class="font-bold">Frontend Developer</span>, Vika usually build
-				anything <br />
-				that comes from mind.
+
+			<div class="grid grid-cols-2 gap-x-10">
+				<div class="bg-yellow-100 rounded-3xl h-[400px] p-8 shadow-lg">
+					<p class="text-5xl">HELLO</p>
+				</div>
+				<div class="bg-green-100 rounded-3xl h-[400px] p-8 shadow-lg">
+					<p>Hello There</p>
+					<p>I'm a FrontEnd Developer. Also I'm a designer. And I concern to visual looks.</p>
+					<div class="bg-gray-200 rounded-lgs py-4 px-6 max-w-fit">Mail me.</div>
+				</div>
+			</div>
+
+			<div class="grid mt-24">
+				<div class=" h-[400px] rounded-3xl shadow-xl grid bg-[url('./assets/images/figih.jpg')] bg-cover bg-center">
+					<div class="bg-gray-900/50 grid">
+						<div class="text-4xl text-white font-extrabold place-self-center">PROGRAMMING</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid mt-24">
+				<div class="bg-purple-500 h-[400px] rounded-3xl shadow-xl grid ">
+					<div class="text-4xl font-extrabold place-self-center">DESIGN</div>
+				</div>
 			</div>
 		</div>
 	</section>
-
-	<section class="container bg-red-200"></section>
 </template>
 
 <script setup></script>
