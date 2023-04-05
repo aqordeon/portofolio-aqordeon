@@ -19,7 +19,7 @@
 			<div class="grid mt-24">
 				<div class=" h-[400px] rounded-3xl shadow-xl grid bg-[url('./assets/images/figih.jpg')] bg-cover bg-center">
 					<div class="bg-gray-900/50 grid">
-						<div class="text-4xl text-white font-extrabold place-self-center">PROGRAMMING</div>
+						<NuxtLink to="/programming" class="text-4xl text-white font-extrabold place-self-center">PROGRAMMING</NuxtLink>
 					</div>
 				</div>
 			</div>
@@ -28,6 +28,10 @@
 				<div class="bg-purple-500 h-[400px] rounded-3xl shadow-xl grid ">
 					<div class="text-4xl font-extrabold place-self-center">DESIGN</div>
 				</div>
+			</div>
+
+			<div class="grid mt-24">
+				<TechStacks />
 			</div>
 		</div>
 	</section>

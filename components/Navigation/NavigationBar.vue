@@ -2,13 +2,13 @@
 	<div class="container flex justify-between py-4 px-6">
 		<div class="grid grid-flow-col gap-x-4">
 			<div>
-				<div class="py-2 px-4 border border-gray-800 rounded-full">/Index</div>
+				<NuxtLink class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">/Index</NuxtLink>
 			</div>
 			<div>
-				<div class="py-2 px-4 border border-gray-800 rounded-full">Programming</div>
+				<NuxtLink class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">Programming</NuxtLink>
 			</div>
 			<div>
-				<div class="py-2 px-4 border border-gray-800 rounded-full">Design</div>
+				<NuxtLink class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">Design</NuxtLink>
 			</div>
 		</div>
 		<div>
