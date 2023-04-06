@@ -12,6 +12,9 @@
 					<div>
 						<NuxtLink to="/design" class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">Design</NuxtLink>
 					</div>
+					<div>
+						<NuxtLink to="/blog" class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">Blog</NuxtLink>
+					</div>
 				</div>
 				<div class="">
 					<div class="theme-1 rounded-full py-3 px-8 text-white">Get Started</div>

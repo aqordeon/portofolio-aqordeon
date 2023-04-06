@@ -5,15 +5,19 @@
 				Communicate ideas through pixels, colors, and characters.
 			</div>
 
-			<!-- Row 1 -->
+			<!-- Row 1: Hoila & About Me -->
 			<div class="grid grid-cols-8 gap-x-8 gap-y-14">
-				<div class="col-span-3 theme-2 rounded-3xl h-[400px] p-8 shadow-lg">
-					<p class="text-5xl">HELLO</p>
+				<div class="col-span-3 theme-7 border-2 border-gray-300 rounded-3xl p-8 shadow-lg grid content-end gap-y-4">
+					<img src="~/assets/images/avatar1.png" alt="" class="h-full justify-self-center">
+					<p class="text-5xl font-bold text-color-4 mt-4">Hoila!!</p>
+					<div class="text-color-5">I'm Otdi, a frontend developer which focus on Nuxt and Tailwind.</div>
 				</div>
-				<div class="col-span-5 theme-5 rounded-3xl h-[400px] p-8 shadow-lg">
-					<p>Hello There</p>
-					<p>I'm a FrontEnd Developer. Also I'm a designer. And I concern to visual looks.</p>
-					<div class="bg-gray-200 rounded-lgs py-4 px-6 max-w-fit">Mail me.</div>
+				<div class="col-span-5">
+					<div class="h-full overflow-hidden rounded-3xl shadow-xl grid theme-6">
+						<NuxtLink to="/about" class="text-6xl text-white font-extrabold place-self-center">
+							About Me
+						</NuxtLink>
+					</div>
 				</div>
 
 				<!-- Row 2: Programming -->
@@ -29,13 +33,19 @@
 				</div>
 
 				<!-- Row 3 -->
-				<div class="col-span-5 theme-4 rounded-3xl h-[400px] p-8 shadow-lg">
-					<p class="text-5xl">HELLO</p>
+				<div class="col-span-5">
+					<div class="h-[400px] overflow-hidden rounded-3xl shadow-xl grid theme-2">
+						<NuxtLink to="/blog" class="text-6xl text-white font-extrabold place-self-center">
+							Blog
+						</NuxtLink>
+					</div>
 				</div>
-				<div class="col-span-3 theme-1 rounded-3xl h-[400px] p-8 shadow-lg">
-					<p>Hello There</p>
-					<p>I'm a FrontEnd Developer. Also I'm a designer. And I concern to visual looks.</p>
-					<div class="bg-gray-200 rounded-lgs py-4 px-6 max-w-fit">Mail me.</div>
+				<div class="col-span-3">
+					<div class="h-[400px] overflow-hidden rounded-3xl shadow-xl grid theme-5">
+						<NuxtLink to="/programming" class="text-6xl text-white font-extrabold place-self-center">
+							#
+						</NuxtLink>
+					</div>
 				</div>
 
 				<!-- Row 4: Design -->
