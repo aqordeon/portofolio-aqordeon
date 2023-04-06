@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div class="grid justify-center">
-            <div class="text-center mb-16 text-4xl font-bold">The core tools Otdi used daily</div>
-            <div class="flex justify-center grid-flow-col gap-x-8">
-                <div v-for="(stack, index) in techstacks" :key="index" class="pb-4 hover:border-b-4 hover:border-b-violet-600">
+        <div class="grid justify-center items-center ">
+            <div class="text-center mb-16 text-4xl font-bold text-color-1">The core tools Otdi used daily</div>
+            <div class="flex justify-center grid-flow-col gap-x-8 h-32 items-center">
+                <div v-for="(stack, index) in techstacks" :key="index" class="pb-4 hover:border-b-4 hover:border-b-violet-600 hover:pb-8">
                     <img :src="stack.logo" :alt="stack.description" class="w-[100px] object-contain">
                 </div>
             </div>
