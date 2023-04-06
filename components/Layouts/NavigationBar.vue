@@ -2,7 +2,7 @@
 	<section class="w-screen">
 		<div class="container max-w-5xl">
 			<div class="z-50 grid grid-flow-col justify-between items-center py-4 px-6 ">
-				<div class="grid grid-flow-col gap-x-4">
+				<div class="grid grid-flow-col gap-x-4 text-color-5">
 					<div>
 						<NuxtLink to="/" class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">/Index</NuxtLink>
 					</div>

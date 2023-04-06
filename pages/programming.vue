@@ -2,14 +2,14 @@
     <div class="container max-w-5xl pb-[52px] py-[72px] grid gap-24">
         <div class="text-6xl text-center text-color-1 font-black">What Otdi Good At</div>
         <div class="grid gap-x-24 gap-y-12">
-            <div class="flex flex-row gap-y-6 gap-x-12 even:flex-row-reverse text-right even:text-left justify-end"
+            <div
+                class="flex flex-row gap-y-6 gap-x-12 even:flex-row-reverse text-right even:text-left justify-end"
                 v-for="(item, index) in goodAt" :key="index">
-                <div class="p-6">
-                    <h2 class="pb-6 text-3xl font-bold text-color-1" v-html="item.title"></h2>
+                <div class="p-6 place-self-center">
+                    <h2 class="pb-2 text-3xl font-bold text-color-1" v-html="item.title"></h2>
                     <p class="">{{ item.description }}</p>
                 </div>
-                <img :src="item.image" alt="" title="" sizes="sm:90vw, lg:50vw, xl:30vw"
-                    class="mx-auto px-0 w-96" format="webp" />
+                <img :src="item.image" alt="" class="mx-auto h-96"/>
             </div>
         </div>
     </div>
@@ -21,14 +21,14 @@
         <div class="grid grid-cols-2 gap-x-8 gap-y-12">
             
             <!-- Read/See -->
-            <div class="h-80 rounded-3xl overflow-hidden bg-[url('~/assets/images/readsee.png')] bg-cover">
+            <div class="h-80 rounded-3xl shadow-lg overflow-hidden bg-[url('~/assets/images/readsee.png')] bg-cover">
                 <NuxtLink to="https://readsee.io" target="_blank" noRel class="grid content-end h-full backdrop-black p-8 gap-y-2">
                     <div class="text-gray-100 font-semibold text-4xl text-color-3">Read/See</div>
-                    <div class="text-gray-400">A landing page for Customer Data Platform.</div>
+                    <div class="text-green-300">A landing page for Customer Data Platform.</div>
                 </NuxtLink>
             </div>
-            <div class="h-80 rounded-3xl overflow-hidden bg-[url('~/assets/images/space.png')] bg-cover">
-                <NuxtLink to="https://master--poetic-cactus-ac6ae9.netlify.app" class="grid content-end h-full backdrop-white p-8 gap-y-2">
+            <div class="h-80 rounded-3xl shadow-lg overflow-hidden bg-[url('~/assets/images/space.png')] bg-cover">
+                <NuxtLink to="https://master--poetic-cactus-ac6ae9.netlify.app" target="_blank" noRel class="grid content-end h-full backdrop-white p-8 gap-y-2">
                     <div class="text-gray-100 font-semibold text-4xl text-color-5">Space</div>
                     <div class="text-gray-700">Completing a challenge from <NuxtLink to="https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3" class="font-semibold">FrontendMentor</NuxtLink>.</div>
                 </NuxtLink>
@@ -42,22 +42,22 @@ const goodAt = [
     {
         title: 'Slicing UI',
         description: 'Taking a design mockup and breaking it down into code. Responsive, pixel-perfect designs.',
-        image: '/dummy.png'
+        image: '/illustrations/slicing.svg'
     },
     {
         title: 'Responsive View',
         description: 'Taking a design mockup and breaking it down into code. Responsive, pixel-perfect designs.',
-        image: '/dummy.png'
+        image: '/illustrations/responsive.svg'
     },
     {
         title: 'Optimize Images',
         description: 'Optimized images is a must so the website don`t need to load the full-size image that usually takes lots memory.',
-        image: '/dummy.png'
+        image: '/illustrations/images.svg'
     },
     {
         title: 'Improve Web Performance',
         description: "The most-faced problem that usually developer meets ~ page's performance is slow. Optimizing code, reducing page load times, caching strategies. Yeah, Vika can do it.",
-        image: '/dummy.png'
+        image: '/illustrations/performance.svg'
     },
 ]
 </script>
