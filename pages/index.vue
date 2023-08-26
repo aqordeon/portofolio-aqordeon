@@ -47,7 +47,7 @@
 						</div>
 					</div>
 				</NuxtLink>
-
+				<!-- <div @click="triggerEvent" id="idsatu">Submit Form</div> -->
 				<!-- Row 4: Design -->
 				<NuxtLink to="/design" class="col-span-8">
 					<div
@@ -69,6 +69,21 @@
 	</section>
 </template>
 
-<script setup></script>
+<script setup>
+const gtm = useGtm() // auto-imported by the module
+
+const triggerEvent= (ab) => {
+	console.log(ab.srcElement.innerText)
+	gtm.trackEvent({
+		event: ab.srcElement.innerText,
+		category: 'category',
+		action: 'lalalalalal',
+		label: 'My custom component trigger',
+		value: 'abcdef',
+		noninteraction: false,
+	})
+}
+
+</script>
 
 <style lang="scss" scoped></style>
