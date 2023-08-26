@@ -41,17 +41,17 @@
 const goodAt = [
     {
         title: 'Slicing UI',
-        description: 'Taking a design mockup and breaking it down into code. Responsive, pixel-perfect designs.',
+        description: 'Pixel-perfect designs. Taking a design mockup from Figma and breaking it down into programmatical code.',
         image: '/illustrations/slicing.svg'
     },
     {
         title: 'Responsive View',
-        description: 'Taking a design mockup and breaking it down into code. Responsive, pixel-perfect designs.',
+        description: 'Responsive, cross-platform view. Setting the responsive view for phones, tablets, and desktops.',
         image: '/illustrations/responsive.svg'
     },
     {
         title: 'Optimize Images',
-        description: 'Optimized images is a must so the website don`t need to load the full-size image that usually takes lots memory.',
+        description: 'Supafast! Optimized images so the website don`t need to load the full-size image that usually takes lots memory make it heavy to access.',
         image: '/illustrations/images.svg'
     },
     {

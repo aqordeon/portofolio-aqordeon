@@ -51,7 +51,7 @@
 				<!-- Row 4: Design -->
 				<NuxtLink to="/design" class="col-span-8">
 					<div
-						class=" h-[400px] rounded-3xl overflow-hidden shadow-xl grid bg-[url('./assets/images/design.jpg')] bg-cover bg-center">
+						class=" h-[400px] rounded-3xl overflow-hidden shadow-xl grid bg-[url('./assets/images/design/design.jpg')] bg-cover bg-center">
 						<div class="bg-gray-900/50 grid backdrop-blur-sm">
 							<div class="text-6xl text-color-7 font-extrabold place-self-center">
 								DESIGN
