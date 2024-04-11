@@ -4,3 +4,53 @@
 
 @import './colors';
 @import './elements';
+
+@layer utilities {
+    /* .specialUnderline {
+        @apply bg-gradient-to-t from-yellow-300 to-yellow-200
+        focus:ring-0 focus:outline-none focus:border-none
+        bg-no-repeat [background-position:0%_100%]
+        [background-size:100%_0.2em]
+        motion-safe:transition-all motion-safe:duration-200
+        hover:[background-size:100%_100%]
+        focus:[background-size:100%_100%] px-1;
+    }
+
+    .specialUnderlineSecondary {
+        @apply bg-gradient-to-t from-gray-300 to-gray-200
+        focus:ring-0 focus:outline-none focus:border-none
+        bg-no-repeat [background-position:0%_100%]
+        [background-size:100%_0.2em]
+        motion-safe:transition-all motion-safe:duration-200
+        hover:[background-size:100%_100%]
+        focus:[background-size:100%_100%] px-1;
+    }
+
+    .specialBox {
+        @apply bg-gradient-to-t from-indigo-600 to-indigo-400
+        border-indigo-300 border-2 rounded-md
+        text-indigo-500 hover:text-white
+        cursor-pointer
+        focus:ring-0 focus:outline-none focus:border-none
+        bg-no-repeat [background-position:0%_100%]
+        [background-size:100%_0em]
+        motion-safe:transition-all motion-safe:duration-100
+        hover:[background-size:100%_100%]
+        focus:[background-size:100%_100%] px-1;
+    } */
+    
+    .qwezxc {
+        /* For debug element */
+        @apply border border-red-500
+    }
+
+    .zxcqwe {
+        /* For debug element */
+        @apply border border-green-500
+    }
+
+    .asdzxc {
+        /* For debug element */
+        @apply ring-2 ring-offset-2 ring-red-500
+    }
+}

@@ -16,6 +16,7 @@
     "tailwindcss": "^3.3.1"
   },
   "dependencies": {
+    "rgb-hex": "^4.1.0",
     "sass": "^1.60.0"
   }
 }

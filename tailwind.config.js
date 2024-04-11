@@ -8,6 +8,11 @@ module.exports = {
     "./nuxt.config.{js,ts}",
     "./app.vue",
   ],
+  safelist: [
+    {
+      pattern: /bg-+/, // 👈  This includes bg of all colors and shades
+    },
+  ],
   theme: {
     container: {
       center: true,
