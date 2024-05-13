@@ -8,13 +8,21 @@
                     {{ colorName }}
                 </div>
                 <!-- Box: bg -->
-                <div class="flex justify-between">
-                    <div v-for="rgbColor in color" @click="() => useCopyText(rgbHex(rgbColor))" class="flex flex-col items-center cursor-pointer p-1 rounded hover:shadow-xl hover:ring-1 hover:ring-gray-300">
-                        <div :class="rgbColor" :style="{backgroundColor: rgbColor}" class="h-12 aspect-square rounded-md whitespace-nowrap shadow" />
-                        <div>
-                            #{{ rgbHex(rgbColor) }}
+                <div class="grid grid-cols-11">
+                    <template v-for="(rgbColor, idxColor) in color" :key="rgbColor + idxColor">
+                        <div v-if="currentlyCopied != rgbColor+idxColor" @click="() => (useCopyText(rgbHex(rgbColor), onCopyColor(rgbColor+idxColor)))"
+                            class="flex flex-col items-center cursor-pointer p-1 rounded hover:shadow-xl hover:ring-1 hover:ring-gray-300">
+                            <div class="text-gray-400">{{ numberTailwind[idxColor] }}</div>
+                            <div :class="rgbColor" :style="{backgroundColor: rgbColor}" class="h-12 aspect-square rounded-md whitespace-nowrap shadow" />
+                            <div class="font-medium mt-1 uppercase">
+                                #{{ rgbHex(rgbColor) }}
+                            </div>
                         </div>
-                    </div>
+
+                        <div v-else class="flex items-center justify-center text-gray-500">
+                            Copied!
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -23,18 +31,21 @@
 </template>
 
 <script setup lang="ts">
-import rgbHex from 'rgb-hex';
-// const colorsName = [ 'slate', 'gray', 'zinc', 'neutral', 'stone', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose', ]
-// const colorData = {}
+import rgbHex from 'rgb-hex'
 
-// colorsName.forEach(color => {
-//     colorData[color] = []
-//     colorData[color].push(`bg-${color}-50`)
-//     for (let i = 1; i <= 9; i++) {
-//         colorData[color].push(`bg-${color}-${i * 100}`);
-//     }
-//     colorData[color].push(`bg-${color}-950`)
-// })
+const numberTailwind = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
+
+
+const currentlyCopied = ref<string | null>(null)
+const currentTimeout = ref(null)
+const onCopyColor = (selectedColor: string) => {
+    clearTimeout(currentTimeout.value)
+    currentlyCopied.value = selectedColor
+    currentTimeout.value = setTimeout(() => {
+        currentlyCopied.value = null
+    }, 1000)
+}
+
 
 </script>
 
