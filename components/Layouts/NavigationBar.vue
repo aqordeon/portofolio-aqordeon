@@ -35,13 +35,13 @@
 					</NuxtLink>
 
 				</div>
-				<div class="grid grid-flow-col gap-x-3">
+				<!-- <div class="grid grid-flow-col gap-x-3">
 					<div @click.prevent="useState('tembak', () => 'pink')" class="theme-1 rounded-full p-4 hover:cursor-pointer">
 						aaaaaa
 					</div>
 					<div class="theme-3 rounded-full p-4 hover:cursor-pointer">xx</div>
 					<div class="theme-2 rounded-full p-4 hover:cursor-pointer">aa</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
