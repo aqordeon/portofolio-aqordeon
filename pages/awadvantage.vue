@@ -9,7 +9,8 @@ import IntenseTick from '~/assets/audio/intense_tick.mp3'
 
 const route = useRoute()
 const param_timer = route.query.timer || 7
-console.log(param_timer)
+const param_warning = route.query.warning || 3
+console.log(param_timer, param_warning)
 
 const countdown = ref(param_timer)
 let interval: number | undefined
@@ -28,11 +29,11 @@ const startCountdown = () => {
     interval = setInterval(() => {
         console.log(countdown.value)
         countdown.value--
-        if (countdown.value === 3) {
+        if (countdown.value == param_warning) {
             setTimeout(() => {
                 audio_intense_tick.currentTime = 0;
                 audio_intense_tick.play()
-            }, 10)
+            }, 140)
         }
 
         if (countdown.value >= 1) {
