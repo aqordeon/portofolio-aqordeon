@@ -34,6 +34,12 @@
 						Color
 					</NuxtLink>
 
+					<!-- Colors -->
+					<NuxtLink active-class="bg-gray-800 text-white" to="/awadvantage"
+						class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">
+						AW Advantage
+					</NuxtLink>
+
 				</div>
 				<!-- <div class="grid grid-flow-col gap-x-3">
 					<div @click.prevent="useState('tembak', () => 'pink')" class="theme-1 rounded-full p-4 hover:cursor-pointer">
