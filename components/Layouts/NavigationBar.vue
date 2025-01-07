@@ -35,7 +35,7 @@
 					</NuxtLink>
 
 					<!-- Colors -->
-					<NuxtLink active-class="bg-gray-800 text-white" to="/awadvantage"
+					<NuxtLink active-class="bg-gray-800 text-white" to="/awadvantage?timer=7"
 						class="py-2 px-4 border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white">
 						AW Advantage
 					</NuxtLink>
