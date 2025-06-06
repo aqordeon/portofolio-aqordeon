@@ -1,5 +1,5 @@
 <template>
-	<section class="container max-w-5xl mx-auto my-24">
+	<section v-if="false" class="container max-w-5xl mx-auto my-24">
 		<div class="pt-12">
 			<div class="text-7xl max-w-4xl font-black text-color-1 mb-24">
 				Communicate ideas through pixels, colors, and characters.
@@ -67,9 +67,19 @@
 			</div>
 		</div>
 	</section>
+
+	<div class="container max-w-5xl flex items-center h-screen">
+        <div class="text-7xl text-color-2 font-extrabold text-center -translate-y-14 py-4">
+            Sorry, but the page is currently on maintenance.
+        </div>
+    </div>
 </template>
 
 <script setup>
+definePageMeta({
+    layout: ''
+})
+
 const gtm = useGtm() // auto-imported by the module
 
 const triggerEvent= (ab) => {
