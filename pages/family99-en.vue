@@ -6,6 +6,12 @@ import Success from '~/assets/audio/success.mp3'
 import Horn from '~/assets/audio/horn.mp3'
 import Tick from '~/assets/audio/tick.mp3'
 import IntenseTick from '~/assets/audio/intense_tick.mp3'
+import {
+    Dialog,
+    DialogPanel,
+    DialogTitle,
+    DialogDescription,
+} from '@headlessui/vue'
 
 const route = useRoute()
 const param_timer = ref(route.query.timer || 7)
@@ -44,6 +50,7 @@ const startCountdown = () => {
             audio_tick.currentTime = 0;
             audio_tick.play()
         } else {
+            console.log('23232')
             clearInterval(interval)
             audio_intense_tick.pause()
             interval = undefined
@@ -86,6 +93,10 @@ onMounted(() => {
             audio_horn.play()
         } else if (event.key === ' ') {
             startCountdown()
+        } else if (event.key === 'z') {
+            isModalTimer.value = true
+        } else if (event.key === 'x') {
+            isModalWarning.value = true
         }
     })
 })
@@ -96,14 +107,49 @@ onUnmounted(() => {
 })
 
 const listHotkeys = [
-    { key: 'W', label: 'Wrong!' },
-    { key: 'C', label: 'Correct' },
-    { key: 'T', label: 'Horn Wrong' },
-    { key: 'H', label: 'Horn Party' },
-    { key: 'Space', label: 'Start Countdown' },
-    { key: 'R', label: 'Reset Countdown' },
-    // { key: 'ESC', label: 'Exit' }
+    {
+        key: 'W',
+        label: 'Wrong!'
+    },
+    {
+        key: 'C',
+        label: 'Correct'
+    },
+    {
+        key: 'Space',
+        label: 'Start Countdown'
+    },
+    {
+        key: 'R',
+        label: 'Reset Countdown'
+    },
+    {
+        
+    },
+    {
+        key: 'T',
+        label: 'Horn Wrong🔊',
+        bg_color: '#a7f3d0'
+    },
+    {
+        key: 'H',
+        label: 'Horn Party🥳',
+        bg_color: '#a7f3d0'
+    },
+    {
+        key: 'Z',
+        label: 'Change countdown',
+        bg_color: '#67e8f9'
+    },
+    {
+        key: 'X',
+        label: 'Change warning',
+        bg_color: '#67e8f9'
+    }
 ]
+
+const isModalTimer = ref(false)
+const isModalWarning = ref(false)
 </script>
 
 <template>
@@ -116,24 +162,30 @@ const listHotkeys = [
             </div>
         </div>
 
-        <div class="absolute left-1/2 bottom-12 -translate-x-1/2 -translate-y-1/2 z-10">
+        <div class="w-full max-w-3xl xqwezxc absolute left-1/2 bottom-5 -translate-x-1/2 -translate-y-1/2 z-10">
             <!-- S - B - T - H - SPACE - R - ESC -->
 
             <!-- Hotkey: Wrong -->
             <div class="flex gap-x-6 gap-y-3 flex-wrap justify-around ">
-                <div v-for="hotkey in listHotkeys" class="flex items-center gap-x-2">
-                    <div class="bg-indigo-200 border border-indigo-500 rounded w-fit px-2">
-                        {{ hotkey.key }}
+                <template v-for="(hotkey, indexHtky) in listHotkeys" :key="indexHtky">
+                    <div v-if="hotkey.key" class="flex items-center gap-x-2">
+                        <div class="bg-indigo-200 border border-indigo-500 rounded w-fit px-2"
+                            :style="{
+                                backgroundColor: hotkey.bg_color,
+                            }"
+                        >
+                            {{ hotkey.key }}
+                        </div>
+                        <div class="font-bold">
+                            {{ hotkey.label }}
+                        </div>
                     </div>
-                    <div class="font-bold">
-                        {{ hotkey.label }}
-                    </div>
-                </div>
-            </div>
 
-            <!-- <div>
-                <input type="number" v-model="param_timer" class="z-10 border border-gray-300 rounded px-2 py-1 w-24" />
-            </div> -->
+                    <div v-else class="w-full border-t border-indigo-700 h-1">
+                        
+                    </div>
+                </template>
+            </div>
         </div>
 
         <div ref="_salah" style="opacity: 0" class="text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center z-50 bg-red-300 text-red-600 transition-all">
@@ -149,5 +201,62 @@ const listHotkeys = [
                 <div class="text-center">😎👍</div>
             </div>
         </div>
+
+        <Dialog :open="isModalTimer" @close="() => isModalTimer = false" class="relative z-50">
+            <!-- The backdrop, rendered as a fixed sibling to the panel container -->
+            <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+            <!-- Full-screen container to center the panel -->
+            <div class="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <!-- The actual dialog panel -->
+                <DialogPanel class="w-full max-w-sm rounded bg-white py-8 px-6">
+                    <DialogTitle class="text-center font-bold text-2xl">Set timer</DialogTitle>
+                    <DialogDescription class="text-center">
+                        Seconds when to start the countdown
+                    </DialogDescription>
+
+                    <div>
+                        <input class="sr-only" />
+
+                        <input
+                            type="number"
+                            v-model="param_timer"
+                            @input="() => resetCountdown()"
+                            class="border border-gray-300 rounded px-3 py-2 w-full"
+                            :autofocus="false"
+                            @keydown.enter="() => isModalTimer = false"
+                        />
+                    </div>
+                </DialogPanel>
+            </div>
+        </Dialog>
+
+        <Dialog :open="isModalWarning" @close="() => isModalWarning = false" class="relative z-50">
+            <!-- The backdrop, rendered as a fixed sibling to the panel container -->
+            <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+            <!-- Full-screen container to center the panel -->
+            <div class="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <!-- The actual dialog panel -->
+                <DialogPanel class="w-full max-w-sm rounded bg-white py-8 px-6">
+                    <DialogTitle class="text-center font-bold text-2xl">Set warning</DialogTitle>
+                    <DialogDescription class="text-center">
+                        Seconds when to warning sound played
+                    </DialogDescription>
+
+                    <div>
+                        <input class="sr-only" />
+
+                        <input
+                            type="number"
+                            v-model="param_warning"
+                            class="border border-gray-300 rounded px-3 py-2 w-full"
+                            :autofocus="false"
+                            @keydown.enter="() => isModalWarning = false"
+                        />
+                    </div>
+                </DialogPanel>
+            </div>
+        </Dialog>
     </div>
 </template>
