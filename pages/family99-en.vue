@@ -214,7 +214,7 @@ const isModalWarning = ref(false)
     <div>
         <!-- Section: Big number -->
         <div class="bg-indigo-100 -z-10 text-center fixed top-0 right-0 h-screen w-screen md:flex justify-center items-center">
-            <div class="relative -translate-y-20 md:translate-y-0">
+            <div class="relative -translate-y-24 md:translate-y-0">
                 <transition name="fade">
                     <p class="font-light inline text-[500px] md:text-[800px] tabular-nums">{{ countdown }}</p>
                 </transition>
@@ -222,7 +222,7 @@ const isModalWarning = ref(false)
         </div>
 
         <!-- Section: Key list -->
-        <div class="w-full max-w-3xl absolute left-1/2 -bottom-0 md:bottom-5 -translate-x-1/2 -translate-y-1/2 z-10">
+        <div class="w-full max-w-3xl absolute left-1/2 -bottom-7 md:bottom-5 -translate-x-1/2 -translate-y-1/2 z-10">
             <!-- S - B - T - H - SPACE - R - ESC -->
 
             <!-- Hotkey: Wrong -->
