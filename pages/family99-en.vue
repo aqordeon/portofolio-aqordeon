@@ -68,36 +68,86 @@ const resetCountdown = () => {
 const _benar = ref()
 const _salah = ref()
 
+const isWrong = ref(false)
+const onClickWrong = () => {
+    isWrong.value = true
+
+    setTimeout(() => {
+        isWrong.value = false
+    }, 5000)
+    audio_wrong.play()
+}
+
+const isCorrect = ref(false)
+const onClickCorrect = () => {
+    isCorrect.value = true
+
+    setTimeout(() => {
+        isCorrect.value = false
+    }, 5000)
+    audio_success.play()
+}
+
+const onClickHornWrong = () => {
+    audio_timeout.currentTime = 0;
+    audio_timeout.play()
+}
+
+const onClickHornParty = () => {
+    audio_horn.currentTime = 0;
+    audio_horn.play()
+}
+
+const onClickChangeCountdown = () => {
+    isModalTimer.value = true
+}
+
+const onClickChangeWarning = () => {
+    isModalWarning.value = true
+}
+
+const runMethodByKey = (key: string) => {
+    console.log('Key pressed:', key)
+    if (key === 'r' || key === 'Escape') {
+        resetCountdown()
+    } else if (key === 'w') {
+        onClickWrong()
+    } else if (key === 'c') {
+        onClickCorrect()
+    } else if (key === 't') {
+        onClickHornWrong()
+    } else if (key === 'h') {
+        onClickHornParty()
+    } else if (key === ' ') {
+        startCountdown()
+    } else if (key === 'z') {
+        onClickChangeCountdown()
+    } else if (key === 'x') {
+        onClickChangeWarning()
+    }
+}
+
 onMounted(() => {
     // startCountdown()
     window.addEventListener('keydown', (event) => {
-        if (event.key === 'r' || event.key === 'Escape') {
-            resetCountdown()
-        } else if (event.key === 'w') {
-            _salah.value.style.opacity = 1
-            setTimeout(() => {
-                _salah.value.style.opacity = 0
-            }, 5000)
-            audio_wrong.play()
-        } else if (event.key === 'c') {
-            _benar.value.style.opacity = 1
-            setTimeout(() => {
-                _benar.value.style.opacity = 0
-            }, 5000)
-            audio_success.play()
-        } else if (event.key === 't') {
-            audio_timeout.currentTime = 0;
-            audio_timeout.play()
-        } else if (event.key === 'h') {
-            audio_horn.currentTime = 0;
-            audio_horn.play()
-        } else if (event.key === ' ') {
-            startCountdown()
-        } else if (event.key === 'z') {
-            isModalTimer.value = true
-        } else if (event.key === 'x') {
-            isModalWarning.value = true
-        }
+        runMethodByKey(event.key)
+        // if (event.key === 'r' || event.key === 'Escape') {
+        //     resetCountdown()
+        // } else if (event.key === 'w') {
+        //     onClickWrong()
+        // } else if (event.key === 'c') {
+        //     onClickCorrect()
+        // } else if (event.key === 't') {
+        //     onClickHornWrong()
+        // } else if (event.key === 'h') {
+        //     onClickHornParty()
+        // } else if (event.key === ' ') {
+        //     startCountdown()
+        // } else if (event.key === 'z') {
+        //     onClickChangeCountdown()
+        // } else if (event.key === 'x') {
+        //     onClickChangeWarning()
+        // }
     })
 })
 
@@ -108,41 +158,49 @@ onUnmounted(() => {
 
 const listHotkeys = [
     {
-        key: 'W',
-        label: 'Wrong!'
-    },
-    {
-        key: 'C',
-        label: 'Correct'
-    },
-    {
         key: 'Space',
+        code: ' ',
         label: 'Start Countdown'
     },
     {
         key: 'R',
+        code: 'r',
         label: 'Reset Countdown'
+    },
+    {
+        key: 'W',
+        code: 'w',
+        label: 'Wrong!'
+    },
+    {
+        key: 'C',
+        code: 'c',
+        label: 'Correct'
     },
     {
         
     },
     {
         key: 'T',
+        code: 't',
         label: 'Horn Wrong🔊',
         bg_color: '#a7f3d0'
     },
     {
         key: 'H',
+        code: 'h',
         label: 'Horn Party🥳',
         bg_color: '#a7f3d0'
     },
     {
         key: 'Z',
+        code: 'z',
         label: 'Change countdown',
         bg_color: '#67e8f9'
     },
     {
         key: 'X',
+        code: 'x',
         label: 'Change warning',
         bg_color: '#67e8f9'
     }
@@ -154,21 +212,27 @@ const isModalWarning = ref(false)
 
 <template>
     <div>
-        <div class="bg-indigo-100 -z-10 text-center fixed top-0 right-0 h-screen w-screen flex justify-center items-center">
-            <div class="relative">
+        <!-- Section: Big number -->
+        <div class="bg-indigo-100 -z-10 text-center fixed top-0 right-0 h-screen w-screen md:flex justify-center items-center">
+            <div class="relative -translate-y-20 md:translate-y-0">
                 <transition name="fade">
-                    <p class="font-light inline text-[800px] tabular-nums">{{ countdown }}</p>
+                    <p class="font-light inline text-[500px] md:text-[800px] tabular-nums">{{ countdown }}</p>
                 </transition>
             </div>
         </div>
 
-        <div class="w-full max-w-3xl xqwezxc absolute left-1/2 bottom-5 -translate-x-1/2 -translate-y-1/2 z-10">
+        <!-- Section: Key list -->
+        <div class="w-full max-w-3xl absolute left-1/2 -bottom-0 md:bottom-5 -translate-x-1/2 -translate-y-1/2 z-10">
             <!-- S - B - T - H - SPACE - R - ESC -->
 
             <!-- Hotkey: Wrong -->
-            <div class="flex gap-x-6 gap-y-3 flex-wrap justify-around ">
+            <div class="flex gap-x-4 md:gap-x-6 gap-y-5 md:gap-y-3 flex-wrap justify-around text-sm md:text-base">
                 <template v-for="(hotkey, indexHtky) in listHotkeys" :key="indexHtky">
-                    <div v-if="hotkey.key" class="flex items-center gap-x-2">
+                    <div
+                        v-if="hotkey.key"
+                        @click="() => runMethodByKey(hotkey.code)"
+                        class="cursor-pointer flex items-center gap-x-2"
+                    >
                         <div class="bg-indigo-200 border border-indigo-500 rounded w-fit px-2"
                             :style="{
                                 backgroundColor: hotkey.bg_color,
@@ -188,20 +252,29 @@ const isModalWarning = ref(false)
             </div>
         </div>
 
-        <div ref="_salah" style="opacity: 0" class="text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center z-50 bg-red-300 text-red-600 transition-all">
+        <!-- Section: Salah -->
+        <div ref="_salah" xstyle="opacity: 0; z-index: -50"
+            class="text-[70px] md:text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center bg-red-300 text-red-600 transition-all"
+            :class="isWrong ? 'opacity-100 z-50' : 'opacity-0 z-[-50]'"
+        >
             <div class="-translate-y-1/4">
                 <div class="font-bold text-center">WRONG!</div>
                 <div class="text-center">🫵😂</div>
             </div>
         </div>
 
-        <div ref="_benar" style="opacity: 0" class="text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center z-50 bg-green-300 text-green-600 transition-all">
+        <!-- Section: Benar -->
+        <div ref="_benar" xstyle="opacity: 0; z-index: -50"
+            class="text-[70px] md:text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center bg-green-300 text-green-600 transition-all"
+            :class="isCorrect ? 'opacity-100 z-50' : 'opacity-0 z-[-50]'"
+        >
             <div class="-translate-y-1/4">
                 <div class="font-bold text-center">NOICE!</div>
                 <div class="text-center">😎👍</div>
             </div>
         </div>
 
+        <!-- Modal: Timer -->
         <Dialog :open="isModalTimer" @close="() => isModalTimer = false" class="relative z-50">
             <!-- The backdrop, rendered as a fixed sibling to the panel container -->
             <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
@@ -231,6 +304,7 @@ const isModalWarning = ref(false)
             </div>
         </Dialog>
 
+        <!-- Modal: Warning -->
         <Dialog :open="isModalWarning" @close="() => isModalWarning = false" class="relative z-50">
             <!-- The backdrop, rendered as a fixed sibling to the panel container -->
             <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
