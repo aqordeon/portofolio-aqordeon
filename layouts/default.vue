@@ -1,18 +1,15 @@
+<script setup lang='ts'>
+    
+</script>
+
 <template>
-	<div>
-		<CommonsDebugComp v-if="isDebug" />
-		<LayoutsNavigationBar />
-		<main class="">
+    <div>
+		<LayoutsHeaderTTK />
+
+        <main>
 			<slot />
 		</main>
-		<LayoutsFooterBar />
-	</div>
+		
+        <LayoutsFooterTTK />
+    </div>
 </template>
-
-<script setup>
-// import NavigationBar from '../components/Navigation/NavigationBar.vue';
-
-const route = useRoute()
-const isDebug = route.query.debug === "1"
-
-</script>
