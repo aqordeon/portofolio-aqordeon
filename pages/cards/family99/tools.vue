@@ -1,0 +1,334 @@
+<script setup lang='ts'>
+import { ref, onMounted, onUnmounted } from 'vue'
+import Wrong from '~/assets/audio/wrong.mp3'
+import Timeout from '~/assets/audio/timeout.mp3'
+import Success from '~/assets/audio/success.mp3'
+import Horn from '~/assets/audio/horn.mp3'
+import Tick from '~/assets/audio/tick.mp3'
+import IntenseTick from '~/assets/audio/intense_tick.mp3'
+import {
+    Dialog,
+    DialogPanel,
+    DialogTitle,
+    DialogDescription,
+} from '@headlessui/vue'
+
+const route = useRoute()
+const param_timer = ref(route.query.timer || 7)
+const param_warning = ref(route.query.warning || 3)
+console.log(param_timer.value, param_warning.value)
+
+definePageMeta({
+    layout: ''
+})
+
+const countdown = ref(param_timer.value)
+let interval: number | undefined
+
+const audio_wrong = new Audio(Wrong)
+const audio_timeout = new Audio(Timeout)
+const audio_success = new Audio(Success)
+const audio_horn = new Audio(Horn)
+const audio_tick = new Audio(Tick)
+const audio_intense_tick = new Audio(IntenseTick)
+
+// audio_wrong.volume = 0.8
+
+const startCountdown = () => {
+    if (interval) return
+    interval = setInterval(() => {
+        console.log(countdown.value)
+        countdown.value--
+        if (countdown.value == param_warning.value) {
+            setTimeout(() => {
+                audio_intense_tick.currentTime = 0;
+                audio_intense_tick.play()
+            }, 140)
+        }
+
+        if (countdown.value >= 1) {
+            audio_tick.currentTime = 0;
+            audio_tick.play()
+        } else {
+            console.log('23232')
+            clearInterval(interval)
+            audio_intense_tick.pause()
+            interval = undefined
+            audio_timeout.play()
+        }
+    }, 1000)
+}
+
+const resetCountdown = () => {
+    countdown.value = param_timer.value
+    clearInterval(interval)
+    interval = undefined
+}
+
+const _benar = ref()
+const _salah = ref()
+
+const isWrong = ref(false)
+const onClickWrong = () => {
+    isWrong.value = true
+
+    setTimeout(() => {
+        isWrong.value = false
+    }, 5000)
+    audio_wrong.play()
+}
+
+const isCorrect = ref(false)
+const onClickCorrect = () => {
+    isCorrect.value = true
+
+    setTimeout(() => {
+        isCorrect.value = false
+    }, 5000)
+    audio_success.play()
+}
+
+const onClickHornWrong = () => {
+    audio_timeout.currentTime = 0;
+    audio_timeout.play()
+}
+
+const onClickHornParty = () => {
+    audio_horn.currentTime = 0;
+    audio_horn.play()
+}
+
+const onClickChangeCountdown = () => {
+    isModalTimer.value = true
+}
+
+const onClickChangeWarning = () => {
+    isModalWarning.value = true
+}
+
+const runMethodByKey = (key: string) => {
+    console.log('Key pressed:', key)
+    if (key === 'r' || key === 'Escape') {
+        resetCountdown()
+    } else if (key === 'w') {
+        onClickWrong()
+    } else if (key === 'c') {
+        onClickCorrect()
+    } else if (key === 't') {
+        onClickHornWrong()
+    } else if (key === 'h') {
+        onClickHornParty()
+    } else if (key === ' ') {
+        startCountdown()
+    } else if (key === 'z') {
+        onClickChangeCountdown()
+    } else if (key === 'x') {
+        onClickChangeWarning()
+    }
+}
+
+onMounted(() => {
+    // startCountdown()
+    window.addEventListener('keydown', (event) => {
+        runMethodByKey(event.key)
+        // if (event.key === 'r' || event.key === 'Escape') {
+        //     resetCountdown()
+        // } else if (event.key === 'w') {
+        //     onClickWrong()
+        // } else if (event.key === 'c') {
+        //     onClickCorrect()
+        // } else if (event.key === 't') {
+        //     onClickHornWrong()
+        // } else if (event.key === 'h') {
+        //     onClickHornParty()
+        // } else if (event.key === ' ') {
+        //     startCountdown()
+        // } else if (event.key === 'z') {
+        //     onClickChangeCountdown()
+        // } else if (event.key === 'x') {
+        //     onClickChangeWarning()
+        // }
+    })
+})
+
+onUnmounted(() => {
+    clearInterval(interval)
+    window.removeEventListener('keydown', () => {})
+})
+
+const listHotkeys = [
+    {
+        key: 'Space',
+        code: ' ',
+        label: 'Hitung mundur'
+    },
+    {
+        key: 'R',
+        code: 'r',
+        label: 'Reset timer'
+    },
+    {
+        key: 'W',
+        code: 'w',
+        label: 'Salah!'
+    },
+    {
+        key: 'C',
+        code: 'c',
+        label: 'Benar'
+    },
+    {
+        
+    },
+    {
+        key: 'T',
+        code: 't',
+        label: 'Terompet Salah🔊',
+        bg_color: '#a7f3d0'
+    },
+    {
+        key: 'H',
+        code: 'h',
+        label: 'Terompet Party🥳',
+        bg_color: '#a7f3d0'
+    },
+    {
+        key: 'Z',
+        code: 'z',
+        label: 'Ubah timer',
+        bg_color: '#67e8f9'
+    },
+    {
+        key: 'X',
+        code: 'x',
+        label: 'Ubah suara peringatan',
+        bg_color: '#67e8f9'
+    }
+]
+
+const isModalTimer = ref(false)
+const isModalWarning = ref(false)
+</script>
+
+<template>
+    <div class="bg-black">
+        <!-- Section: Big number -->
+        <div class="pointer-events-none bg-indigo-100 -z-10 text-center fixed top-0 right-0 h-screen w-screen md:flex justify-center items-center">
+            <div class="relative -translate-y-24 md:translate-y-0">
+                <transition name="fade">
+                    <p class="font-light inline text-[500px] md:text-[800px] tabular-nums">{{ countdown }}</p>
+                </transition>
+            </div>
+        </div>
+
+        <!-- Section: Key list -->
+        <div class="bg-indigo-700/20 w-full max-w-4xl absolute h-fit left-0 md:left-1/2 bottom-8 md:bottom-12 md:-translate-x-1/2 x-translate-y-1/2 z-10">
+            <!-- S - B - T - H - SPACE - R - ESC -->
+
+            <!-- Hotkey: Wrong -->
+            <div class="flex gap-x-2 md:gap-x-4 gap-y-4 md:gap-y-3 flex-wrap justify-around text-sm md:text-base">
+                <template v-for="(hotkey, indexHtky) in listHotkeys" :key="indexHtky">
+                    <div
+                        v-if="hotkey.key"
+                        @click="() => runMethodByKey(hotkey.code)"
+                        class="xborder border-gray-300 cursor-pointer px-2 py-4 flex items-center gap-x-2"
+                    >
+                        <div class="bg-indigo-200 border border-indigo-500 rounded w-fit px-2"
+                            :style="{
+                                backgroundColor: hotkey.bg_color,
+                            }"
+                        >
+                            {{ hotkey.key }}
+                        </div>
+                        <div class="font-bold">
+                            {{ hotkey.label }}
+                        </div>
+                    </div>
+
+                    <div v-else class="w-full border-t border-indigo-700 h-1">
+                        
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Section: Salah -->
+        <div ref="_salah" xstyle="opacity: 0; z-index: -50"
+            class="text-[70px] md:text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center bg-red-300 text-red-600 transition-all"
+            :class="isWrong ? 'opacity-100 z-50' : 'opacity-0 z-[-50]'"
+        >
+            <div class="-translate-y-1/4">
+                <div class="font-bold text-center">SALAH!</div>
+                <div class="text-center">🫵😂</div>
+            </div>
+        </div>
+
+        <!-- Section: Benar -->
+        <div ref="_benar" xstyle="opacity: 0; z-index: -50"
+            class="text-[70px] md:text-[200px] fixed top-0 right-0 h-screen w-screen flex flex-col justify-center items-center bg-green-300 text-green-600 transition-all"
+            :class="isCorrect ? 'opacity-100 z-50' : 'opacity-0 z-[-50]'"
+        >
+            <div class="-translate-y-1/4">
+                <div class="font-bold text-center">MANTAP!</div>
+                <div class="text-center">😎👍</div>
+            </div>
+        </div>
+
+        <!-- Modal: Timer -->
+        <Dialog :open="isModalTimer" @close="() => isModalTimer = false" class="relative z-50">
+            <!-- The backdrop, rendered as a fixed sibling to the panel container -->
+            <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+            <!-- Full-screen container to center the panel -->
+            <div class="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <!-- The actual dialog panel -->
+                <DialogPanel class="w-full max-w-sm rounded bg-white py-8 px-6">
+                    <DialogTitle class="text-center font-bold text-2xl">Ubah timer</DialogTitle>
+                    <DialogDescription class="text-center">
+                        Berapa lama timer akan berjalan
+                    </DialogDescription>
+
+                    <div>
+                        <input class="sr-only" />
+
+                        <input
+                            type="number"
+                            v-model="param_timer"
+                            @input="() => resetCountdown()"
+                            class="border border-gray-300 rounded px-3 py-2 w-full"
+                            :autofocus="false"
+                            @keydown.enter="() => isModalTimer = false"
+                        />
+                    </div>
+                </DialogPanel>
+            </div>
+        </Dialog>
+
+        <!-- Modal: Warning -->
+        <Dialog :open="isModalWarning" @close="() => isModalWarning = false" class="relative z-50">
+            <!-- The backdrop, rendered as a fixed sibling to the panel container -->
+            <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+            <!-- Full-screen container to center the panel -->
+            <div class="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <!-- The actual dialog panel -->
+                <DialogPanel class="w-full max-w-sm rounded bg-white py-8 px-6">
+                    <DialogTitle class="text-center font-bold text-2xl">Ubah suara peringatan</DialogTitle>
+                    <DialogDescription class="text-center text-sm">
+                        Kapan timer akan mengeluarkan suara peringatan
+                    </DialogDescription>
+
+                    <div class="mt-4">
+                        <input
+                            type="number"
+                            v-model="param_warning"
+                            class="border border-gray-300 rounded px-3 py-2 w-full"
+                            :autofocus="false"
+                            @keydown.enter="() => isModalWarning = false"
+                        />
+                    </div>
+                </DialogPanel>
+            </div>
+        </Dialog>
+    </div>
+</template>
