@@ -2,11 +2,11 @@
     <header class="absolute inset-x-0 top-0 z-50">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
-                <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
+                <NuxtLink href="/" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Toko Tangan Kanan</span>
                     <img class="h-8 w-auto"
                         src="/ttk/ttk-teal-logo.png" alt="" />
-                </a>
+                </NuxtLink>
             </div>
             <div class="flex lg:hidden">
                 <button type="button"
@@ -17,8 +17,8 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a v-for="item in navigation" :key="item.name" :href="item.href"
-                    class="text-sm/6 font-semibold text-gray-900">{{ item.name }}</a>
+                <NuxtLink v-for="item in navigation" :key="item.name" :href="item.href"
+                    class="text-sm/6 font-semibold text-gray-900">{{ item.name }}</NuxtLink>
             </div>
             <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span
@@ -30,12 +30,12 @@
             <DialogPanel
                 class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div class="flex items-center justify-between">
-                    <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
+                    <NuxtLink href="/" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Toko Tangan Kanan</span>
                         <img class="h-8 w-auto"
                             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                             alt="" />
-                    </a>
+                    </NuxtLink>
                     <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
                         <span class="sr-only">Close menu</span>
                         <XMarkIcon class="size-6" aria-hidden="true" />
@@ -66,6 +66,7 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
+	{ name: 'Semua kartu', href: '/cards' },
 	{ name: 'Deep', href: '#' },
 	{ name: 'Hangout', href: '#' },
 	{ name: 'This or That', href: '#' },
