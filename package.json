@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.6.0",
+    "@primevue/nuxt-module": "^4.3.6",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.3.3",
@@ -19,6 +20,10 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
+    "@primeuix/themes": "^1.2.1",
+    "@primevue/forms": "^4.3.9",
+    "@primevue/themes": "^4.3.9",
+    "primevue": "^4.3.6",
     "rgb-hex": "^4.1.0",
     "sass": "^1.60.0"
   }

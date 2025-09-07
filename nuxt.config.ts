@@ -1,4 +1,54 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { definePreset } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+const Noir = definePreset(Aura, {
+    semantic: {
+        // primary: {
+        //     50: '{blue.50}',
+        //     100: '{blue.100}',
+        //     200: '{blue.200}',
+        //     300: '{blue.300}',
+        //     400: '{blue.400}',
+        //     500: '{blue.500}',
+        //     600: '{blue.600}',
+        //     700: '{blue.700}',
+        //     800: '{blue.800}',
+        //     900: '{blue.900}',
+        //     950: '{blue.950}'
+        // },
+        colorScheme: {
+            light: {
+                surface: {
+                    0: '#ffffff',
+                    50: '{gray.50}',
+                    100: '{gray.100}',
+                    200: '{gray.200}',
+                    300: '{gray.300}',
+                    400: '{gray.400}',
+                    500: '{gray.500}',
+                    600: '{gray.600}',
+                    700: '{gray.700}',
+                    800: '{gray.800}',
+                    900: '{gray.900}',
+                    950: '{gray.950}',
+                },
+                // primary: {
+                //     color: '{blue.950}',
+                //     inverseColor: '#ffff00',
+                //     hoverColor: '{blue.900}',
+                //     activeColor: '{blue.800}'
+                // },
+                // highlight: {
+                //     background: '{blue.950}',
+                //     focusBackground: '{blue.700}',
+                //     color: '#ffff00',
+                //     focusColor: '#ffff00'
+                // }
+            },
+        }
+    }
+});
+
 export default defineNuxtConfig({
     css: ['~/assets/stylesheet/index.scss'],
     postcss: {
@@ -8,8 +58,22 @@ export default defineNuxtConfig({
         },
     },
     modules: [
-        '@zadigetvoltaire/nuxt-gtm'
+        '@zadigetvoltaire/nuxt-gtm',
+        '@primevue/nuxt-module'
     ],
+    primevue: {
+        options: {
+            theme: {
+                preset: Noir,
+                options: {
+                    prefix: 'p',
+                    // darkModeSelector: 'system',
+                    darkModeSelector: false,
+                    cssLayer: false
+                }
+            }
+        }
+    },
     ssr: false,
     gtm: {
         id: 'GTM-KHGJZ7SZ', // Your GTM single container ID, array of container ids ['GTM-xxxxxx', 'GTM-yyyyyy'] or array of objects [{id: 'GTM-xxxxxx', queryParams: { gtm_auth: 'abc123', gtm_preview: 'env-4', gtm_cookies_win: 'x'}}, {id: 'GTM-yyyyyy', queryParams: {gtm_auth: 'abc234', gtm_preview: 'env-5', gtm_cookies_win: 'x'}}], // Your GTM single container ID or array of container ids ['GTM-xxxxxx', 'GTM-yyyyyy']
