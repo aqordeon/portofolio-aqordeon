@@ -1,0 +1,44 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+# Unix-style newlines
+end_of_line = lf
+# Insert a final newline at the end of the file
+insert_final_newline = true
+# Remove trailing whitespace
+trim_trailing_whitespace = true
+# Use UTF-8 encoding
+charset = utf-8
+
+[*.js]
+# Use 4 spaces for indentation in JavaScript files
+indent_style = space
+indent_size = 4
+
+[*.vue]
+# Use 4 spaces for indentation in Vue files
+indent_style = space
+indent_size = 4
+
+[*.json]
+# Use 4 spaces for indentation in JSON files
+indent_style = space
+indent_size = 4
+
+[*.css]
+# Use 4 spaces for indentation in CSS files
+indent_style = space
+indent_size = 4
+
+[*.scss]
+# Use 4 spaces for indentation in SCSS files
+indent_style = space
+indent_size = 4
+
+[*.html]
+# Use 4 spaces for indentation in HTML files
+indent_style = space
+indent_size = 4
