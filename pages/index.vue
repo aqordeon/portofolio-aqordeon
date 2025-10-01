@@ -100,7 +100,12 @@
 
 						<!-- List product -->
 						<div class="mx-auto max-w-2xl mt-24 px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-							<h2 class="text-2xl font-bold tracking-tight text-center">Produk terlaris</h2>
+							<h2 class="text-slate-700 text-2xl font-bold tracking-tight text-center">Best Seller</h2>
+							<p class="text-slate-500 mt-2 text-center mx-auto text-balance">
+								Variant di bawah ini selalu jadi pilihan favorit dari Toko Tangan Kanan!
+								Setiap kartu dirancang untuk bikin momen nongkrong, first date, atau kumpul keluarga jadi lebih hidup, lebih dekat, dan pastinya lebih memorable.
+								Kalau bingung mulai dari mana, best seller ini jawabannya ✨
+							</p>
 
 							<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 								<ProductOnSmallGrid v-for="product in decksTopSellers" :key="product.slug" :product="product" />
