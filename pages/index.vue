@@ -31,13 +31,14 @@
 				<div class="overflow-hidden">
 					<div class="mx-auto max-w-7xl px-6 pb-32 pt-28 lg:px-8 lg:pt-16">
 						<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+							<!-- Headline -->
 							<div class="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
 								<h1 class="text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-									Kartu kecil, momen besar
+									Kartu kecil, bangun momen besar.
 								</h1>
 								<p
 									class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
-									Satu kartu bisa jadi awal obrolan yang seru, dekatin yang jauh, atau bikin nongkrong makin pecah. Banyak varian, bisa main di mana aja, kapan aja.
+									Satu kartu bisa jadi awal obrolan yang seru, dekatin yang jauh, atau bikin nongkrong makin pecah. Banyak varian untuk semua momenmu.
 								</p>
 								<div class="mt-10 flex items-center gap-x-6">
 									<a href="#"
@@ -50,8 +51,8 @@
 								</div>
 							</div>
 
-							<div
-								class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+							<!-- Image Gallery -->
+							<div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
 								<div
 									class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
 									<div class="relative">
@@ -96,6 +97,15 @@
 								</div>
 							</div>
 						</div>
+
+						<!-- List product -->
+						<div class="mx-auto max-w-2xl mt-24 px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+							<h2 class="text-2xl font-bold tracking-tight text-center">Produk terlaris</h2>
+
+							<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+								<ProductOnSmallGrid v-for="product in decksTopSellers" :key="product.slug" :product="product" />
+							</div>
+						</div>	
 					</div>
 				</div>
 			</div>
@@ -147,6 +157,11 @@
 // })
 
 import { ref } from 'vue'
+import Button from '../components/Utils/Button.vue'
+import { decksTopSellers } from '../composables/useProduct'
+import ProductOnSmallGrid from '../components/Products/ProductOnSmallGrid.vue'
+
+console.log('decksTopSellers', decksTopSellers)
 
 // const gtm = useGtm() // auto-imported by the module
 
@@ -161,6 +176,7 @@ import { ref } from 'vue'
 // 		noninteraction: false,
 // 	})
 // }
+
 
 </script>
 
