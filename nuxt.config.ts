@@ -50,6 +50,17 @@ const Noir = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
+    app: {
+        head: {
+            title: 'Toko Tangan Kanan', // default fallback title
+            htmlAttrs: {
+                lang: 'id',
+            },
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            ]
+        }
+    },
     css: ['~/assets/stylesheet/index.scss'],
     postcss: {
         plugins: {

@@ -33,7 +33,7 @@
 						<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
 							<!-- Headline -->
 							<div class="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-								<h1 class="text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+								<h1 class="text-pretty text-5xl text-slate-700 font-semibold tracking-tight sm:text-7xl">
 									Kartu kecil, bangun momen besar.
 								</h1>
 								<p
@@ -45,7 +45,7 @@
 										class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
 										Jelajahi semua kartu
 									</a>
-									<a href="#" class="text-sm/6 font-semibold text-gray-900">
+									<a href="#" class="text-sm/6 font-semibold">
 										Lihat cara mainnya <span aria-hidden="true">→</span>
 									</a>
 								</div>
@@ -116,7 +116,7 @@
 			</div>
 		</main>
 
-		<div class="bg-white py-24 sm:py-32">
+		<!-- <div class="bg-white py-24 sm:py-32">
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
 				<div
 					class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
@@ -151,7 +151,7 @@
 					</p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -165,6 +165,17 @@ import { ref } from 'vue'
 import Button from '../components/Utils/Button.vue'
 import { decksTopSellers } from '../composables/useProduct'
 import ProductOnSmallGrid from '../components/Products/ProductOnSmallGrid.vue'
+
+useSeoMeta({
+	title: 'Toko Tangan Kanan | Cards that build your moments',
+	ogTitle: 'Toko Tangan Kanan | Cards that build your moments',
+	description: 'Koleksi permainan kartu seperti Deep, Hangout, Badboy, Family99, dan lainnya. Cocok untuk nongkrong, PDKT, atau ngobrol santai bareng teman dan pasangan.',
+	ogDescription: 'Koleksi permainan kartu seperti Deep, Hangout, Badboy, Family99, dan lainnya. Cocok untuk nongkrong, PDKT, atau ngobrol santai bareng teman dan pasangan.',
+	ogImage: 'https://tokotangankanan.com/ttk_logo_1000.jpg',
+	twitterCard: 'summary_large_image',
+})
+
+
 
 console.log('decksTopSellers', decksTopSellers)
 
