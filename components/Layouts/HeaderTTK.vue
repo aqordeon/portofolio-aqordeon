@@ -25,6 +25,7 @@
                     Semua kartu
                 </div>
                 <NuxtLink href="/tentang-kami" class="text-sm/6 font-semibold ">Tentang kami</NuxtLink>
+                <NuxtLink href="/faq" class="text-sm/6 font-semibold ">FAQ</NuxtLink>
                 <NuxtLink href="/kontak" class="text-sm/6 font-semibold ">Kontak</NuxtLink>
             </div>
         </nav>
