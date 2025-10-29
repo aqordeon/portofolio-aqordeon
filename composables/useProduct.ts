@@ -24,12 +24,12 @@ export const decks = [
         tags: ['fun', 'challenge'],
         is_topseller: true,
         occasion: ['nongkrong', 'date'],
-        link_online_shop: {
-            shopee: 'https://shopee.co.id/product/73180818/24229872610/',
-            tiktokshop: 'https://vt.tokopedia.com/t/ZSH7eyqDFuwPB-mbxTL/',
-            tokopedia: 'https://www.tokopedia.com/tokotangankanan/kartu-truth-edisi-nongkrong-game-seru-untuk-teman-sahabat-permainan-pertanyaan-obrolan-tanpa-dare-hangout-toko-tangan-kanan-1729878736879519437',
-            lazada: 'https://www.lazada.co.id/products/i8231302294.html',
-        }
+        // link_online_shop: {
+        //     shopee: "https://shopee.co.id/product/73180818/24229872610/",
+        //     tiktokshop: "https://vt.tokopedia.com/t/ZSH7eyqDFuwPB-mbxTL/",
+        //     tokopedia: "https://www.tokopedia.com/tokotangankanan/kartu-truth-edisi-nongkrong-game-seru-untuk-teman-sahabat-permainan-pertanyaan-obrolan-tanpa-dare-hangout-toko-tangan-kanan-1729878736879519437",
+        //     lazada: "https://www.lazada.co.id/products/i8231302294.html",
+        // }
     },
     {
         slug: 'tot',

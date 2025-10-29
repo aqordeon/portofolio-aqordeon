@@ -1,7 +1,6 @@
 <template>
     <div class="bg-white">
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        fffffffffffffffff
             <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
                 <!-- Image gallery -->
                 <TabGroup as="div" class="flex flex-col-reverse">
@@ -9,11 +8,11 @@
                     <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                         <TabList class="grid grid-cols-4 gap-6">
                             <Tab v-for="image in product.images" :key="image.id"
-                                class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-indigo-500/50 focus:ring-offset-4"
+                                class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase  hover:bg-gray-50 focus:outline-none focus:ring focus:ring-indigo-500/50 focus:ring-offset-4"
                                 v-slot="{ selected }">
                                 <span class="sr-only">{{ image.name }}</span>
                                 <span class="absolute inset-0 overflow-hidden rounded-md">
-                                    <img :src="image.src" alt="" class="size-full object-cover" />
+                                    <img :src="image" alt="" class="size-full object-cover" />
                                 </span>
                                 <span
                                     :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']"
@@ -24,7 +23,7 @@
 
                     <TabPanels>
                         <TabPanel v-for="image in product.images" :key="image.id">
-                            <img :src="image.src" :alt="image.alt"
+                            <img :src="image" :alt="image.alt"
                                 class="aspect-square w-full object-cover sm:rounded-lg" />
                         </TabPanel>
                     </TabPanels>
@@ -32,11 +31,11 @@
 
                 <!-- Product info -->
                 <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                    <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ product.name }}</h1>
+                    <h1 class="text-3xl font-bold tracking-tight ">{{ product.name }}</h1>
 
                     <div class="mt-3">
                         <h2 class="sr-only">Product information</h2>
-                        <p class="text-3xl tracking-tight text-gray-900">{{ product.price }}</p>
+                        <p class="text-3xl tracking-tight ">{{ product.price }}</p>
                     </div>
 
                     <!-- Reviews -->
@@ -77,8 +76,9 @@
 
                         <div class="mt-10 flex">
                             <button type="submit"
-                                class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Add
-                                to bag</button>
+                                class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">
+                                Add to bag
+                            </button>
 
                             <button type="button"
                                 class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
@@ -97,7 +97,7 @@
                                     <DisclosureButton
                                         class="group relative flex w-full items-center justify-between py-6 text-left">
                                         <span
-                                            :class="[open ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-medium']">{{
+                                            :class="[open ? 'text-indigo-600' : '', 'text-sm font-medium']">{{
                                             detail.name }}</span>
                                         <span class="ml-6 flex items-center">
                                             <PlusIcon v-if="!open"
@@ -122,6 +122,8 @@
             </div>
         </div>
     </div>
+
+    <!-- <pre>{{ product }}</pre> -->
 </template>
 
 <script setup lang="ts">
@@ -138,7 +140,7 @@ import {
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/vue/24/outline'
 
-const product = {
+const xxproduct = {
     name: 'Zip Tote Basket',
     price: '$140',
     rating: 4,
@@ -218,4 +220,15 @@ const product = {
         },
     ],
 }
+
+const fetchLibrary = async () => {
+    const route = useRoute()
+    const aa = await $fetch(`/api/card/${route.params.cardSlug}`)
+
+    console.log('aaa', aa)
+    product.value = aa
+}
+fetchLibrary()
+const product = ref({})
+
 </script>
