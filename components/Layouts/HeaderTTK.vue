@@ -21,8 +21,14 @@
 
             <!-- Section: list navbar (desktop) -->
             <div class="hidden lg:flex lg:gap-x-12">
-                <div @click="_popover?.toggle" class="text-sm/6 font-semibold ">
-                    Semua kartu
+                <div @click="_popover?.toggle" class="text-sm/6 font-semibold cursor-pointer inline">
+                    <span>Semua kartu</span>
+                    <span class="ml-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 inline transition-all"  :class="_popover?.visible ? 'rotate-180' : ''">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+
                 </div>
                 <NuxtLink href="/tentang-kami" class="text-sm/6 font-semibold ">Tentang kami</NuxtLink>
                 <NuxtLink href="/faq" class="text-sm/6 font-semibold ">FAQ</NuxtLink>
@@ -67,7 +73,14 @@
         <Popover ref="_popover">
             <div class="flex flex-col py-1 gap-4 w-[15rem]">
                 <ul class="list-none p-0 m-0 flex flex-col gap-2">
-                    <NuxtLink v-for="card, idxCard in cardsList" :key="idxCard" :href="card.href" class="hover:bg-primary/10 px-3 py-1 rounded flex items-center gap-2">
+                    <NuxtLink
+                        v-for="card, idxCard in cardsList"
+                        :key="idxCard"
+                        @click="() => _popover?.hide()"
+                        :href="card.href"
+                        class="px-3 py-1 rounded flex items-center gap-2"
+                        :class="$route.path === card.href ? 'bg-primary text-white' : 'hover:bg-primary/10 '"
+                    >
                         <div>
                             <span class="font-medium">{{ card.name }}</span>
                         </div>
