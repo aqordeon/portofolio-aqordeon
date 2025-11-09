@@ -33,7 +33,7 @@
 						<DashboardIndexHeadline />
 						<DashboardIndexPoints />
 
-						<!-- List product -->
+						<!-- Section: Best Seller -->
 						<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 							<h2 class="text-slate-700 text-2xl font-bold tracking-tight text-center">Best Seller</h2>
 							<p class="text-slate-500 mt-2 text-center mx-auto text-balance">
@@ -45,7 +45,39 @@
 							<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 								<ProductOnSmallGrid v-for="product in decksTopSellers" :key="product.slug" :product="product" />
 							</div>
-						</div>	
+						</div>
+
+						<div class="w-full xmax-w-4xl mx-auto flex items-center gap-x-12 bg-pink-50 border border-pink-300 rounded-lg overflow-hidden text-pink-600">
+							<div class="p-8 pl-20 w-7/12">
+								<div class="text-4xl font-bold">Kombo untuk momen pdkt-mu!</div>
+								<div class="opacity-70 mt-3">
+									Dapatkan diskon spesial dengan membeli combo first date. Pilihan tepat untuk bikin momen
+									pdkt-mu makin terbuka dan saling mengenal satu sama lain!
+								</div>
+
+								<div class="flex flex-col gap-y-2 mt-8">
+									<NuxtLink href="/cards/hangout" class="w-fit">
+										<Button type="secondary">
+											Hangout
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+											</svg>
+
+										</Button>
+									</NuxtLink>
+
+									<NuxtLink href="/cards/tot2" class="w-fit">
+										<Button type="secondary">
+											This or That 2
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+											</svg>
+										</Button>
+									</NuxtLink>
+								</div>
+							</div>
+							<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" class="ml-auto h-96"/>
+						</div>
 					</div>
 				</div>
 			</div>

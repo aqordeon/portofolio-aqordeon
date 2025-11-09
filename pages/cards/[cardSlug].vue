@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white">
         <div class="mx-auto max-w-2xl pxc-4 py-16 sm:pxx-6 sm:py-24 lg:max-w-7xl zlg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+            <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 mb-10">
                 <!-- Section: Image gallery -->
                 <TabGroup as="div" class="flex flex-col-reverse">
                     <!-- Image selector -->
@@ -38,7 +38,7 @@
                     </div>
 
                     <!-- Reviews -->
-                    <div class="mt-3">
+                    <!-- <div class="mt-3">
                         <h3 class="sr-only">Reviews</h3>
                         <div class="flex items-center">
                             <div class="flex items-center">
@@ -48,7 +48,7 @@
                             </div>
                             <p class="sr-only">{{ product?.rating }} out of 5 stars</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Section: Description -->
                     <div class="mt-6">
@@ -58,7 +58,7 @@
 
                     <form class="mt-6">
                         <!-- Colors -->
-                        <div>
+                        <!-- <div>
                             <h3 class="text-sm font-medium text-gray-600">Color</h3>
 
                             <fieldset aria-label="Choose a color" class="mt-2">
@@ -71,29 +71,29 @@
                                     </div>
                                 </div>
                             </fieldset>
-                        </div>
+                        </div> -->
 
                         <div class="mt-10 flex">
                             <div class="flex gap-x-4">
-                                <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank"><img src="/images/logo/shopee.webp" class="h-8 grayscale hover:grayscale-0"/></a>                            
-                                <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank"><img src="/images/logo/tokopedia.webp" class="h-8 grayscale hover:grayscale-0"/></a>                            
-                                <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank"><img src="/images/logo/tiktokshop.webp" class="h-8 grayscale hover:grayscale-0"/></a>                            
+                                <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                                <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                                <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
                             </div>
 
-                            <button type="button"
+                            <!-- <button type="button"
                                 class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
                                 <HeartIcon class="size-6 shrink-0" aria-hidden="true" />
                                 <span class="sr-only">Add to favorites</span>
-                            </button>
+                            </button> -->
                         </div>
                     </form>
 
                     <!-- Section: Additional Details -->
-                    <section aria-labelledby="details-heading" class="mt-12">
+                    <section v-if="dummyDetail?.length" aria-labelledby="details-heading" class="mt-12">
                         <h2 id="details-heading" class="sr-only">Additional details</h2>
 
                         <div class="divide-y divide-gray-200 border-t border-gray-200">
-                            <Disclosure as="div" v-for="detail in product?.details" :key="detail.name" v-slot="{ open }">
+                            <Disclosure as="div" v-for="detail in dummyDetail" :key="detail.name" v-slot="{ open }">
                                 <h3>
                                     <DisclosureButton
                                         class="group relative flex w-full items-center justify-between py-6 text-left">
@@ -247,6 +247,48 @@ const xxproduct = {
         },
     ],
 }
+
+const dummyDetail = [
+        // {
+        //     name: 'Features',
+        //     items: [
+        //         'Multiple strap configurations',
+        //         'Spacious interior with top zip',
+        //         'Leather handle and tabs',
+        //         'Interior dividers',
+        //         'Stainless strap loops',
+        //         'Double stitched construction',
+        //         'Water-resistant',
+        //     ],
+        // },
+        // {
+        //     name: 'Care',
+        //     items: [
+        //         'Spot clean as needed',
+        //         'Hand wash with mild soap',
+        //         'Machine wash interior dividers',
+        //         'Treat handle and tabs with leather conditioner',
+        //     ],
+        // },
+        // {
+        //     name: 'Shipping',
+        //     items: [
+        //         'Free shipping on orders over $300',
+        //         'International shipping available',
+        //         'Expedited shipping options',
+        //         'Signature required upon delivery',
+        //     ],
+        // },
+        // {
+        //     name: 'Returns',
+        //     items: [
+        //         'Easy return requests',
+        //         'Pre-paid shipping label included',
+        //         '10% restocking fee for returns',
+        //         '60 day return window',
+        //     ],
+        // },
+    ]
 
 const fetchLibrary = async () => {
     const route = useRoute()
