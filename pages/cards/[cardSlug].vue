@@ -30,7 +30,7 @@
 
                 <!-- Section: Product info (name, price, description, details) -->
                 <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                    <h1 class="text-3xl font-bold tracking-tight ">{{ product?.name }}</h1>
+                    <h1 class="text-3xl font-bold tracking-tight ">{{ product?.title }}</h1>
 
                     <div class="mt-3">
                         <h2 class="sr-only">Product information</h2>
@@ -128,14 +128,14 @@
                 <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-gray-900 shadow-xl ring-1 shadow-indigo-500/5 ring-white/5 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
                 <div class="mx-auto max-w-2xl lg:max-w-4xl">
                     <img class="mx-auto h-32" src="/images/svg/spotify_logo.svg" alt="" />
-                    <figure class="mt-5">
+                    <figure class="mt-5 mb-5">
                         <div class="text-center text-xl/8 font-bold text-white sm:text-3xl/9">
                             Mainkan musiknya, rasakan momennya lebih hidup
                         </div>
                         <div class="text-center opacity-80 text-white italic xtext-balance mx-auto mt-4 w-10/12">
                             Putar playlist spesial untuk tiap variant kartu Toko Tangan Kanan di Spotify, dan biarkan musiknya menyatu dengan momenmu.
                         </div>
-                        <div class="mt-10 flex justify-center">
+                        <!-- <div class="mt-10 flex justify-center">
                             <a
                                 :href="product?.link_spotify"
                                 class="cursor-pointer inline-block rounded-full bg-white px-6 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
@@ -143,8 +143,10 @@
                             >
                                 Dengarkan di Spotify
                             </a>
-                        </div>
+                        </div> -->
                     </figure>
+
+                    <iframe data-testid="embed-iframe" style="border-radius:12px" :src="product?.link_spotify" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </section>
         </div>
