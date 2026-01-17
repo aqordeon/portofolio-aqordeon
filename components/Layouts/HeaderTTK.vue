@@ -86,7 +86,7 @@
                         </div>
                         <div class="ml-auto h-fit">
                             <div class="aspect-[16/9] w-10">
-                                <img :src="card.img" :alt="card.name" class="object-contain h-full w-full" />
+                                <img :src="card.img_logo" :alt="card.name" class="object-contain h-full w-full" />
                             </div>
                         </div>
                     </NuxtLink>
@@ -101,43 +101,51 @@
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { Popover } from 'primevue'
+import { useDecksLP } from '../../composables/cards/decks_lp'
 
+// const cardsList = [
+// 	{
+//         name: 'Deep',
+//         img_logo: '/images/logo/deep_logo.png',
+//         href: '/cards/deep'
+//     },
+// 	{
+//         name: 'Hangout',
+//         img_logo: '/images/logo/hangout_logo.png',
+//         href: '/cards/hangout'
+//     },
+// 	{
+//         name: 'This or That',
+//         img_logo: '/images/logo/tot_logo.png',
+//         href: '/cards/tot'
+//     },
+// 	{
+//         name: 'Family99',
+//         img_logo: '/images/logo/family99_logo.png',
+//         href: '/cards/family99'
+//     },
+// 	{
+//         name: 'Badboy',
+//         img_logo: '/images/logo/badboy_logo.png',
+//         href: '/cards/badboy'
+//     },
+// 	{
+//         name: 'Berani Gak?',
+//         img_logo: '/images/logo/beranigak_logo.png',
+//         href: '/cards/berani_gak'
+//     },
+// 	{
+//         name: 'This or That 2',
+//         img_logo: '/images/logo/tot2_logo.png',
+//         href: '/cards/tot2'
+//     },
+// ]
 const cardsList = [
-	{
-        name: 'Deep',
-        img: '/images/logo/deep_logo.png',
-        href: '/cards/deep'
-    },
-	{
-        name: 'Hangout',
-        img: '/images/logo/hangout_logo.png',
-        href: '/cards/hangout'
-    },
-	{
-        name: 'This or That',
-        img: '/images/logo/tot_logo.png',
-        href: '/cards/tot'
-    },
-	{
-        name: 'Family99',
-        img: '/images/logo/family99_logo.png',
-        href: '/cards/family99'
-    },
-	{
-        name: 'Badboy',
-        img: '/images/logo/badboy_logo.png',
-        href: '/cards/badboy'
-    },
-	{
-        name: 'Berani Gak?',
-        img: '/images/logo/beranigak_logo.png',
-        href: '/cards/berani_gak'
-    },
-	{
-        name: 'This or That 2',
-        img: '/images/logo/tot2_logo.png',
-        href: '/cards/tot2'
-    },
+    ...Object.values(useDecksLP).map(deck => ({
+        name: deck.name,
+        img_logo: deck.img_logo,
+        href: deck.href
+    }))
 ]
 
 const mobileMenuOpen = ref(false)

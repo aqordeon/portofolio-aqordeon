@@ -168,87 +168,8 @@ import {
 } from '@headlessui/vue'
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/vue/24/outline'
+import { useDecksLP } from '../../composables/cards/decks_lp'
 
-const xxproduct = {
-    name: 'Zip Tote Basket',
-    price: '$140',
-    rating: 4,
-    images: [
-        {
-            id: 1,
-            name: 'Angled view',
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-03-product-01.jpg',
-            alt: 'Angled front view with bag zipped and handles upright.',
-        },
-        {
-            id: 2,
-            name: 'Front view',
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-03-product-02.jpg',
-            alt: 'Front view with bag zipped and handles upright.',
-        },
-        {
-            id: 3,
-            name: 'Back view',
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-03-product-03.jpg',
-            alt: 'Back view with bag zipped and straps hanging down.',
-        },
-        {
-            id: 4,
-            name: 'Back angle open view',
-            src: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-03-product-04.jpg',
-            alt: 'Back angled view with bag open and handles to the side.',
-        },
-    ],
-    colors: [
-        { id: 'washed-black', name: 'Washed Black', classes: 'bg-gray-700 checked:outline-gray-700' },
-        { id: 'white', name: 'White', classes: 'bg-white checked:outline-gray-400' },
-        { id: 'washed-gray', name: 'Washed Gray', classes: 'bg-gray-500 checked:outline-gray-500' },
-    ],
-    description: `
-    <p>The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>
-  `,
-    details: [
-        {
-            name: 'Features',
-            items: [
-                'Multiple strap configurations',
-                'Spacious interior with top zip',
-                'Leather handle and tabs',
-                'Interior dividers',
-                'Stainless strap loops',
-                'Double stitched construction',
-                'Water-resistant',
-            ],
-        },
-        {
-            name: 'Care',
-            items: [
-                'Spot clean as needed',
-                'Hand wash with mild soap',
-                'Machine wash interior dividers',
-                'Treat handle and tabs with leather conditioner',
-            ],
-        },
-        {
-            name: 'Shipping',
-            items: [
-                'Free shipping on orders over $300',
-                'International shipping available',
-                'Expedited shipping options',
-                'Signature required upon delivery',
-            ],
-        },
-        {
-            name: 'Returns',
-            items: [
-                'Easy return requests',
-                'Pre-paid shipping label included',
-                '10% restocking fee for returns',
-                '60 day return window',
-            ],
-        },
-    ],
-}
 
 const dummyDetail = [
         // {
@@ -292,15 +213,15 @@ const dummyDetail = [
         // },
     ]
 
-const fetchLibrary = async () => {
-    const route = useRoute()
-    const aa = await $fetch(`/api/card/${route.params.cardSlug}`)
+// const fetchLibrary = async () => {
+//     const route = useRoute()
+//     const aa = await $fetch(`/api/card/${route.params.cardSlug}`)
 
-    console.log('aaa', aa)
-    product.value = aa
-}
-fetchLibrary()
-const product = ref({})
+//     console.log('aaa', aa)
+//     product.value = aa
+// }
+// fetchLibrary()
+const product = useDecksLP[useRoute()?.params?.cardSlug]
 
 </script>
 

@@ -21,15 +21,17 @@ const props = defineProps<{
     <div class="relative group flex flex-col justify-between">
         <div>
             <div class="relative xaspect-square w-full rounded-md overflow-hidden border border-gray-200 group-hover:border-gray-500 object-contain aspect-[4/5]">
-                <img :src="product.imageSrc" :alt="product.imageAlt" class="" />
+                <NuxtLink as="a" :href="`/cards/${product.slug}`" class="">
+                    <img :src="product.imageSrc" :alt="product.imageAlt" class="" />
+                </NuxtLink>
             </div>
             <div class="mt-4 flex justify-between">
                 <div>
                     <h3 class="text-sm text-gray-700">
-                        <a :href="`decks/${product.slug}`" class="relative font-semibold text-lg">
+                        <NuxtLink :href="`cards/${product.slug}`" class="relative font-semibold text-lg">
                             <span aria-hidden="true" class="absolute inset-0" />
                             {{ product.title }}
-                        </a>
+                        </NuxtLink>
                     </h3>
                     <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
                 </div>
@@ -49,6 +51,8 @@ const props = defineProps<{
             </div>
         </div>
 
-        <Button type="secondary" full>Lihat detail</Button>
+        <NuxtLink :href="`/cards/${product.slug}`" class="mt-4 w-full">
+            <Button type="secondary" full>Lihat detail</Button>
+        </NuxtLink>
     </div>
 </template>
