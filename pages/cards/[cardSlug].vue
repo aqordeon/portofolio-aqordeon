@@ -1,9 +1,9 @@
 <template>
     <div class="bg-white">
-        <div class="mx-auto max-w-2xl pxc-4 py-16 sm:pxx-6 sm:py-24 lg:max-w-7xl zlg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 mb-10">
+        <div class="mx-auto max-w-2xl pxc-4 py-16 sm:pxx-6 sm:py-24 lg:max-w-4xl zlg:px-8">
+            <div class="lg:grid lg:grid-cols-7 lg:items-start lg:gap-x-8 mb-10">
                 <!-- Section: Image gallery -->
-                <TabGroup as="div" class="flex flex-col-reverse">
+                <TabGroup as="div" class="flex flex-col-reverse col-span-3">
                     <!-- Image selector -->
                     <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                         <TabList class="grid grid-cols-4 gap-6">
@@ -29,13 +29,13 @@
                 </TabGroup>
 
                 <!-- Section: Product info (name, price, description, details) -->
-                <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                    <h1 class="text-3xl font-bold tracking-tight ">{{ product?.title }}</h1>
+                <div class="col-span-4 mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+                    <h1 class="text-3xl font-bold tracking-tight text-justify ">{{ product?.title }}</h1>
 
-                    <div class="mt-3">
+                    <!-- <div class="mt-3">
                         <h2 class="sr-only">Product information</h2>
                         <p class="text-3xl tracking-tight ">{{ product?.price }}</p>
-                    </div>
+                    </div> -->
 
                     <!-- Reviews -->
                     <!-- <div class="mt-3">
@@ -54,39 +54,24 @@
                     <div class="mt-6">
                         <h3 class="sr-only">Description</h3>
                         <div class="editor-content text-base text-gray-700" v-html="product?.description" />
+                        <component v-if="product?.descriptionComponent" :is="product?.descriptionComponent" />
                     </div>
 
-                    <form class="mt-6">
-                        <!-- Colors -->
-                        <!-- <div>
-                            <h3 class="text-sm font-medium text-gray-600">Color</h3>
+                    <!-- Section: link olshop -->
+                    <div class="mt-10 flex gap-x-4">
+                        <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                    </div>
 
-                            <fieldset aria-label="Choose a color" class="mt-2">
-                                <div class="flex items-center gap-x-3">
-                                    <div v-for="color in product?.colors" :key="color.id"
-                                        class="flex rounded-full outline outline-1 -outline-offset-1 outline-black/10">
-                                        <input :aria-label="color.name" type="radio" name="color" :value="color.id"
-                                            :checked="color === product?.colors[0]"
-                                            :class="[color.classes, 'size-8 appearance-none rounded-full forced-color-adjust-none checked:outline checked:outline-2 checked:outline-offset-2 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px]']" />
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div> -->
+                    <!-- <div class="mt-10 flex">
+                        <button type="button"
+                            class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
+                            <HeartIcon class="size-6 shrink-0" aria-hidden="true" />
+                            <span class="sr-only">Add to favorites</span>
+                        </button>
+                    </div> -->
 
-                        <div class="mt-10 flex">
-                            <div class="flex gap-x-4">
-                                <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                                <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                                <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                            </div>
-
-                            <!-- <button type="button"
-                                class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
-                                <HeartIcon class="size-6 shrink-0" aria-hidden="true" />
-                                <span class="sr-only">Add to favorites</span>
-                            </button> -->
-                        </div>
-                    </form>
 
                     <!-- Section: Additional Details -->
                     <section v-if="dummyDetail?.length" aria-labelledby="details-heading" class="mt-12">

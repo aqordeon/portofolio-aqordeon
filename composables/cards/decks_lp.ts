@@ -1,4 +1,22 @@
+import ProductDescriptionDeep from "../../components/Product/ProductDescriptionDeep.vue";
+
 export const useDecksLP = {
+    deep: {
+        name: 'Deep',
+        title: `Kartu Edisi DEEP Talk - Couples Game | Permainan Untuk Pasangan | Sahabat | Kado Nikah | Tanpa Dare`,
+        slug: 'deep',
+        description: ``,
+        descriptionComponent: ProductDescriptionDeep,
+        href: '/cards/deep',
+        img_logo: '/images/logo/deep_logo.png',
+        images: [
+            "/images/cards/deep1-4x5.webp"
+        ],
+        link_olshop: {
+            "shopee": "https://shopee.co.id/product/73180818/24179886317/"
+        },
+        link_spotify: `https://open.spotify.com/embed/playlist/4t8jBno2EAVan6AIr3elty?utm_source=generator`
+    },
     hangout: {
         name: 'Hangout',
         title: 'Kartu Truth Edisi Nongkrong - Game Seru Untuk Teman Sahabat | Permainan Pertanyaan Obrolan | Tanpa Dare',
@@ -17,21 +35,6 @@ export const useDecksLP = {
             "tiktokshop": "https://vt.tokopedia.com/t/ZSH7eyqDFuwPB-mbxTL/"
         },
         link_spotify: `https://open.spotify.com/embed/playlist/1wGrAVGey3vEl9ZTBTXMh3?utm_source=generator`
-    },
-    deep: {
-        name: 'Deep',
-        title: `Kartu Edisi DEEP Talk - Couples Game | Permainan Untuk Pasangan | Sahabat | Kado Nikah | Tanpa Dare`,
-        slug: 'deep',
-        description: `<p> Kartu DEEP: Edition I, berisi topik-topik deep talk, tujuannya adalah untuk mengenal antar pemain lebih dalam yang bahkan belum pernah dibahas sebelumnya.<br> Contoh topik dari kartu ini adalah masa lalu, masa depan, opini/pendapat, imajinasi, kehidupan, dll. </p> <p> &nbsp; </p> <p> Cocok dimainkan dengan sahabat dekat, crush/calon pasangan, maupun pasangan kalian.<br> Bentuk kartu sangat minimalis, dapat dibawa kemana saja dan dapat dimainkan kapan saja jika diperlukan.<br> Desain sangat modern dan menggambarkan isi kartu. </p> <p> <br> Jumlah pemain: 2-6 Orang<br> Kelengkapan produk: </p> <ul> <li data-list-item-id="e7744e0843286b5342d4f9878100ff093"> Box tempat kartu </li> <li data-list-item-id="ee6c2d0702aa5fb5c19682370a51a4a8f"> 50 kartu pertanyaan topik deep talk </li> <li data-list-item-id="e9b3854c2c91157387d9bbbb6ebd139c5"> 1 kartu Panduan Awal </li> </ul> <p> &nbsp; </p> <p> Kualitas kartu: </p> <ul> <li data-list-item-id="e1c2075989806a09787f6f4d73d232236"> Hasil cetakan kartu sangat jelas, dapat terbaca dengan baik. </li> <li data-list-item-id="e882e6a364d48d29db8b8e46d061274ff"> Kartu difinishing doff, semi anti-air, dan rounded corner. </li> </ul> <p> &nbsp; </p> <p> Pertanyaan dapat ditanyakan via chat.<br> Terimakasih dan selamat berbelanja di Toko Tangan Kanan☺️ </p> <p> #TruthCard #TruthOrDare #CardGames #BoardGames </p>`,
-        href: '/cards/deep',
-        img_logo: '/images/logo/deep_logo.png',
-        images: [
-            "/images/cards/deep1-4x5.webp"
-        ],
-        link_olshop: {
-            "shopee": "https://shopee.co.id/product/73180818/24179886317/"
-        },
-        link_spotify: `https://open.spotify.com/embed/playlist/4t8jBno2EAVan6AIr3elty?utm_source=generator`
     },
     tot: {
         name: 'This or That',
