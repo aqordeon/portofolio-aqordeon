@@ -6,7 +6,7 @@
                     class="text-gray-200 hover:text-white">{{ item.name }}</a>
             </nav>
             <div class="mt-16 flex justify-center gap-x-10">
-                <a v-for="item in navigation.social" :key="item.name" :href="item.href"
+                <a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank"
                     class="text-gray-200 hover:text-white">
                     <span class="sr-only">{{ item.name }}</span>
                     <component :is="item.icon" class="size-6" aria-hidden="true" />
@@ -24,12 +24,12 @@ import { defineComponent, h } from 'vue'
 
 const navigation = {
     main: [
-        { name: 'About', href: '#' },
-        { name: 'Blog', href: '#' },
-        { name: 'Jobs', href: '#' },
-        { name: 'Press', href: '#' },
-        { name: 'Accessibility', href: '#' },
-        { name: 'Partners', href: '#' },
+        // { name: 'About', href: '#' },
+        // { name: 'Blog', href: '#' },
+        // { name: 'Jobs', href: '#' },
+        // { name: 'Press', href: '#' },
+        // { name: 'Accessibility', href: '#' },
+        // { name: 'Partners', href: '#' },
     ],
     social: [
         // {
