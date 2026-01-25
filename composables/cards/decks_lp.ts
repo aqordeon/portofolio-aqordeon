@@ -1,4 +1,7 @@
 import ProductDescriptionDeep from "../../components/Product/ProductDescriptionDeep.vue";
+import ProductDescriptionF99 from "../../components/Product/ProductDescriptionF99.vue";
+import ProductDescriptionHangout from "../../components/Product/ProductDescriptionHangout.vue";
+import ProductDescriptionToT from "../../components/Product/ProductDescriptionToT.vue";
 
 export const useDecksLP = {
     deep: {
@@ -21,7 +24,8 @@ export const useDecksLP = {
         name: 'Hangout',
         title: 'Kartu Truth Edisi Nongkrong - Game Seru Untuk Teman Sahabat | Permainan Pertanyaan Obrolan | Tanpa Dare',
         slug: 'hangout',
-        description: `<p> Kartu Hangout: Edition I, berisi topik-topik ringan, tidak terlalu personal, dan tidak membutuhkan tenaga untuk berpikir, karena ya memang random aja.. </p> <p> Tujuannya dari kartu Hangout ini adalah untuk mengisi obrolan di tongkrongan dengan topik-topik random yang akan membuat suasana tongkrongan jadi makin seru! </p> <p> Contoh topik dari kartu ini adalah pengalaman, imajinasi, kehidupan, dll. </p> <p> &nbsp; </p> <p> &nbsp; </p> <p> Karena topiknya ringan dan random, kartu Hangout cocok dapat dimainkan dengan teman biasa, teman yang baru kenal, bahkan stranger random. </p> <p> Topik dalam kartu Hangout ini bisa juga dijadikan topik obrolan di dating app xixixi </p> <p> &nbsp; </p> <p> &nbsp; </p> <p> Bentuk kartu sangat minimalis, dapat dibawa kemana saja dan dapat dimainkan kapan saja jika diperlukan. </p> <p> Desain sangat modern dan menggambarkan isi kartu. </p> <p> &nbsp; </p> <p> &nbsp; </p> <p> Jumlah pemain: 2-6 Orang </p> <p> Kelengkapan produk: </p> <ul> <li> <p> Box tempat kartu </p> </li> <li> <p> 50 kartu pertanyaan topik ringan dan random </p> </li> <li> <p> 1 kartu panduan awal </p> </li> </ul> <p> &nbsp; </p> <p> &nbsp; </p> <p> Kualitas kartu: </p> <ul> <li> <p> Hasil cetakan kartu sangat jelas, dapat terbaca dengan baik. </p> </li> <li> <p> Kartu difinishing doff, semi anti-air, dan rounded corner. </p> </li> </ul> <p> &nbsp; </p> <p> &nbsp; </p> <p> #TruthCard #TruthOrDare #CardGames #BoardGames </p>`,
+        description: ``,
+        descriptionComponent: ProductDescriptionHangout,
         img_logo: '/images/logo/hangout_logo.png',
         href: '/cards/hangout',
         images: [
@@ -40,7 +44,8 @@ export const useDecksLP = {
         name: 'This or That',
         title: `Permainan Kartu THIS or THAT - Pertanyaan Pilihan Seru | Game untuk Teman, Pasangan, Nongkrong`,
         slug: 'tot',
-        description: `<p> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Kartu THIS or THAT berisi pilihan-pilihan random yang akan membuat pemain harus memilih salah satu dari dua pilihan. Tujuannya adalah untuk memancing diskusi ringan dan mengenal preferensi masing-masing pemain dengan cara yang menyenangkan. Beberapa pertanyaan tidak memiliki konteks spesifik, sehingga pemain harus menentukan konteksnya sendiri.</span> </p> <p> &nbsp; </p> <p> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Cocok dimainkan dengan teman, sahabat dekat, maupun keluarga untuk mengisi waktu luang atau sebagai ice breaker.</span> </p> <p> <br> Jumlah pemain: 2-6 Orang<br> Kelengkapan produk: </p> <ul> <li data-list-item-id="e7744e0843286b5342d4f9878100ff093"> Box tempat kartu </li> <li data-list-item-id="ee6c2d0702aa5fb5c19682370a51a4a8f"> 50 kartu pertanyaan (versi Indonesia dan English) </li> <li data-list-item-id="e9b3854c2c91157387d9bbbb6ebd139c5"> 1 kartu Panduan Awal </li> </ul> <p> &nbsp; </p> <p> Kualitas kartu: </p> <ul> <li data-list-item-id="e1c2075989806a09787f6f4d73d232236"> Hasil cetakan kartu sangat jelas, dapat terbaca dengan baik. </li> <li data-list-item-id="e882e6a364d48d29db8b8e46d061274ff"> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Desain sangat menarik.</span> </li> <li data-list-item-id="ed1ef610b157d27ac978629283dc09928"> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Kartu difinishing doff, semi anti-air, dan rounded corner.</span> </li> </ul> <p> &nbsp; </p> <p> Pertanyaan dapat ditanyakan via chat.<br> Terimakasih dan selamat berbelanja di Toko Tangan Kanan </p> <p> &nbsp; </p> <p> #TruthCard #TruthOrDare #CardGames #BoardGames </p>`,
+        description: ``,
+        descriptionComponent: ProductDescriptionToT,
         img_logo: '/images/logo/tot_logo.png',
         href: '/cards/tot',
         images: [
@@ -53,9 +58,10 @@ export const useDecksLP = {
     },
     family99: {
         name: `Family 99`,
-        title: `Permainan Kartu Mirip FAMILY 100 - Untuk Lomba Tebak Jawaban Terpopuler Keluarga, Kantor`,
+        title: `Permainan Kartu FAMILY 99 - Untuk Lomba Tebak Jawaban Terpopuler Keluarga, Kantor`,
         slug: `family99`,
-        description: `<p> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Kartu Family 99: Edition I, berisi kuis-kuis unpredictable, yang setiap kuis berisi 5 jawaban yang memiliki skor. Jawab setiap kuisnya dengan tepat dan dapatkan skor tertinggi untuk memenangkan permainan. Permainan kartu Family99 terinspirasi dari acara TV Family 100.</span> </p> <p> &nbsp; </p> <p> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Cocok dimainkan sebagai games hiburan di segala acara seperti reuni sekolah, lomba 17 Agustusan, dan bahkan ketika kumpul keluarga di hari raya.</span> </p> <p> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Bentuk kartu sangat minimalis, dapat dibawa kemana saja dan dapat dimainkan kapan saja jika diperlukan.</span> </p> <p> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Desain sangat modern dan menggambarkan isi kartu.</span> </p> <p> <br> Jumlah pemain: 2-6 Orang<br> Kelengkapan produk: </p> <ul> <li data-list-item-id="e7744e0843286b5342d4f9878100ff093"> Box tempat kartu </li> <li data-list-item-id="ee6c2d0702aa5fb5c19682370a51a4a8f"> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">50 kartu kuis, tiap kuis mempunyai 5 jawaban</span> </li> <li data-list-item-id="e9b3854c2c91157387d9bbbb6ebd139c5"> 1 kartu Panduan Awal </li> </ul> <p> &nbsp; </p> <p> Kualitas kartu: </p> <ul> <li data-list-item-id="e1c2075989806a09787f6f4d73d232236"> Desain sangat menarik (instagramable). </li> <li data-list-item-id="e882e6a364d48d29db8b8e46d061274ff"> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Hasil cetakan kartu sangat jelas, dapat terbaca dengan baik.</span> </li> <li data-list-item-id="ed1ef610b157d27ac978629283dc09928"> <span class="async-component" data-v-7ce7061d="" data-v-fc8a903e="" data-product-edit-field-unique-id="description">Kartu difinishing doff, semi anti-air, dan rounded corner.</span> </li> </ul> <p> &nbsp; </p> <p> Jika ada informasi yang kurang jelas dapat ditanyakan via chat.<br> Terimakasih dan selamat berbelanja di Toko Tangan Kanan </p> <p> &nbsp; </p> <p> #TruthCard #TruthOrDare #CardGames #BoardGames </p>`,
+        description: ``,
+        descriptionComponent: ProductDescriptionF99,
         img_logo: '/images/logo/family99_logo.png',
         href: '/cards/family99',
         images: [
