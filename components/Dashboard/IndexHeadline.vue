@@ -19,9 +19,9 @@
                         </p>
                         <div class="mt-10 flex items-center justify-center gap-x-6">
                             <!-- TODO: make it as Link -->
-                            <NuxtLink href="/decks" class="text-sm/6 font-semibold">
+                            <!-- <NuxtLink href="/decks" class="text-sm/6 font-semibold">
                                 Lihat semua variasi <span aria-hidden="true">→</span>
-                            </NuxtLink>
+                            </NuxtLink> -->
                         </div>
                     </div>
 
