@@ -3,6 +3,7 @@ import ProductDescriptionDeep from "../../components/Product/ProductDescriptionD
 import ProductDescriptionF99 from "../../components/Product/ProductDescriptionF99.vue";
 import ProductDescriptionHangout from "../../components/Product/ProductDescriptionHangout.vue";
 import ProductDescriptionToT from "../../components/Product/ProductDescriptionToT.vue";
+import ProductDescriptionToT2 from "../../components/Product/ProductDescriptionToT2.vue";
 
 export const useDecksLP = {
     deep: {
@@ -86,6 +87,22 @@ export const useDecksLP = {
         ],
         link_olshop: {
             "shopee": "https://shopee.co.id/product/73180818/40053646045/"
+        },
+        link_spotify: null,
+    },
+    "tot-2": {
+        name: `This or That 2`,
+        title: `Permainan THIS OR THAT 2 - Pertanyaan Pilihan Seru Untuk Sharing Pendapat Dan Opini`,
+        slug: `tot2`,
+        description: null,
+        descriptionComponent: ProductDescriptionToT2,
+        img_logo: '/images/logo/tot2_logo.png',
+        href: '/cards/tot2',
+        images: [
+            "/images/cards/tot21-4x5.webp"
+        ],
+        link_olshop: {
+            "shopee": "https://shopee.co.id/product/73180818/43372292025/"
         },
         link_spotify: null,
     },
