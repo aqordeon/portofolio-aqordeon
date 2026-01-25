@@ -1,3 +1,4 @@
+import ProductDescriptionBadboy from "../../components/Product/ProductDescriptionBadboy.vue";
 import ProductDescriptionDeep from "../../components/Product/ProductDescriptionDeep.vue";
 import ProductDescriptionF99 from "../../components/Product/ProductDescriptionF99.vue";
 import ProductDescriptionHangout from "../../components/Product/ProductDescriptionHangout.vue";
@@ -77,6 +78,7 @@ export const useDecksLP = {
         title: `Kartu Truth BADBOY Nongkrong - Game Seru Bareng Sirkel Cowok | Tanpa Dare | Permainannya Laki-Laki`,
         slug: `badboy`,
         description: null,
+        descriptionComponent: ProductDescriptionBadboy,
         img_logo: '/images/logo/badboy_logo.png',
         href: '/cards/badboy',
         images: [
