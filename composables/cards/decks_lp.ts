@@ -2,6 +2,7 @@ import ProductDescriptionBadboy from "../../components/Product/ProductDescriptio
 import ProductDescriptionDeep from "../../components/Product/ProductDescriptionDeep.vue";
 import ProductDescriptionF99 from "../../components/Product/ProductDescriptionF99.vue";
 import ProductDescriptionHangout from "../../components/Product/ProductDescriptionHangout.vue";
+import ProductDescriptionLoveSparks from "../../components/Product/ProductDescriptionLoveSparks.vue";
 import ProductDescriptionToT from "../../components/Product/ProductDescriptionToT.vue";
 import ProductDescriptionToT2 from "../../components/Product/ProductDescriptionToT2.vue";
 
@@ -105,6 +106,25 @@ export const useDecksLP = {
             "shopee": "https://shopee.co.id/product/73180818/43372292025/"
         },
         link_spotify: null,
+    },
+    "love_sparks": {
+        name: `Love Sparks`,
+        title: `GAME VALENTINE Kartu Permainan Pasangan Pacaran - LOVE SPARKS | Couples Date Truth Tanpa Dare`,
+        slug: `love_sparks`,
+        description: null,
+        descriptionComponent: ProductDescriptionLoveSparks,
+        img_logo: '/images/logo/love_sparks_logo.png',
+        href: '/cards/love_sparks',
+        images: [
+            "/images/cards/love_sparks_main.webp",
+            "/images/cards/love_sparks_1.jpg",
+            "/images/cards/love_sparks_2.jpg",
+            "/images/cards/love_sparks_3.jpg",
+        ],
+        link_olshop: {
+            "shopee": "https://shopee.co.id/product/73180818/49155055453/"
+        },
+        link_spotify: "https://open.spotify.com/embed/playlist/29gNjlJTZcsbLTw8PF78Ad?utm_source=generator",
     },
     // xxx: {
     //     name: xxx,
