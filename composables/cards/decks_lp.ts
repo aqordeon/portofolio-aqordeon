@@ -94,11 +94,11 @@ export const useDecksLP = {
     "tot-2": {
         name: `This or That 2`,
         title: `Permainan THIS OR THAT 2 - Pertanyaan Pilihan Seru Untuk Sharing Pendapat Dan Opini`,
-        slug: `tot2`,
+        slug: `tot-2`,
         description: null,
         descriptionComponent: ProductDescriptionToT2,
         img_logo: '/images/logo/tot2_logo.png',
-        href: '/cards/tot2',
+        href: '/cards/tot-2',
         images: [
             "/images/cards/tot21-4x5.webp"
         ],
@@ -113,7 +113,7 @@ export const useDecksLP = {
         slug: `love_sparks`,
         description: null,
         descriptionComponent: ProductDescriptionLoveSparks,
-        img_logo: '/images/logo/love_sparks_logo.png',
+        img_logo: '/images/logo/love_sparks.png',
         href: '/cards/love_sparks',
         images: [
             "/images/cards/love_sparks_main.webp",
