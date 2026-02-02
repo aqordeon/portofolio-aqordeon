@@ -6,9 +6,9 @@
                 <TabGroup as="div" class="flex flex-col-reverse col-span-3">
                     <!-- Image selector -->
                     <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-                        <TabList class="grid grid-cols-4 gap-6">
+                        <TabList class="flex flex-wrap gap-y-4 gap-x-4 md:justify-between">
                             <Tab v-for="image in product?.images" :key="image.id"
-                                class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase  hover:bg-gray-50 focus:outline-none focus:ring focus:ring-indigo-500/50 focus:ring-offset-4"
+                                class="relative flex h-24 aspect-square cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase  hover:bg-gray-50 focus:outline-none focus:ring focus:ring-indigo-500/50 focus:ring-offset-4"
                                 v-slot="{ selected }">
                                 <span class="sr-only">{{ image.name }}</span>
                                 <span class="absolute inset-0 overflow-hidden rounded-md">
