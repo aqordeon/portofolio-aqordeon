@@ -51,7 +51,7 @@ const props = defineProps<{
             </div>
         </div>
 
-        <NuxtLink :href="`/cards/${product.slug}`" class="mt-4 w-full">
+        <NuxtLink :href="`/cards/${product.slug}`" class="mt-2 md:mt-4 w-full">
             <Button type="secondary" full>Lihat detail</Button>
         </NuxtLink>
     </div>

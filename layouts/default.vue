@@ -7,7 +7,7 @@
 		<LayoutsHeaderTTK />
 
         <main class="bg-white text-primary">
-			<div class="w-full max-w-4xl mx-auto">
+			<div class="w-full">
                 <slot />
             </div>
 		</main>
@@ -15,3 +15,9 @@
         <LayoutsFooterTTK />
     </div>
 </template>
+
+<style>
+.container {
+    @apply mx-auto
+}
+</style>

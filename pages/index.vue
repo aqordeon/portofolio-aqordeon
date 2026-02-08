@@ -29,54 +29,59 @@
 				</div>
 
 				<div class="overflow-hidden">
-					<div class="mx-auto max-w-7xl pb-32 pt-28 lg:pt-16">
+					<div class=" pb-32 pt-12 lg:pt-16">
 						<DashboardIndexHeadline />
 						<DashboardIndexPoints />
 
 						<!-- Section: Best Seller -->
-						<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-							<h2 class="text-slate-700 text-2xl font-bold tracking-tight text-center">Best Seller</h2>
-							<p class="text-slate-500 mt-2 text-center mx-auto text-balance">
-								Variant di bawah ini selalu jadi pilihan favorit dari Toko Tangan Kanan!
-								Setiap kartu dirancang untuk bikin momen nongkrong, first date, atau kumpul keluarga jadi lebih hidup, lebih dekat, dan pastinya lebih memorable.
+						<div class="container px-4 py-8 sm:px-6 md:py-24">
+							<h2 class="text-slate-700 text-lg md:text-2xl font-bold tracking-tight text-center">
+								Best Seller
+							</h2>
+							<p class="text-slate-500 text-xs md:text-base mt-2 mx-auto text-justify md:text-center md:text-balance">
+								Variant yang selalu jadi pilihan favorit dari Toko Tangan Kanan!
+								<!-- Setiap kartu dirancang untuk bikin momen nongkrong, first date, atau kumpul keluarga jadi lebih hidup, lebih dekat, dan pastinya lebih memorable. -->
 								Kalau bingung mulai dari mana, best seller ini jawabannya ✨
 							</p>
 
-							<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+							<div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 xl:gap-x-8">
 								<ProductOnSmallGrid v-for="product in decksTopSellers" :key="product.slug" :product="product" />
 							</div>
 						</div>
 
-						<div class="w-full xmax-w-4xl mx-auto flex items-center gap-x-12 bg-pink-50 border border-pink-300 rounded-lg overflow-hidden text-pink-600">
-							<div class="p-8 pl-20 w-7/12">
-								<div class="text-4xl font-bold">Kombo untuk momen pdkt-mu!</div>
-								<div class="opacity-70 mt-3">
-									Dapatkan diskon spesial dengan membeli combo first date. Pilihan tepat untuk bikin momen
-									pdkt-mu makin terbuka dan saling mengenal satu sama lain!
+
+						<!-- Section: Combo First Date -->
+						<div class="mt-12 w-full container lg:px-4">
+							<div class="pb-8 md:pb-0  flex flex-col md:flex-row items-center gap-x-12 bg-pink-50 md:border border-pink-300 md:rounded-lg overflow-hidden text-pink-600">
+								<div class="p-8 md:pl-20 md:w-7/12">
+									<div class="text-lg md:text-4xl font-bold">Kombo untuk momen pdkt-mu!</div>
+									<div class="opacity-70 text-xs md:text-base mt-1 md:mt-3 text-justify">
+										Dapatkan diskon spesial dengan membeli combo first date. Pilihan tepat untuk bikin momen
+										pdkt-mu makin terbuka dan saling mengenal satu sama lain!
+									</div>
+									<div class="flex flex-col gap-y-2 mt-4 md:mt-8">
+										<NuxtLink href="/cards/hangout" class="w-fit">
+											<Button type="secondary">
+												Hangout
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+												</svg>
+											</Button>
+										</NuxtLink>
+										<NuxtLink href="/cards/tot-2" class="w-fit">
+											<Button type="secondary">
+												This or That 2
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+												</svg>
+											</Button>
+										</NuxtLink>
+									</div>
 								</div>
-
-								<div class="flex flex-col gap-y-2 mt-8">
-									<NuxtLink href="/cards/hangout" class="w-fit">
-										<Button type="secondary">
-											Hangout
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-											</svg>
-
-										</Button>
-									</NuxtLink>
-
-									<NuxtLink href="/cards/tot-2" class="w-fit">
-										<Button type="secondary">
-											This or That 2
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-											</svg>
-										</Button>
-									</NuxtLink>
+								<div class="md:ml-auto rounded-md md:rounded-none overflow-hidden mx-8 md:mx-0">
+									<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" class="md:h-96"/>
 								</div>
 							</div>
-							<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" class="ml-auto h-96"/>
 						</div>
 					</div>
 				</div>
@@ -84,7 +89,7 @@
 		</main>
 
 		<!-- <div class="bg-white py-24 sm:py-32">
-			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class=" px-6 lg:px-8">
 				<div
 					class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
 					<img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
