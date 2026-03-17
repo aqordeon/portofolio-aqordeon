@@ -36,6 +36,9 @@ const audio_intense_tick = typeof Audio !== "undefined" ? new Audio(IntenseTick)
 
 const startCountdown = () => {
     if (interval) return
+    if (countdown.value <= 0) {
+        countdown.value = param_timer.value
+    }
     interval = setInterval(() => {
         console.log(countdown.value)
         countdown.value--
@@ -43,7 +46,7 @@ const startCountdown = () => {
             setTimeout(() => {
                 audio_intense_tick.currentTime = 0;
                 audio_intense_tick?.play()
-            }, 140)
+            }, 50)
         }
 
         if (countdown.value >= 1) {
