@@ -1,9 +1,9 @@
+@use './colors';
+@use './elements';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import './colors';
-@import './elements';
 
 @layer utilities {
     /* .specialUnderline {
