@@ -86,7 +86,7 @@ function getLinks(deck: typeof decks[number]) {
 
                     <div class="flex gap-4 items-start">
                         <!-- Product image -->
-                        <div class="flex-shrink-0 w-20 h-[100px] rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+                        <div class="flex-shrink-0 w-20 aspect-square rounded-lg overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
                             <img :src="deck.imageSrc" :alt="deck.imageAlt"
                                  class="w-full h-full object-cover block"
                                  loading="lazy" />
@@ -106,7 +106,7 @@ function getLinks(deck: typeof decks[number]) {
                                     :href="link.url"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-1.5 py-[5px] pr-2.5 pl-1.5 rounded-full no-underline text-[0.72rem] font-semibold text-white opacity-[0.92] transition-all duration-75 whitespace-nowrap hover:opacity-100 hover:-translate-y-px hover:scale-[1.04] hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                                    class="inline-flex items-center gap-1.5 py-2 pr-3.5 pl-2 rounded-full no-underline text-[0.72rem] font-semibold text-white opacity-[0.92] transition-all duration-75 whitespace-nowrap hover:opacity-100 hover:-translate-y-px hover:scale-[1.04] hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
                                     :style="{
                                         'background-color': link.bg,
                                         color: link.color,

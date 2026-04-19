@@ -111,22 +111,22 @@ export const decks = [
             lazada: 'https://www.lazada.co.id/products/i8738900654.html',
         }
     },
-    // {
-    //     slug: 'love-sparks',
-    //     title: 'Love Sparks',
-    //     sku: 'ttk-c-love-sparks-1',
-    //     imageSrc: '/images/cards/love-sparks-4x5.webp',
-	// 	imageAlt: "Card variant Love Sparks",
-    //     tags: ['couple', 'date', 'relationship'],
-    //     is_topseller: false,
-    //     // occasion: ['fun', 'first date'],
-    //     link_online_shop: {
-    //         // shopee: 'https://shopee.co.id/product/73180818/43372292025/',
-    //         tiktokshop: 'https://shop-id.tokopedia.com/view/product/1734262828001953485',
-    //         tokopedia: 'https://tk.tokopedia.com/ZSHKMKNSY/',
-    //         // lazada: 'https://www.lazada.co.id/products/i8738900654.html',
-    //     }
-    // },
+    {
+        slug: 'love_sparks',
+        title: 'Love Sparks',
+        sku: 'ttk-c-lovesparks-1',
+        imageSrc: '/images/cards/love_sparks_main.webp',
+		imageAlt: "Card variant Love Sparks",
+        tags: ['couple', 'date', 'relationship'],
+        is_topseller: false,
+        // occasion: ['fun', 'first date'],
+        link_online_shop: {
+            shopee: 'https://shopee.co.id/product/73180818/49155055453/',
+            tiktokshop: 'https://shop-id.tokopedia.com/view/product/1734262828001953485',
+            tokopedia: 'https://tk.tokopedia.com/ZSHKMKNSY/',
+            // lazada: 'https://www.lazada.co.id/products/i8738900654.html',
+        }
+    },
 ]
 
 export const decksTopSellers = decks.filter(deck => deck.is_topseller)
