@@ -62,6 +62,7 @@
                         <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank" @click="trackClick(String(route.params.cardSlug), 'shopee', 'card-detail')"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
                         <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tokopedia', 'card-detail')"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
                         <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tiktokshop', 'card-detail')"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.lazada" :href="product?.link_olshop?.lazada" target="_blank" @click="trackClick(String(route.params.cardSlug), 'lazada', 'card-detail')"><img src="/images/logo/lazada.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
                     </div>
 
                     <!-- <div class="mt-10 flex">
