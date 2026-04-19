@@ -107,6 +107,7 @@
                 </div>
             </div>
             
+            
             <!-- Section: Spotify -->
             <section v-if="product?.link_spotify" class="relative isolate overflow-hidden bg-gray-800 px-6 sm:pt-10 sm:pb-12 lg:px-8">
                 <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-500),transparent)] opacity-10"></div>
@@ -212,7 +213,7 @@ const dummyDetail = [
 const product = useDecksLP[route?.params?.cardSlug]
 
 useSeoMeta({
-    title: () => product?.title ?? 'Kartu Permainan Toko Tangan Kanan',
+    title: () => product?.name ?? 'Kartu Permainan Toko Tangan Kanan',
     ogTitle: () => product?.title ?? 'Kartu Permainan Toko Tangan Kanan',
     description: () => `Beli ${product?.name ?? 'kartu permainan'} dari Toko Tangan Kanan. Permainan kartu berkualitas untuk nongkrong, pasangan, dan keluarga. Tersedia di Shopee, Tokopedia, dan Lazada.`,
     ogDescription: () => `Beli ${product?.name ?? 'kartu permainan'} dari Toko Tangan Kanan. Permainan kartu berkualitas untuk nongkrong, pasangan, dan keluarga. Tersedia di Shopee, Tokopedia, dan Lazada.`,
