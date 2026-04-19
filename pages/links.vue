@@ -14,23 +14,27 @@ useHead({
 const platforms = {
     shopee: {
         label: 'Shopee',
-        bg: '#EE4D2D',
+        bg: '#fff',
+        color: '#EE4D2D',
         icon: '/images/logo/shopee.webp',
     },
     tiktokshop: {
         label: 'TikTok Shop',
-        bg: '#000000',
+        bg: '#fff',
+        color: '#000000',
         icon: '/images/logo/tiktokshop.webp',
     },
     tokopedia: {
         label: 'Tokopedia',
-        bg: '#03AC0E',
+        bg: '#fff',
+        color: '#03AC0E',
         icon: '/images/logo/tokopedia.webp',
     },
     lazada: {
         label: 'Lazada',
-        bg: '#0F146D',
-        icon: null,
+        bg: '#fff',
+        color: '#0F146D',
+        icon: '/images/logo/lazada.webp',
     },
 } as const
 
@@ -102,8 +106,11 @@ function getLinks(deck: typeof decks[number]) {
                                     :href="link.url"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="platform-btn inline-flex items-center gap-1.5 py-[5px] pr-2.5 pl-1.5 rounded-full no-underline text-[0.72rem] font-semibold text-white opacity-[0.92] transition-all duration-75 whitespace-nowrap hover:opacity-100 hover:-translate-y-px hover:scale-[1.04] hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-                                    :style="{ '--btn-color': link.bg }"
+                                    class="inline-flex items-center gap-1.5 py-[5px] pr-2.5 pl-1.5 rounded-full no-underline text-[0.72rem] font-semibold text-white opacity-[0.92] transition-all duration-75 whitespace-nowrap hover:opacity-100 hover:-translate-y-px hover:scale-[1.04] hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                                    :style="{
+                                        'background-color': link.bg,
+                                        color: link.color,
+                                    }"
                                 >
                                     <img v-if="link.icon" :src="link.icon" :alt="link.label"
                                          class="w-4 h-4 object-contain rounded-[3px] flex-shrink-0" />
@@ -186,10 +193,5 @@ function getLinks(deck: typeof decks[number]) {
     background: linear-gradient(90deg, #ff6b35, #f7c948, #ff6b35);
     background-size: 200% 100%;
     animation: shimmer 2.5s linear infinite;
-}
-
-/* ── Platform button: CSS custom property for dynamic color ─ */
-.platform-btn {
-    background: var(--btn-color, #333);
 }
 </style>
