@@ -2,8 +2,13 @@
     <footer class="bg-[#008989]">
         <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
             <nav class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
-                <a v-for="item in navigation.main" :key="item.name" :href="item.href"
-                    class="text-gray-200 hover:text-white">{{ item.name }}</a>
+                <NuxtLink v-for="item in navigation.main"
+                    :key="item.name"
+                    :href="item.href"
+                    class="text-gray-200 hover:text-white"
+                >
+                    {{ item.name }}
+                </NuxtLink>
             </nav>
             <div class="mt-16 flex justify-center gap-x-10">
                 <a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank"
@@ -30,6 +35,7 @@ const navigation = {
         // { name: 'Press', href: '#' },
         // { name: 'Accessibility', href: '#' },
         // { name: 'Partners', href: '#' },
+        { name: 'FAQ', href: '/faq' },
     ],
     social: [
         // {

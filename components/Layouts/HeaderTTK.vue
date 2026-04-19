@@ -31,8 +31,8 @@
 
                 </div>
                 <!-- <NuxtLink href="/tentang-kami" class="text-sm/6 font-semibold ">Tentang kami</NuxtLink>
-                <NuxtLink href="/faq" class="text-sm/6 font-semibold ">FAQ</NuxtLink>
                 <NuxtLink href="/kontak" class="text-sm/6 font-semibold ">Kontak</NuxtLink> -->
+                <NuxtLink href="/faq" class="text-sm/6 font-semibold" :class="$route.path === '/faq' ? 'text-primary' : 'text-gray-900 hover:text-primary'">FAQ</NuxtLink>
             </div>
         </nav>
 
@@ -58,6 +58,12 @@
                             <NuxtLink v-for="item in cardsList" :key="item.name" :href="item.href"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold  hover:bg-gray-50">
                                 {{ item.name }}
+                            </NuxtLink>
+                        </div>
+                        <div class="py-6">
+                            <NuxtLink href="/faq" @click="mobileMenuOpen = false"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50">
+                                FAQ
                             </NuxtLink>
                         </div>
                         <!-- <div class="py-6">
