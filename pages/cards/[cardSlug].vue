@@ -12,7 +12,7 @@
                                 v-slot="{ selected }">
                                 <span class="sr-only">{{ image.name }}</span>
                                 <span class="absolute inset-0 overflow-hidden rounded-md">
-                                    <img :src="image" alt="" class="size-full object-cover" />
+                                    <img :src="image" :alt="product?.name ?? ''" class="size-full object-cover" />
                                 </span>
                                 <span
                                     :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']"
@@ -22,8 +22,8 @@
                     </div>
 
                     <TabPanels>
-                        <TabPanel v-for="image in product?.images" :key="image.id">
-                            <img :src="image" :alt="image.alt" class="aspect-square w-full object-cover sm:rounded-lg" />
+                        <TabPanel v-for="(image, index) in product?.images" :key="image.id">
+                            <img :src="image" :alt="`Image of ${product?.name ?? ''} ${index + 1}`" class="aspect-square w-full object-cover sm:rounded-lg" />
                         </TabPanel>
                     </TabPanels>
                 </TabGroup>
@@ -59,10 +59,10 @@
 
                     <!-- Section: link olshop -->
                     <div class="mt-10 flex gap-x-4">
-                        <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank" @click="trackClick(String(route.params.cardSlug), 'shopee', 'card-detail')"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                        <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tokopedia', 'card-detail')"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                        <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tiktokshop', 'card-detail')"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                        <a v-if="product?.link_olshop?.lazada" :href="product?.link_olshop?.lazada" target="_blank" @click="trackClick(String(route.params.cardSlug), 'lazada', 'card-detail')"><img src="/images/logo/lazada.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank" @click="trackClick(String(route.params.cardSlug), 'shopee', 'card-detail')"><img src="/images/logo/shopee.webp" alt="Beli di Shopee" class="h-10 grayscale hover:grayscale-0"/></a>
+                        <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tokopedia', 'card-detail')"><img src="/images/logo/tokopedia.webp" alt="Beli di Tokopedia" class="h-10 grayscale hover:grayscale-0"/></a>
+                        <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tiktokshop', 'card-detail')"><img src="/images/logo/tiktokshop.webp" alt="Beli di TikTok Shop" class="h-10 grayscale hover:grayscale-0"/></a>
+                        <a v-if="product?.link_olshop?.lazada" :href="product?.link_olshop?.lazada" target="_blank" @click="trackClick(String(route.params.cardSlug), 'lazada', 'card-detail')"><img src="/images/logo/lazada.webp" alt="Beli di Lazada" class="h-10 grayscale hover:grayscale-0"/></a>                            
                     </div>
 
                     <!-- <div class="mt-10 flex">
@@ -114,7 +114,7 @@
                 <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-500),transparent)] opacity-10"></div>
                 <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-gray-900 shadow-xl ring-1 shadow-indigo-500/5 ring-white/5 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
                 <div class="mx-auto max-w-2xl lg:max-w-4xl">
-                    <img class="mx-auto h-32" src="/images/svg/spotify_logo.svg" alt="" />
+                    <img class="mx-auto h-32" src="/images/svg/spotify_logo.svg" alt="Spotify" />
                     <figure class="mt-5 mb-5">
                         <div class="text-center text-xl/8 font-bold text-white sm:text-3xl/9">
                             Mainkan musiknya, rasakan momennya lebih hidup

@@ -5,7 +5,7 @@
                 <NuxtLink href="/" class="-m-1.5 p-1.5">
                     <span class="sr-only">Toko Tangan Kanan</span>
                     <img class="h-8 w-auto"
-                        src="/ttk/ttk-teal-logo.png" alt="" />
+                        src="/ttk/ttk-teal-logo.png" alt="Toko Tangan Kanan logo" />
                 </NuxtLink>
             </div>
             
