@@ -41,11 +41,11 @@
             <DialogPanel
                 class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div class="flex items-center justify-between">
-                    <NuxtLink href="/" class="-m-1.5 p-1.5">
+                    <NuxtLink href="/" class="-m-1.5 p-1.5" @click="mobileMenuOpen = false">
                         <span class="sr-only">Toko Tangan Kanan</span>
-                        <img class="h-8 w-auto"
+                        <!-- <img class="h-8 w-auto"
                             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                            alt="" />
+                            alt="" /> -->
                     </NuxtLink>
                     <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
                         <span class="sr-only">Close menu</span>
@@ -55,15 +55,16 @@
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
-                            <a v-for="item in cardsList" :key="item.name" :href="item.href"
-                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold  hover:bg-gray-50">{{
-                                item.name }}</a>
+                            <NuxtLink v-for="item in cardsList" :key="item.name" :href="item.href"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold  hover:bg-gray-50">
+                                {{ item.name }}
+                            </NuxtLink>
                         </div>
-                        <div class="py-6">
-                            <a href="#"
+                        <!-- <div class="py-6">
+                            <NuxtLink href="#"
                                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold  hover:bg-gray-50">Log
-                                in</a>
-                        </div>
+                                in</NuxtLink>
+                        </div> -->
                     </div>
                 </div>
             </DialogPanel>

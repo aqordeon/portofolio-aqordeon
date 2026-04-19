@@ -40,7 +40,11 @@ const platforms = {
 
 type PlatformKey = keyof typeof platforms
 
-const decksWithLinks = decks.filter(d => d.link_online_shop)
+const sorted = ref(false)
+const decksWithLinks = computed(() => {
+    const base = decks.filter(d => d.link_online_shop)
+    return sorted.value ? [...base].sort((a, b) => a.title.localeCompare(b.title)) : base
+})
 
 function getLinks(deck: typeof decks[number]) {
     if (!deck.link_online_shop) return []
@@ -60,6 +64,12 @@ function getLinks(deck: typeof decks[number]) {
         <div class="blob blob-3" aria-hidden="true" />
 
         <div class="relative z-[1] max-w-[520px] mx-auto px-5 pt-10 pb-12 flex flex-col gap-8">
+            <!-- Back to homepage -->
+            <NuxtLink href="/" class="self-start inline-flex items-center gap-1.5 text-slate-400 text-sm font-medium no-underline hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                Homepage
+            </NuxtLink>
+
             <!-- Header -->
             <header class="flex flex-col items-center gap-3 text-center animate-[fadeDown_0.6s_ease_both]">
                 <div class="w-[88px] h-[88px] rounded-full p-[3px] flex items-center justify-center shadow-[0_0_30px_rgba(0,137,137,0.4)] cbg-[linear-gradient(135deg,#008989,#7f00ff,#ff6b6b)]">
@@ -69,6 +79,18 @@ function getLinks(deck: typeof decks[number]) {
                 <h1 class="text-2xl font-extrabold text-white tracking-tight leading-tight">Toko Tangan Kanan</h1>
                 <p class="text-sm text-slate-400 max-w-xs leading-relaxed">Kartu seru buat kalian yang pengen obrolan lebih bermakna ✨</p>
             </header>
+
+            <!-- Sort toggle -->
+            <div class="flex justify-end">
+                <button
+                    @click="sorted = !sorted"
+                    class="inline-flex items-center gap-1.5 text-[0.76rem] font-semibold px-3 py-1.5 rounded-full border transition-all duration-150"
+                    :class="sorted ? 'bg-[#008989]/20 border-[#008989]/50 text-[#00c9c9]' : 'bg-white/[0.04] border-white/[0.1] text-slate-400 hover:text-slate-200 hover:border-white/20'"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4h13M3 8h9M3 12h5m13 0-4 4m0 0-4-4m4 4V8" /></svg>
+                    Urutkan A-Z
+                </button>
+            </div>
 
             <!-- Product Cards -->
             <main class="flex flex-col gap-4">
@@ -94,7 +116,9 @@ function getLinks(deck: typeof decks[number]) {
 
                         <!-- Product info + links -->
                         <div class="flex-1 min-w-0 flex flex-col gap-1.5">
-                            <h2 class="text-base font-bold text-slate-100 leading-tight pr-16">{{ deck.title }}</h2>
+                            <div class="flex items-start justify-between gap-2 pr-16">
+                                <h2 class="text-base font-bold text-slate-100 leading-tight">{{ deck.title }}</h2>
+                            </div>
                             <div class="flex flex-wrap gap-1">
                                 <span v-for="tag in deck.tags" :key="tag"
                                       class="text-[0.68rem] text-slate-500 font-medium">#{{ tag }}</span>
@@ -117,6 +141,13 @@ function getLinks(deck: typeof decks[number]) {
                                     <span v-else class="text-sm leading-none">🛒</span>
                                     <span class="leading-none">{{ link.label }}</span>
                                 </a>
+                            </div>
+                            
+                            <div class="flex justify-end mt-2">
+                                <NuxtLink :href="`/cards/${deck.slug}`"
+                                    class="flex-shrink-0 text-[0.68rem] font-semibold text-[#008989] no-underline hover:text-[#00c9c9] transition-colors whitespace-nowrap">
+                                    Lihat detail →
+                                </NuxtLink>
                             </div>
                         </div>
                     </div>
