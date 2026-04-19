@@ -46,6 +46,8 @@ const decksWithLinks = computed(() => {
     return sorted.value ? [...base].sort((a, b) => a.title.localeCompare(b.title)) : base
 })
 
+const { trackClick } = useTrackClick()
+
 function getLinks(deck: typeof decks[number]) {
     if (!deck.link_online_shop) return []
     return (Object.keys(deck.link_online_shop) as PlatformKey[]).map(key => ({
@@ -135,6 +137,7 @@ function getLinks(deck: typeof decks[number]) {
                                         'background-color': link.bg,
                                         color: link.color,
                                     }"
+                                    @click="trackClick(deck.slug, link.key, 'links')"
                                 >
                                     <img v-if="link.icon" :src="link.icon" :alt="link.label"
                                          class="w-4 h-4 object-contain rounded-[3px] flex-shrink-0" />

@@ -59,9 +59,9 @@
 
                     <!-- Section: link olshop -->
                     <div class="mt-10 flex gap-x-4">
-                        <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                        <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
-                        <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank" @click="trackClick(String(route.params.cardSlug), 'shopee', 'card-detail')"><img src="/images/logo/shopee.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tokopedia', 'card-detail')"><img src="/images/logo/tokopedia.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                        <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tiktokshop', 'card-detail')"><img src="/images/logo/tiktokshop.webp" class="h-10 grayscale hover:grayscale-0"/></a>                            
                     </div>
 
                     <!-- <div class="mt-10 flex">
@@ -155,6 +155,9 @@ import { StarIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/vue/24/outline'
 import { useDecksLP } from '../../composables/cards/decks_lp'
 
+const route = useRoute()
+const { trackClick } = useTrackClick()
+
 
 const dummyDetail = [
         // {
@@ -206,7 +209,7 @@ const dummyDetail = [
 //     product.value = aa
 // }
 // fetchLibrary()
-const product = useDecksLP[useRoute()?.params?.cardSlug]
+const product = useDecksLP[route?.params?.cardSlug]
 
 </script>
 
