@@ -6,11 +6,11 @@
                 alt="" /> -->
             <div class="container w-full flex-auto">
                 <h2 class="text-pretty text-center text-xl md:text-4xl font-semibold tracking-tight text-slate-800">
-                    Mengapa harus kartu Toko Tangan Kanan?
+                    Kenapa harus kartu Toko Tangan Kanan?
                 </h2>
 
                 <p class="md:mt-2 text-pretty text-center text-xs md:text-base text-slate-500 md:w-9/12 mx-auto">
-                    Berikut beberapa keunggulan utama dari kartu Toko Tangan Kanan yang membuatnya berbeda dan layak dipilih untuk menemani momen obrolanmu.
+                    Temukan berbagai keunggulan yang membuat kartu Toko Tangan Kanan berbeda dan layak dipilih untuk menemani setiap momen obrolanmu.
                 </p>
 
                 <ul role="list"
