@@ -52,12 +52,26 @@ const Noir = definePreset(Aura, {
 export default defineNuxtConfig({
     app: {
         head: {
-            title: 'Toko Tangan Kanan', // default fallback title
+            titleTemplate: '%s | Toko Tangan Kanan',
+            title: 'Toko Tangan Kanan',
             htmlAttrs: {
                 lang: 'id',
             },
+            meta: [
+                { name: 'robots', content: 'index, follow' },
+                { name: 'theme-color', content: '#008989' },
+                { property: 'og:type', content: 'website' },
+                { property: 'og:site_name', content: 'Toko Tangan Kanan' },
+                { property: 'og:locale', content: 'id_ID' },
+                { name: 'twitter:card', content: 'summary_large_image' },
+                { name: 'twitter:site', content: '@tokotangankanan' },
+            ],
             link: [
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+                { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+                { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+                { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+                { rel: 'manifest', href: '/site.webmanifest' },
             ]
         }
     },

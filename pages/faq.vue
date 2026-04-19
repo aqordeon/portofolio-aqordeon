@@ -1,4 +1,18 @@
 <script setup lang="ts">
+useSeoMeta({
+    title: 'FAQ - Pertanyaan yang Sering Diajukan',
+    ogTitle: 'FAQ - Pertanyaan yang Sering Diajukan | Toko Tangan Kanan',
+    description: 'Temukan jawaban atas pertanyaan umum seputar produk kartu, pemesanan, pengiriman, garansi, dan layanan Toko Tangan Kanan.',
+    ogDescription: 'Temukan jawaban atas pertanyaan umum seputar produk kartu, pemesanan, pengiriman, garansi, dan layanan Toko Tangan Kanan.',
+    ogImage: 'https://tokotangankanan.com/ttk_logo_1000.jpg',
+    ogUrl: 'https://tokotangankanan.com/faq',
+    twitterCard: 'summary_large_image',
+})
+
+useHead({
+    link: [{ rel: 'canonical', href: 'https://tokotangankanan.com/faq' }]
+})
+
 const faqs = [
     {
         question: 'Apa itu Toko Tangan Kanan?',
