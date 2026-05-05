@@ -138,9 +138,11 @@ import Button from '../components/Utils/Button.vue'
 import { decksTopSellers } from '../composables/useProduct'
 import ProductOnSmallGrid from '../components/Products/ProductOnSmallGrid.vue'
 
+useHead({ titleTemplate: '%s' })
+
 useSeoMeta({
-	title: 'Toko Tangan Kanan | Cards that build your moments',
-	ogTitle: 'Toko Tangan Kanan | Cards that build your moments',
+	title: 'Toko Tangan Kanan | Permainan Kartu untuk Nongkrong, Pasangan & Keluarga',
+	ogTitle: 'Toko Tangan Kanan | Permainan Kartu untuk Nongkrong, Pasangan & Keluarga',
 	description: 'Koleksi permainan kartu seperti Deep, Hangout, Badboy, Family99, dan lainnya. Cocok untuk nongkrong, PDKT, atau ngobrol santai bareng teman dan pasangan.',
 	ogDescription: 'Koleksi permainan kartu seperti Deep, Hangout, Badboy, Family99, dan lainnya. Cocok untuk nongkrong, PDKT, atau ngobrol santai bareng teman dan pasangan.',
 	ogImage: 'https://tokotangankanan.com/ttk_logo_1000.jpg',
