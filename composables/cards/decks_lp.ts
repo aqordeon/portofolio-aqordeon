@@ -14,7 +14,7 @@ function getShopLinks(slug: string) {
 export const useDecksLP = {
     deep: {
         name: 'Deep',
-        title: `Kartu Edisi DEEP Talk - Couples Game | Permainan Untuk Pasangan | Sahabat | Kado Nikah | Tanpa Dare`,
+        title: `Kartu Deep – 50 Pertanyaan Deep Talk untuk Pasangan dan Sahabat`,
         slug: 'deep',
         description: ``,
         descriptionComponent: ProductDescriptionDeep,
@@ -28,7 +28,7 @@ export const useDecksLP = {
     },
     hangout: {
         name: 'Hangout',
-        title: 'Kartu Truth Edisi Nongkrong - Game Seru Untuk Teman Sahabat | Permainan Pertanyaan Obrolan | Tanpa Dare',
+        title: 'Kartu Hangout - Permainan Nongkrong untuk Obrolan Seru Bareng Teman',
         slug: 'hangout',
         description: ``,
         descriptionComponent: ProductDescriptionHangout,
@@ -43,7 +43,7 @@ export const useDecksLP = {
     },
     tot: {
         name: 'This or That',
-        title: `Permainan Kartu THIS or THAT - Pertanyaan Pilihan Seru | Game untuk Teman, Pasangan, Nongkrong`,
+        title: `Kartu This or That - Game Pilihan Seru untuk Mengenal Teman dan Pasangan`,
         slug: 'tot',
         description: ``,
         descriptionComponent: ProductDescriptionToT,
@@ -57,7 +57,7 @@ export const useDecksLP = {
     },
     family99: {
         name: `Family 99`,
-        title: `Permainan Kartu FAMILY 99 - Untuk Lomba Tebak Jawaban Terpopuler Keluarga, Kantor`,
+        title: `Kartu Family 99 -    Game Ice Breaking Seru untuk Gathering dan Kumpul Keluarga`,
         slug: `family99`,
         description: ``,
         descriptionComponent: ProductDescriptionF99,
@@ -71,7 +71,7 @@ export const useDecksLP = {
     },
     badboy: {
         name: `Badboy`,
-        title: `Kartu Truth BADBOY Nongkrong - Game Seru Bareng Sirkel Cowok | Tanpa Dare | Permainannya Laki-Laki`,
+        title: `Kartu Badboy - 50 Pertanyaan Berani untuk Nongkrong Bareng Sirkel Cowok`,
         slug: `badboy`,
         description: null,
         descriptionComponent: ProductDescriptionBadboy,
@@ -85,7 +85,7 @@ export const useDecksLP = {
     },
     "tot-2": {
         name: `This or That 2`,
-        title: `Permainan THIS OR THAT 2 - Pertanyaan Pilihan Seru Untuk Sharing Pendapat Dan Opini`,
+        title: `Kartu This or That 2 - Versi Lebih Seru dengan Konteks untuk Diskusi Lebih Dalam`,
         slug: `tot-2`,
         description: null,
         descriptionComponent: ProductDescriptionToT2,
@@ -99,7 +99,7 @@ export const useDecksLP = {
     },
     "love_sparks": {
         name: `Love Sparks`,
-        title: `GAME VALENTINE Kartu Permainan Pasangan Pacaran - LOVE SPARKS | Couples Date Truth Tanpa Dare`,
+        title: `Kartu Love Sparks - Permainan Kartu Pasangan untuk Mempererat Koneksi Emosional`,
         slug: `love_sparks`,
         description: null,
         descriptionComponent: ProductDescriptionLoveSparks,
