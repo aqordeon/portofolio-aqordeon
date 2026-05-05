@@ -7,12 +7,12 @@
                     <!-- Image selector -->
                     <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                         <TabList class="flex flex-wrap gap-y-4 gap-x-4 md:justify-between">
-                            <Tab v-for="image in product?.images" :key="image.id"
+                            <Tab v-for="image in product?.images" :key="image.src"
                                 class="relative flex h-24 aspect-square cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase  hover:bg-gray-50 focus:outline-none focus:ring focus:ring-indigo-500/50 focus:ring-offset-4"
                                 v-slot="{ selected }">
-                                <span class="sr-only">{{ image.name }}</span>
+                                <span class="sr-only">{{ image.alt }}</span>
                                 <span class="absolute inset-0 overflow-hidden rounded-md">
-                                    <img :src="image" :alt="product?.name ?? ''" class="size-full object-cover" />
+                                    <img :src="image.src" :alt="image.alt" class="size-full object-cover" />
                                 </span>
                                 <span
                                     :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']"
@@ -22,8 +22,8 @@
                     </div>
 
                     <TabPanels>
-                        <TabPanel v-for="(image, index) in product?.images" :key="image.id">
-                            <img :src="image" :alt="`Image of ${product?.name ?? ''} ${index + 1}`" class="aspect-square w-full object-cover sm:rounded-lg" />
+                        <TabPanel v-for="(image, index) in product?.images" :key="image.src">
+                            <img :src="image.src" :alt="image.alt" class="aspect-square w-full object-cover sm:rounded-lg" />
                         </TabPanel>
                     </TabPanels>
                 </TabGroup>
@@ -218,7 +218,7 @@ useSeoMeta({
     ogTitle: () => product?.titleHead ?? 'Kartu Permainan Toko Tangan Kanan',
     description: () => `Beli ${product?.name ?? 'kartu permainan'} dari Toko Tangan Kanan. Permainan kartu berkualitas untuk nongkrong, pasangan, dan keluarga. Tersedia di Shopee, Tokopedia, dan Lazada.`,
     ogDescription: () => `Beli ${product?.name ?? 'kartu permainan'} dari Toko Tangan Kanan. Permainan kartu berkualitas untuk nongkrong, pasangan, dan keluarga. Tersedia di Shopee, Tokopedia, dan Lazada.`,
-    ogImage: () => product?.images?.[0]?.startsWith('http') ? product.images[0] : `https://tokotangankanan.com${product?.images?.[0] ?? '/ttk_logo_1000.jpg'}`,
+    ogImage: () => product?.images?.[0]?.src?.startsWith('http') ? product.images[0].src : `https://tokotangankanan.com${product?.images?.[0]?.src ?? '/ttk_logo_1000.jpg'}`,
     ogUrl: () => `https://tokotangankanan.com${product?.href ?? '/'}`,
     twitterCard: 'summary_large_image',
 })
