@@ -14,7 +14,8 @@ function getShopLinks(slug: string) {
 export const useDecksLP = {
     deep: {
         name: 'Deep',
-        title: `Kartu Deep – 50 Pertanyaan Deep Talk untuk Pasangan dan Sahabat`,
+        title: `Kartu Deep - 50 Pertanyaan Deep Talk untuk Pasangan dan Sahabat`,
+        titleHead: 'Kartu Deep - Deep Talk Game | Toko Tangan Kanan',
         slug: 'deep',
         description: ``,
         descriptionComponent: ProductDescriptionDeep,
@@ -29,6 +30,7 @@ export const useDecksLP = {
     hangout: {
         name: 'Hangout',
         title: 'Kartu Hangout - Permainan Nongkrong untuk Obrolan Seru Bareng Teman',
+        titleHead: 'Kartu Hangout - Permainan Nongkrong | Toko Tangan Kanan',
         slug: 'hangout',
         description: ``,
         descriptionComponent: ProductDescriptionHangout,
@@ -44,6 +46,7 @@ export const useDecksLP = {
     tot: {
         name: 'This or That',
         title: `Kartu This or That - Game Pilihan Seru untuk Mengenal Teman dan Pasangan`,
+        titleHead: 'Kartu This or That - Game Pilihan Seru | Toko Tangan Kanan',
         slug: 'tot',
         description: ``,
         descriptionComponent: ProductDescriptionToT,
@@ -57,7 +60,8 @@ export const useDecksLP = {
     },
     family99: {
         name: `Family 99`,
-        title: `Kartu Family 99 -    Game Ice Breaking Seru untuk Gathering dan Kumpul Keluarga`,
+        title: `Kartu Family 99 - Game Ice Breaking Seru untuk Gathering dan Kumpul Keluarga`,
+        titleHead: 'Kartu Family 99 - Game Ice Breaking Seru | Toko Tangan Kanan',
         slug: `family99`,
         description: ``,
         descriptionComponent: ProductDescriptionF99,
@@ -72,6 +76,7 @@ export const useDecksLP = {
     badboy: {
         name: `Badboy`,
         title: `Kartu Badboy - 50 Pertanyaan Berani untuk Nongkrong Bareng Sirkel Cowok`,
+        titleHead: 'Kartu Badboy - Permainan Kartu Cowok | Toko Tangan Kanan',
         slug: `badboy`,
         description: null,
         descriptionComponent: ProductDescriptionBadboy,
@@ -86,6 +91,7 @@ export const useDecksLP = {
     "tot-2": {
         name: `This or That 2`,
         title: `Kartu This or That 2 - Versi Lebih Seru dengan Konteks untuk Diskusi Lebih Dalam`,
+        titleHead: 'Kartu This or That 2 - Game Pilihan Seru | Toko Tangan Kanan',
         slug: `tot-2`,
         description: null,
         descriptionComponent: ProductDescriptionToT2,
@@ -100,6 +106,7 @@ export const useDecksLP = {
     "love_sparks": {
         name: `Love Sparks`,
         title: `Kartu Love Sparks - Permainan Kartu Pasangan untuk Mempererat Koneksi Emosional`,
+        titleHead: 'Kartu Love Sparks - Permainan Kartu Pasangan | Toko Tangan Kanan',
         slug: `love_sparks`,
         description: null,
         descriptionComponent: ProductDescriptionLoveSparks,
