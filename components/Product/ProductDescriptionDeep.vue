@@ -26,6 +26,6 @@ import KualitasKartu from './Description/KualitasKartu.vue';
         <KualitasKartu class="mt-4" />
         <GreetingPenutup class="mt-4" />
 
-        <p class="mt-4"> #TruthCard #TruthOrDare #CardGames #BoardGames </p>
+        <!-- <p class="mt-4"> #TruthCard #TruthOrDare #CardGames #BoardGames </p> -->
     </div>
 </template>
