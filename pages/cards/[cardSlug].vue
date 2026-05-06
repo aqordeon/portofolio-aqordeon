@@ -214,10 +214,10 @@ const dummyDetail = [
 const product = useDecksLP[route?.params?.cardSlug]
 
 useSeoMeta({
-    title: () => product?.titleHead ?? 'Kartu Permainan Toko Tangan Kanan',
-    ogTitle: () => product?.titleHead ?? 'Kartu Permainan Toko Tangan Kanan',
-    description: () => `Beli ${product?.name ?? 'kartu permainan'} dari Toko Tangan Kanan. Permainan kartu berkualitas untuk nongkrong, pasangan, dan keluarga. Tersedia di Shopee, Tokopedia, dan Lazada.`,
-    ogDescription: () => `Beli ${product?.name ?? 'kartu permainan'} dari Toko Tangan Kanan. Permainan kartu berkualitas untuk nongkrong, pasangan, dan keluarga. Tersedia di Shopee, Tokopedia, dan Lazada.`,
+    title: () => product?.meta?.title ?? 'Kartu Permainan Toko Tangan Kanan',
+    ogTitle: () => product?.meta?.title ?? 'Kartu Permainan Toko Tangan Kanan',
+    description: () => product.meta?.description ?? 'Kartu permainan seru dari Toko Tangan Kanan',
+    ogDescription: () => product.meta?.description ?? 'Kartu permainan seru dari Toko Tangan Kanan',
     ogImage: () => product?.images?.[0]?.src?.startsWith('http') ? product.images[0].src : `https://tokotangankanan.com${product?.images?.[0]?.src ?? '/ttk_logo_1000.jpg'}`,
     ogUrl: () => `https://tokotangankanan.com${product?.href ?? '/'}`,
     twitterCard: 'summary_large_image',
