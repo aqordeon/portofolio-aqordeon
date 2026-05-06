@@ -16,7 +16,7 @@ export const useDecksLP = {
         name: 'Deep',
         title: `Kartu Deep - 50 Pertanyaan Deep Talk untuk Pasangan dan Sahabat`,
         meta: {
-            title: 'Kartu Deep - Deep Talk Game | Toko Tangan Kanan',
+            title: 'Kartu Deep - Deep Talk Game',
             description: 'Kartu Deep - 50 pertanyaan deep talk untuk saling mengenal lebih dalam. Cocok untuk pasangan & sahabat. Semi anti-air, bilingual ID/EN. Mulai ngobrol lebih bermakna!'
         },
         slug: 'deep',
@@ -37,7 +37,7 @@ export const useDecksLP = {
         name: 'Hangout',
         title: 'Kartu Hangout - Permainan Nongkrong untuk Obrolan Seru Bareng Teman',
         meta: {
-            title: 'Kartu Hangout - Permainan Nongkrong | Toko Tangan Kanan',
+            title: 'Kartu Hangout - Permainan Nongkrong',
             description: 'Kartu Hangout - game nongkrong seru dengan pertanyaan ringan tapi bikin ngakak. Cocok untuk kenalan baru sampai sahabat lama. Anti awkward silence! '
         },
         slug: 'hangout',
@@ -61,7 +61,7 @@ export const useDecksLP = {
         name: 'This or That',
         title: `Kartu This or That - Game Pilihan Seru untuk Mengenal Teman dan Pasangan`,
         meta: {
-            title: 'Kartu This or That - Game Pilihan Seru | Toko Tangan Kanan',
+            title: 'Kartu This or That - Game Pilihan Seru',
             description: 'Kartu This or That - game pilihan seru untuk mengenal karakter teman & pasangan. Tanpa dare, tanpa awkward. Cocok untuk nongkrong & first date! '
         },
         slug: 'tot',
@@ -82,7 +82,7 @@ export const useDecksLP = {
         name: `Family 99`,
         title: `Kartu Family 99 - Game Ice Breaking Seru untuk Gathering dan Kumpul Keluarga`,
         meta: {
-            title: 'Kartu Family 99 - Game Ice Breaking Seru | Toko Tangan Kanan',
+            title: 'Kartu Family 99 - Game Ice Breaking Seru',
             description: 'Kartu Family 99 - ice breaking seru untuk kumpul keluarga & gathering. 99 pertanyaan yang bikin suasana cair dan semua generasi bisa ikut main! '
         },
         slug: `family99`,
@@ -103,7 +103,7 @@ export const useDecksLP = {
         name: `Badboy`,
         title: `Kartu Badboy - 50 Pertanyaan Berani untuk Nongkrong Bareng Sirkel Cowok`,
         meta: {
-            title: 'Kartu Badboy - Permainan Kartu Cowok | Toko Tangan Kanan',
+            title: 'Kartu Badboy - Permainan Kartu Cowok',
             description: 'Kartu Badboy - 50 pertanyaan berani khusus buat sirkel cowok. Nongkrong jadi lebih jujur & seru. Tanpa dare, langsung ke intinya. Berani coba? '
         },
         slug: `badboy`,
@@ -124,7 +124,7 @@ export const useDecksLP = {
         name: `This or That 2`,
         title: `Kartu This or That 2 - Versi Lebih Seru dengan Konteks untuk Diskusi Lebih Dalam`,
         meta: {
-            title: 'Kartu This or That 2 - Game Pilihan Seru | Toko Tangan Kanan',
+            title: 'Kartu This or That 2 - Game Pilihan Seru',
             description: 'Kartu This or That 2 - versi upgrade dengan konteks di setiap kartu. Diskusi lebih seru & dalam. Cocok untuk yang sudah main versi pertama! '
         },
         slug: `tot-2`,
@@ -145,7 +145,7 @@ export const useDecksLP = {
         name: `Love Sparks`,
         title: `Kartu Love Sparks - Permainan Kartu Pasangan untuk Mempererat Koneksi Emosional`,
         meta: {
-            title: 'Kartu Love Sparks - Permainan Kartu Pasangan | Toko Tangan Kanan',
+            title: 'Kartu Love Sparks - Permainan Kartu Pasangan',
             description: 'Kartu Love Sparks - permainan kartu untuk pasangan yang ingin lebih terhubung. Perkuat koneksi emosional lewat pertanyaan yang hangat & intim. '
         },
         slug: `love_sparks`,
