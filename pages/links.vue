@@ -159,7 +159,7 @@ function getLinks(deck: typeof decks[number]) {
 
             <!-- Footer -->
             <footer class="text-center text-slate-500 text-[0.78rem] flex flex-col gap-1">
-                <p>© 2025 Toko Tangan Kanan</p>
+                <p>© 2026 Toko Tangan Kanan</p>
                 <a href="https://www.instagram.com/tokotangankanan" target="_blank" rel="noopener noreferrer"
                    class="text-[#008989] no-underline font-semibold transition-colors hover:text-[#00bfbf]">
                     @tokotangankanan
