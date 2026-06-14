@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white">
-        <div class="mx-auto max-w-2xl pxc-4 py-16 sm:pxx-6 sm:py-24 lg:max-w-4xl zlg:px-8">
+        <div class="mx-auto max-w-2xl pxc-4 py-16 sm:pxx-6 sm:py-24 lg:max-w-4xl xl:max-w-6xl zlg:px-8">
             <div class="lg:grid lg:grid-cols-7 lg:items-start lg:gap-x-8 mb-10">
                 <!-- Section: Image gallery -->
                 <TabGroup as="div" class="flex flex-col-reverse col-span-3">
