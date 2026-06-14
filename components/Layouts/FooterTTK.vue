@@ -18,7 +18,7 @@
                 </a>
             </div>
             <p class="mt-10 text-center text-sm/6 text-gray-200">
-                &copy; 2025 Toko Tangan Kanan. All rights reserved.
+                &copy; 2026 Toko Tangan Kanan. All rights reserved.
             </p>
         </div>
     </footer>
