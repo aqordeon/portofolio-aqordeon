@@ -27,8 +27,18 @@ import KualitasKartu from './Description/KualitasKartu.vue';
         </p>
 
         <KeutamaanKartu class="mt-4" />
+        
+        <div class="mt-4">
+            <p class="font-bold">Cocok untuk momen:</p>
+            <ul class="list-inside list-disc">
+                <li>Lomba cerdas cermat (hari kemerdekaan 17 Agustus, class meeting sekolah, dll)</li>
+                <li>Ice breaking acara (reuni sekolah/webinar)</li>
+                <li>Kumpul keluarga (Idul Fitri, Imlek, Natal, dll)</li>
+                <li>Acara santai bersama teman-teman</li>
+            </ul>
+        </div>
 
-        <p class="mt-4">Jumlah pemain: 2 orang/lebih</p>
+        <p class="mt-4"><span class="font-bold">Jumlah pemain</span>: 2 orang/lebih</p>
 
         <KelengkapanKartu class="mt-4" :addStart="['50 kartu kuis, tiap kuis mempunyai 5 jawaban']" />
         <KualitasKartu class="mt-4" />

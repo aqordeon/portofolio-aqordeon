@@ -20,7 +20,18 @@ import KualitasKartu from './Description/KualitasKartu.vue';
             dan menggambarkan isi kartu.
         </p>
 
-        <p class="mt-4">Jumlah pemain: 2-6 Orang</p>
+        
+        <div class="mt-4">
+            <p class="font-bold">Momen yang pas untuk deeptalk:</p>
+            <ul class="list-inside list-disc">
+                <li>Kemah malam (deeptalk di depan api unggun).</li>
+                <li>Night drive sambil ngobrol intim.</li>
+                <li>Late night conversations (pillowtalk, sleepcall).</li>
+                <li>Ngobrol santai di cafe (sambil ngopi, dll).</li>
+            </ul>
+        </div>
+
+        <p class="mt-4"><span class="font-bold">Jumlah pemain</span>: 2-6 Orang</p>
         
         <KelengkapanKartu class="mt-4" :addStart="['50 kartu pertanyaan topik deep talk']" />
         <KualitasKartu class="mt-4" />

@@ -6,7 +6,7 @@ const props = defineProps<{
 
 <template>
     <div>
-        <p>Kelengkapan produk:</p>
+        <p class="font-bold">Kelengkapan produk:</p>
         <ul class="list-inside list-disc">
             <template v-for="item in props.addStart" :key="item">
                 <li>{{ item }}</li>

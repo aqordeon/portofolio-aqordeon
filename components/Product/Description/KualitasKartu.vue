@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <p>Kualitas kartu: </p>
+        <p class="font-bold">Kualitas kartu: </p>
         <ul class="list-inside list-disc">
             <li>Desain sangat menarik dan modern (aesthetic untuk dipost ke sosmed). </li>
             <li>Terdapat 2 versi bahasa sekaligus, Indonesia dan English.</li>
