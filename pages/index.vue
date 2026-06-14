@@ -34,7 +34,7 @@
 						<DashboardIndexPoints />
 
 						<!-- Section: Best Seller -->
-						<div class="container px-4 py-8 sm:px-6 md:py-24">
+						<div class="container px-4 py-8 sm:px-6 md:py-12">
 							<h2 class="text-slate-700 text-lg md:text-2xl font-bold tracking-tight text-center">
 								Best Seller
 							</h2>
