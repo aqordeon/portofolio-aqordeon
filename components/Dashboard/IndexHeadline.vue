@@ -14,18 +14,27 @@
                 <p class="mt-4 md:mt-8 text-pretty text-xs md:text-lg md:font-medium text-gray-500">
                     Satu kartu bisa jadi awal obrolan yang seru, dekatin yang jauh, atau bikin nongkrong makin pecah. Banyak varian untuk semua momenmu.
                 </p>
-                <!-- <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <NuxtLink href="/decks" class="text-sm/6 font-semibold">
-                        Lihat semua variasi <span aria-hidden="true">→</span>
+                <div class="mt-6 md:mt-10 flex items-center justify-center gap-3">
+                    <NuxtLink to="/cards">
+                        <Button type="primary" size="lg">
+                            Lihat Semua Kartu
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        </Button>
                     </NuxtLink>
-                </div> -->
+                    <NuxtLink to="/faq">
+                        <Button type="secondary" size="lg">FAQ</Button>
+                    </NuxtLink>
+                </div>
             </div>
         </div>
 
         <div class="flow-root">
             <img src="/images/hero_images.webp"
-                alt="App screenshot" xwidth="2432" xheight="1442"
-                class="qw-[76rem] rounded-md mx-auto" />
+                alt="Berbagai varian kartu permainan Toko Tangan Kanan — Deep, Hangout, Family 99, dan lainnya — untuk menemani momen nongkrong, pasangan, dan keluarga"
+                class="rounded-md mx-auto" />
         </div>
 
         <!-- <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu xoverflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
@@ -38,4 +47,5 @@
 
 <script setup>
 import { ref } from 'vue'
+import Button from '../Utils/Button.vue'
 </script>

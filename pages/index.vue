@@ -1,6 +1,4 @@
 <template>
-	<DashboardIndex />
-
 	<div class="bg-white">
 
 		<main>

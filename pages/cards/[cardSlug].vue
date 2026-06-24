@@ -1,6 +1,17 @@
 <template>
     <div class="bg-white">
-        <div class="mx-auto max-w-2xl pxc-4 py-16 sm:pxx-6 sm:py-24 lg:max-w-4xl xl:max-w-6xl zlg:px-8">
+        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-4xl xl:max-w-6xl lg:px-8">
+            <!-- Breadcrumb -->
+            <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+                <ol class="flex flex-wrap items-center gap-x-2 text-gray-500">
+                    <li><NuxtLink to="/" class="hover:text-primary">Beranda</NuxtLink></li>
+                    <li aria-hidden="true" class="text-gray-300">/</li>
+                    <li><NuxtLink to="/cards" class="hover:text-primary">Semua Kartu</NuxtLink></li>
+                    <li aria-hidden="true" class="text-gray-300">/</li>
+                    <li class="font-medium text-gray-700" aria-current="page">{{ product?.name }}</li>
+                </ol>
+            </nav>
+
             <div class="lg:grid lg:grid-cols-7 lg:items-start lg:gap-x-8 mb-10">
                 <!-- Section: Image gallery -->
                 <TabGroup as="div" class="flex flex-col-reverse col-span-3">
@@ -8,14 +19,14 @@
                     <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                         <TabList class="flex flex-wrap gap-y-4 gap-x-4 md:justify-between">
                             <Tab v-for="image in product?.images" :key="image.src"
-                                class="relative flex h-24 aspect-square cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase  hover:bg-gray-50 focus:outline-none focus:ring focus:ring-indigo-500/50 focus:ring-offset-4"
+                                class="relative flex h-24 aspect-square cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase  hover:bg-gray-50 focus:outline-none focus:ring focus:ring-primary/50 focus:ring-offset-4"
                                 v-slot="{ selected }">
                                 <span class="sr-only">{{ image.alt }}</span>
                                 <span class="absolute inset-0 overflow-hidden rounded-md">
                                     <img :src="image.src" :alt="image.alt" class="size-full object-cover" />
                                 </span>
                                 <span
-                                    :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']"
+                                    :class="[selected ? 'ring-primary' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']"
                                     aria-hidden="true" />
                             </Tab>
                         </TabList>
@@ -58,11 +69,14 @@
                     </div>
 
                     <!-- Section: link olshop -->
-                    <div class="mt-10 flex gap-x-4">
-                        <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank" @click="trackClick(String(route.params.cardSlug), 'shopee', 'card-detail')"><img src="/images/logo/shopee.webp" alt="Beli di Shopee" class="h-10 grayscale hover:grayscale-0"/></a>
-                        <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tokopedia', 'card-detail')"><img src="/images/logo/tokopedia.webp" alt="Beli di Tokopedia" class="h-10 grayscale hover:grayscale-0"/></a>
-                        <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank" @click="trackClick(String(route.params.cardSlug), 'tiktokshop', 'card-detail')"><img src="/images/logo/tiktokshop.webp" alt="Beli di TikTok Shop" class="h-10 grayscale hover:grayscale-0"/></a>
-                        <a v-if="product?.link_olshop?.lazada" :href="product?.link_olshop?.lazada" target="_blank" @click="trackClick(String(route.params.cardSlug), 'lazada', 'card-detail')"><img src="/images/logo/lazada.webp" alt="Beli di Lazada" class="h-10 grayscale hover:grayscale-0"/></a>                            
+                    <div class="mt-10">
+                        <p class="text-sm font-medium text-gray-500 mb-3">Beli sekarang di:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a v-if="product?.link_olshop?.shopee" :href="product?.link_olshop?.shopee" target="_blank" rel="noopener" @click="trackClick(String(route.params.cardSlug), 'shopee', 'card-detail')"><img src="/images/logo/shopee.webp" alt="Beli di Shopee" class="h-10 transition-transform hover:scale-105"/></a>
+                            <a v-if="product?.link_olshop?.tokopedia" :href="product?.link_olshop?.tokopedia" target="_blank" rel="noopener" @click="trackClick(String(route.params.cardSlug), 'tokopedia', 'card-detail')"><img src="/images/logo/tokopedia.webp" alt="Beli di Tokopedia" class="h-10 transition-transform hover:scale-105"/></a>
+                            <a v-if="product?.link_olshop?.tiktokshop" :href="product?.link_olshop?.tiktokshop" target="_blank" rel="noopener" @click="trackClick(String(route.params.cardSlug), 'tiktokshop', 'card-detail')"><img src="/images/logo/tiktokshop.webp" alt="Beli di TikTok Shop" class="h-10 transition-transform hover:scale-105"/></a>
+                            <a v-if="product?.link_olshop?.lazada" :href="product?.link_olshop?.lazada" target="_blank" rel="noopener" @click="trackClick(String(route.params.cardSlug), 'lazada', 'card-detail')"><img src="/images/logo/lazada.webp" alt="Beli di Lazada" class="h-10 transition-transform hover:scale-105"/></a>
+                        </div>
                     </div>
 
                     <!-- <div class="mt-10 flex">
@@ -84,14 +98,14 @@
                                     <DisclosureButton
                                         class="group relative flex w-full items-center justify-between py-6 text-left">
                                         <span
-                                            :class="[open ? 'text-indigo-600' : '', 'text-sm font-medium']">{{
+                                            :class="[open ? 'text-primary' : '', 'text-sm font-medium']">{{
                                             detail.name }}</span>
                                         <span class="ml-6 flex items-center">
                                             <PlusIcon v-if="!open"
                                                 class="block size-6 text-gray-400 group-hover:text-gray-500"
                                                 aria-hidden="true" />
                                             <MinusIcon v-else
-                                                class="block size-6 text-indigo-400 group-hover:text-indigo-500"
+                                                class="block size-6 text-primary/70 group-hover:text-primary"
                                                 aria-hidden="true" />
                                         </span>
                                     </DisclosureButton>
@@ -111,8 +125,8 @@
             
             <!-- Section: Spotify -->
             <section v-if="product?.link_spotify" class="relative isolate overflow-hidden bg-gray-800 px-6 sm:pt-10 sm:pb-12 lg:px-8">
-                <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-500),transparent)] opacity-10"></div>
-                <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-gray-900 shadow-xl ring-1 shadow-indigo-500/5 ring-white/5 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+                <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,#008989,transparent)] opacity-20"></div>
+                <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-gray-900 shadow-xl ring-1 shadow-teal-500/5 ring-white/5 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
                 <div class="mx-auto max-w-2xl lg:max-w-4xl">
                     <img class="mx-auto h-32" src="/images/svg/spotify_logo.svg" alt="Spotify" />
                     <figure class="mt-5 mb-5">

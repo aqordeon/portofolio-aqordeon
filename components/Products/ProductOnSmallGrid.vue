@@ -28,12 +28,11 @@ const props = defineProps<{
             <div class="mt-4 flex justify-between">
                 <div>
                     <h3 class="text-sm text-gray-700">
-                        <NuxtLink :href="`cards/${product.slug}`" class="relative font-semibold text-lg">
+                        <NuxtLink :href="`/cards/${product.slug}`" class="relative font-semibold text-lg">
                             <span aria-hidden="true" class="absolute inset-0" />
                             {{ product.title }}
                         </NuxtLink>
                     </h3>
-                    <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
                 </div>
                 <!-- <p class="text-sm font-medium">{{ product.price }}</p> -->
             </div>
