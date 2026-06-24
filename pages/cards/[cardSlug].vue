@@ -156,6 +156,7 @@ import {
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/vue/24/outline'
 import { useDecksLP } from '../../composables/cards/decks_lp'
+import { decks } from '../../composables/useProduct'
 
 const route = useRoute()
 const { trackClick } = useTrackClick()
@@ -223,8 +224,73 @@ useSeoMeta({
     twitterCard: 'summary_large_image',
 })
 
+// --- Structured data (JSON-LD): Product + BreadcrumbList ---
+const SITE_URL = 'https://tokotangankanan.com'
+const SELLER_NAMES: Record<string, string> = {
+    shopee: 'Shopee',
+    tiktokshop: 'TikTok Shop',
+    tokopedia: 'Tokopedia',
+    lazada: 'Lazada',
+}
+
+const toAbsolute = (src?: string) =>
+    !src ? `${SITE_URL}/ttk_logo_1000.jpg` : src.startsWith('http') ? src : `${SITE_URL}${src}`
+
+const sku = decks.find(d => d.slug === product?.slug)?.sku
+
+const marketplaceOffers = Object.entries(product?.link_olshop ?? {})
+    .filter(([, url]) => !!url)
+    .map(([key, url]) => ({
+        '@type': 'Offer',
+        url,
+        priceCurrency: 'IDR',
+        ...(product?.price ? { price: product.price } : {}),
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+        seller: { '@type': 'Organization', name: SELLER_NAMES[key] ?? key },
+    }))
+
+const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product?.name ?? product?.title,
+    description: product?.meta?.description,
+    image: (product?.images ?? []).map(img => toAbsolute(img.src)),
+    ...(sku ? { sku } : {}),
+    brand: { '@type': 'Brand', name: 'Toko Tangan Kanan' },
+    url: `${SITE_URL}${product?.href ?? '/'}`,
+    // Only emit offers when a real price is set (price 0 = placeholder).
+    ...(product?.price && marketplaceOffers.length
+        ? {
+            offers: {
+                '@type': 'AggregateOffer',
+                priceCurrency: 'IDR',
+                lowPrice: product.price,
+                highPrice: product.price,
+                offerCount: marketplaceOffers.length,
+                availability: 'https://schema.org/InStock',
+                offers: marketplaceOffers,
+            },
+        }
+        : {}),
+}
+
+const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Beranda', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Semua Kartu', item: `${SITE_URL}/cards` },
+        { '@type': 'ListItem', position: 3, name: product?.name ?? product?.title },
+    ],
+}
+
 useHead({
-    link: [{ rel: 'canonical', href: () => `https://tokotangankanan.com${product?.href ?? '/'}` }]
+    link: [{ rel: 'canonical', href: () => `https://tokotangankanan.com${product?.href ?? '/'}` }],
+    script: [
+        { type: 'application/ld+json', innerHTML: JSON.stringify(productJsonLd) },
+        { type: 'application/ld+json', innerHTML: JSON.stringify(breadcrumbJsonLd) },
+    ],
 })
 
 </script>

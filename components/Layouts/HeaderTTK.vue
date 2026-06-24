@@ -56,8 +56,13 @@
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
                             <NuxtLink v-for="item in cardsList" :key="item.name" :href="item.href"
+                                @click="mobileMenuOpen = false"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold  hover:bg-gray-50">
                                 {{ item.name }}
+                            </NuxtLink>
+                            <NuxtLink href="/cards" @click="mobileMenuOpen = false"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-primary hover:bg-gray-50">
+                                Lihat semua kartu →
                             </NuxtLink>
                         </div>
                         <div class="py-6">
@@ -98,6 +103,13 @@
                         </div>
                     </NuxtLink>
                 </ul>
+                <NuxtLink
+                    href="/cards"
+                    @click="() => _popover?.hide()"
+                    class="mt-1 mx-1 px-3 py-1.5 rounded text-sm font-semibold text-primary hover:bg-primary/10 border-t border-gray-100 pt-2"
+                >
+                    Lihat semua kartu →
+                </NuxtLink>
             </div>
         </Popover>
     </header>

@@ -56,6 +56,24 @@ const faqs = [
     },
 ]
 
+// Structured data (JSON-LD): FAQPage — lets the Q&A appear as a rich result.
+useHead({
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faqs.map(faq => ({
+                    '@type': 'Question',
+                    name: faq.question,
+                    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+                })),
+            }),
+        },
+    ],
+})
+
 const openStates = ref<boolean[]>(faqs.map(() => false))
 
 const allExpanded = computed(() => openStates.value.every(Boolean))
