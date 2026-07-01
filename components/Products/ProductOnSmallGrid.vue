@@ -18,11 +18,13 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="relative group flex flex-col justify-between">
+    <div v-reveal class="relative group flex flex-col justify-between transition-transform duration-75 hover:-translate-y-1.5">
         <div>
-            <div class="relative xaspect-square w-full rounded-md overflow-hidden border border-gray-200 group-hover:border-gray-500 object-contain aspect-[4/5]">
-                <NuxtLink as="a" :href="`/cards/${product.slug}`" class="">
-                    <img :src="product.imageSrc" :alt="product.imageAlt" class="" />
+            <div class="relative w-full rounded-md overflow-hidden border border-gray-200 group-hover:border-primary/60 aspect-[4/5] shadow-sm transition-all duration-75 group-hover:shadow-xl group-hover:shadow-primary/10">
+                <NuxtLink as="a" :href="`/cards/${product.slug}`" class="block h-full w-full">
+                    <img :src="product.imageSrc" :alt="product.imageAlt" class="h-full w-full object-cover transition-transform duration-150 ease-out group-hover:scale-105" />
+                    <!-- sheen sweep on hover -->
+                    <span class="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[ttk-shine_0.9s_ease-out]" />
                 </NuxtLink>
             </div>
             <div class="mt-4 flex justify-between">

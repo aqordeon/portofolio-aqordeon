@@ -34,7 +34,7 @@
 						<!-- Section: Best Seller -->
 						<div class="container px-4 py-8 sm:px-6 md:py-12">
 							<h2 class="text-slate-700 text-lg md:text-2xl font-bold tracking-tight text-center">
-								Best Seller
+								<span class="inline-block rounded-full bg-primary/10 px-3 py-0.5 text-primary">Best Seller</span>
 							</h2>
 							<p class="text-slate-500 text-xs md:text-base mt-2 mx-auto text-justify md:text-center md:text-balance">
 								Variant yang selalu jadi pilihan favorit dari Toko Tangan Kanan!
