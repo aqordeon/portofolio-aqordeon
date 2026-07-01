@@ -1,6 +1,7 @@
 export const decks = [
     {
         slug: 'deep',
+        has_landing_page: true,
         title: 'Deep',
         sku: 'ttk-c-deep-1',
         imageSrc: '/images/cards/deep1-4x5.webp',
@@ -17,6 +18,7 @@ export const decks = [
     },
     {
         slug: 'hangout',
+        has_landing_page: true,
         title: 'Hangout',
         sku: 'ttk-c-hangout-1',
         imageSrc: '/images/cards/hangout1-4x5.webp',
@@ -33,6 +35,7 @@ export const decks = [
     },
     {
         slug: 'tot',
+        has_landing_page: true,
         title: 'This or That',
         sku: 'ttk-c-tot-1',
         imageSrc: '/images/cards/tot1-4x5.webp',
@@ -49,6 +52,7 @@ export const decks = [
     },
     {
         slug: 'family99',
+        has_landing_page: true,
         title: 'Family 99',
         sku: 'ttk-c-family99-1',
         imageSrc: '/images/cards/family991-4x5.webp',
@@ -65,6 +69,7 @@ export const decks = [
     },
     {
         slug: 'berani-gak',
+        has_landing_page: false,
         title: 'Berani Gak?',
         sku: 'ttk-c-bg-1',
         imageSrc: '/images/cards/bg1-4x5.webp',
@@ -81,6 +86,7 @@ export const decks = [
     },
     {
         slug: 'badboy',
+        has_landing_page: true,
         title: 'Badboy',
         sku: 'ttk-c-badboy-1',
         imageSrc: '/images/cards/badboy1-4x5.webp',
@@ -97,6 +103,7 @@ export const decks = [
     },
     {
         slug: 'tot-2',
+        has_landing_page: true,
         title: 'This or That 2',
         sku: 'ttk-c-tot-2',
         imageSrc: '/images/cards/tot21-4x5.webp',
@@ -113,6 +120,7 @@ export const decks = [
     },
     {
         slug: 'love_sparks',
+        has_landing_page: true,
         title: 'Love Sparks',
         sku: 'ttk-c-lovesparks-1',
         imageSrc: '/images/cards/love_sparks_main.webp',

@@ -228,6 +228,16 @@ const dummyDetail = [
 // fetchLibrary()
 const product = useDecksLP[route?.params?.cardSlug]
 
+// Unknown slug (typo, or a product without a landing page): return a real 404
+// instead of a blank HTTP 200 page — a soft 404 hurts crawl trust.
+if (!product) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Kartu tidak ditemukan',
+        fatal: true,
+    })
+}
+
 useSeoMeta({
     title: () => product?.meta?.title ?? 'Kartu Permainan Toko Tangan Kanan',
     ogTitle: () => product?.meta?.title ?? 'Kartu Permainan Toko Tangan Kanan',
