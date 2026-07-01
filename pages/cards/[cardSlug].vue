@@ -23,7 +23,7 @@
                                 v-slot="{ selected }">
                                 <span class="sr-only">{{ image.alt }}</span>
                                 <span class="absolute inset-0 overflow-hidden rounded-md">
-                                    <img :src="image.src" :alt="image.alt" class="size-full object-cover" />
+                                    <img :src="image.src" :alt="image.alt" width="96" height="96" loading="lazy" decoding="async" class="size-full object-cover" />
                                 </span>
                                 <span
                                     :class="[selected ? 'ring-primary' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']"
@@ -34,7 +34,7 @@
 
                     <TabPanels>
                         <TabPanel v-for="(image, index) in product?.images" :key="image.src">
-                            <img :src="image.src" :alt="image.alt" class="aspect-square w-full object-cover sm:rounded-lg" />
+                            <img :src="image.src" :alt="image.alt" width="800" height="800" :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : undefined" decoding="async" class="aspect-square w-full object-cover sm:rounded-lg" />
                         </TabPanel>
                     </TabPanels>
                 </TabGroup>
@@ -260,7 +260,13 @@ const SELLER_NAMES: Record<string, string> = {
 const toAbsolute = (src?: string) =>
     !src ? `${SITE_URL}/ttk_logo_1000.jpg` : src.startsWith('http') ? src : `${SITE_URL}${src}`
 
-const sku = decks.find(d => d.slug === product?.slug)?.sku
+// `rating`/`rating_count` are optional on a deck. Add them (e.g. sourced from
+// verified marketplace reviews) to emit star ratings in search — never invent
+// them: fake AggregateRating violates Google's guidelines and risks a penalty.
+const deckMeta = decks.find(d => d.slug === product?.slug) as
+    | { sku?: string; rating?: number; rating_count?: number }
+    | undefined
+const sku = deckMeta?.sku
 
 const marketplaceOffers = Object.entries(product?.link_olshop ?? {})
     .filter(([, url]) => !!url)
@@ -283,6 +289,18 @@ const productJsonLd = {
     ...(sku ? { sku } : {}),
     brand: { '@type': 'Brand', name: 'Toko Tangan Kanan' },
     url: `${SITE_URL}${product?.href ?? '/'}`,
+    // Only emit a rating when the product actually has one (see deckMeta above).
+    ...(deckMeta?.rating && deckMeta?.rating_count
+        ? {
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: deckMeta.rating,
+                reviewCount: deckMeta.rating_count,
+                bestRating: 5,
+                worstRating: 1,
+            },
+        }
+        : {}),
     // Only emit offers when a real price is set (price 0 = placeholder).
     ...(product?.price && marketplaceOffers.length
         ? {

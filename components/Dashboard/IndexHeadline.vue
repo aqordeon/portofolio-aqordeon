@@ -34,7 +34,9 @@
         <div class="flow-root">
             <img src="/images/hero_images.webp"
                 alt="Berbagai varian kartu permainan Toko Tangan Kanan — Deep, Hangout, Family 99, dan lainnya — untuk menemani momen nongkrong, pasangan, dan keluarga"
-                class="rounded-md mx-auto" />
+                width="1026" height="732"
+                loading="eager" fetchpriority="high" decoding="async"
+                class="rounded-md mx-auto ch-auto vw-full wmax-w-3xl" />
         </div>
 
         <!-- <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu xoverflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

@@ -22,7 +22,7 @@ const props = defineProps<{
         <div>
             <div class="relative w-full rounded-md overflow-hidden border border-gray-200 group-hover:border-primary/60 aspect-[4/5] shadow-sm transition-all duration-75 group-hover:shadow-xl group-hover:shadow-primary/10">
                 <NuxtLink as="a" :href="`/cards/${product.slug}`" class="block h-full w-full">
-                    <img :src="product.imageSrc" :alt="product.imageAlt" class="h-full w-full object-cover transition-transform duration-150 ease-out group-hover:scale-105" />
+                    <img :src="product.imageSrc" :alt="product.imageAlt" width="800" height="1000" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-150 ease-out group-hover:scale-105" />
                     <!-- sheen sweep on hover -->
                     <span class="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[ttk-shine_0.9s_ease-out]" />
                 </NuxtLink>

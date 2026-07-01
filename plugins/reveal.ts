@@ -4,33 +4,45 @@
 //   <div v-reveal>...</div>
 //   <div v-reveal="{ delay: 150 }">...</div>   // stagger by ms
 //
-// Client-only (IntersectionObserver) — on the server the element simply
-// renders with the base `.reveal` styles and is revealed once hydrated.
+// Registered universally (NOT `.client`) so the server can resolve the
+// directive during SSR — a client-only directive makes Vue crash on
+// `getSSRProps` during server render. The actual reveal work (Intersection
+// Observer) is guarded to the client; on the server the element just renders
+// visible and animates in once hydrated.
 
 import type { DirectiveBinding } from 'vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
-    const reduceMotion =
-        typeof window !== 'undefined' &&
-        window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    let observer: IntersectionObserver | null = null
+    let reduceMotion = false
 
-    const observer =
-        typeof IntersectionObserver !== 'undefined'
-            ? new IntersectionObserver(
-                  (entries, obs) => {
-                      for (const entry of entries) {
-                          if (entry.isIntersecting) {
-                              entry.target.classList.add('reveal-in')
-                              obs.unobserve(entry.target)
+    if (import.meta.client) {
+        reduceMotion =
+            window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+
+        observer =
+            'IntersectionObserver' in window
+                ? new IntersectionObserver(
+                      (entries, obs) => {
+                          for (const entry of entries) {
+                              if (entry.isIntersecting) {
+                                  entry.target.classList.add('reveal-in')
+                                  obs.unobserve(entry.target)
+                              }
                           }
-                      }
-                  },
-                  { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
-              )
-            : null
+                      },
+                      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+                  )
+                : null
+    }
 
     nuxtApp.vueApp.directive('reveal', {
+        // Present so Vue's SSR renderer has something to call; adds nothing.
+        getSSRProps: () => ({}),
+
         mounted(el: HTMLElement, binding: DirectiveBinding) {
+            if (import.meta.server) return
+
             const delay = binding.value?.delay
             if (delay) el.style.setProperty('--reveal-delay', `${delay}ms`)
 
@@ -57,6 +69,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
             observer.observe(el)
         },
+
         unmounted(el: HTMLElement) {
             observer?.unobserve(el)
         },

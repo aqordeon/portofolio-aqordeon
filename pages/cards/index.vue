@@ -27,12 +27,19 @@ useHead({
                 '@type': 'CollectionPage',
                 name: 'Semua Kartu - Toko Tangan Kanan',
                 url: 'https://tokotangankanan.com/cards',
-                hasPart: products.map(p => ({
-                    '@type': 'Product',
-                    name: p.title,
-                    url: `https://tokotangankanan.com/cards/${p.slug}`,
-                    image: `https://tokotangankanan.com${p.imageSrc}`,
-                })),
+                // ItemList (ordered, with position) is Google's preferred shape
+                // for a category/listing page — clearer than a flat hasPart.
+                mainEntity: {
+                    '@type': 'ItemList',
+                    numberOfItems: products.length,
+                    itemListElement: products.map((p, i) => ({
+                        '@type': 'ListItem',
+                        position: i + 1,
+                        url: `https://tokotangankanan.com/cards/${p.slug}`,
+                        name: p.title,
+                        image: `https://tokotangankanan.com${p.imageSrc}`,
+                    })),
+                },
             }),
         },
     ],

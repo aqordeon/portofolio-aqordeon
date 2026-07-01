@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* Inter is loaded via <link rel="preconnect"> + stylesheet in nuxt.config.ts
+   (app.head.link) instead of an @import here — an @import chains requests
+   (main CSS → discover @import → fetch font CSS → fetch fonts) and blocks
+   render. Loading it from <head> lets the browser start it immediately. */
 
 html {
     scroll-behavior: smooth;

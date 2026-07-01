@@ -77,7 +77,7 @@
 									</div>
 								</div>
 								<div class="md:ml-auto rounded-md md:rounded-none overflow-hidden mx-8 md:mx-0">
-									<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" class="md:h-96"/>
+									<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" width="533" height="533" loading="lazy" decoding="async" class="md:h-96"/>
 								</div>
 							</div>
 						</div>
