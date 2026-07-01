@@ -36,10 +36,25 @@ export default defineNuxtPlugin((nuxtApp) => {
 
             el.classList.add('reveal')
 
+            // No observer / reduced motion: just show it, no animation.
             if (reduceMotion || !observer) {
-                el.classList.add('reveal-in')
+                el.classList.remove('reveal')
                 return
             }
+
+            // Once the reveal animation finishes, strip the helper classes so
+            // the element returns to its natural state — this keeps `animation:
+            // ... both` from locking `transform` and breaking hover lifts.
+            // Guard on animationName so bubbled events from floating children
+            // (ttk-float, ttk-shine, …) don't clear it early.
+            const onEnd = (e: AnimationEvent) => {
+                if (e.animationName !== 'ttk-reveal') return
+                el.classList.remove('reveal', 'reveal-in')
+                el.style.removeProperty('--reveal-delay')
+                el.removeEventListener('animationend', onEnd)
+            }
+            el.addEventListener('animationend', onEnd)
+
             observer.observe(el)
         },
         unmounted(el: HTMLElement) {
