@@ -7,7 +7,11 @@
 </template>
 
 <script setup>
-
+// Halaman masih maintenance — jangan diindeks Google sampai ada konten asli.
+useSeoMeta({
+    title: 'Tentang Kami',
+    robots: 'noindex, follow',
+})
 </script>
 
 <style lang="scss" scoped></style>

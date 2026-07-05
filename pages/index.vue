@@ -1,6 +1,4 @@
 <template>
-	<DashboardIndex />
-
 	<div class="bg-white">
 
 		<main>
@@ -36,7 +34,7 @@
 						<!-- Section: Best Seller -->
 						<div class="container px-4 py-8 sm:px-6 md:py-12">
 							<h2 class="text-slate-700 text-lg md:text-2xl font-bold tracking-tight text-center">
-								Best Seller
+								<span class="inline-block rounded-full bg-primary/10 px-3 py-0.5 text-primary">Best Seller</span>
 							</h2>
 							<p class="text-slate-500 text-xs md:text-base mt-2 mx-auto text-justify md:text-center md:text-balance">
 								Variant yang selalu jadi pilihan favorit dari Toko Tangan Kanan!
@@ -79,7 +77,7 @@
 									</div>
 								</div>
 								<div class="md:ml-auto rounded-md md:rounded-none overflow-hidden mx-8 md:mx-0">
-									<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" class="md:h-96"/>
+									<img src="/images/combo_first_date.webp" alt="Combo First Date Toko Tangan Kanan" width="533" height="533" loading="lazy" decoding="async" class="md:h-96"/>
 								</div>
 							</div>
 						</div>
@@ -138,15 +136,19 @@ import Button from '../components/Utils/Button.vue'
 import { decksTopSellers } from '../composables/useProduct'
 import ProductOnSmallGrid from '../components/Products/ProductOnSmallGrid.vue'
 
-useHead({ titleTemplate: '%s' })
-
 useSeoMeta({
 	title: 'Toko Tangan Kanan | Permainan Kartu untuk Nongkrong, Pasangan & Keluarga',
 	ogTitle: 'Toko Tangan Kanan | Permainan Kartu untuk Nongkrong, Pasangan & Keluarga',
 	description: 'Koleksi permainan kartu seperti Deep, Hangout, Badboy, Family99, dan lainnya. Cocok untuk nongkrong, PDKT, atau ngobrol santai bareng teman dan pasangan.',
 	ogDescription: 'Koleksi permainan kartu seperti Deep, Hangout, Badboy, Family99, dan lainnya. Cocok untuk nongkrong, PDKT, atau ngobrol santai bareng teman dan pasangan.',
 	ogImage: 'https://tokotangankanan.com/ttk_logo_1000.jpg',
+	ogUrl: 'https://tokotangankanan.com/',
 	twitterCard: 'summary_large_image',
+})
+
+useHead({
+	titleTemplate: '%s',
+	link: [{ rel: 'canonical', href: 'https://tokotangankanan.com/' }],
 })
 
 

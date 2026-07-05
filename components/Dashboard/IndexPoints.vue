@@ -15,8 +15,9 @@
 
                 <ul role="list"
                     class="mt-6 md:mt-10 grid grid-cols-1 gap-x-14 gap-y-3  sm:grid-cols-2">
-                    <li v-for="point, idxPoint in corePoints" :key="idxPoint" class="flex gap-x-3 text-primary">
-                        <CheckCircleIcon class="h-5 w-4 md:h-7 md:w-5 flex-none " aria-hidden="true" />
+                    <li v-for="point, idxPoint in corePoints" :key="idxPoint" 
+                        class="group flex gap-x-3 text-primary rounded-lg p-2 transition-colors duration-75 hover:bg-primary/5">
+                        <CheckCircleIcon class="h-5 w-4 md:h-7 md:w-5 flex-none transition-transform duration-75 group-hover:scale-110" aria-hidden="true" />
                         <div>
                             <div class="text-sm font-bold">{{ point.label }}</div>
                             <div class="text-xs opacity-80 text-gray-600">{{ point.description }}</div>

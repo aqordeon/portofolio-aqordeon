@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* Inter is loaded via <link rel="preconnect"> + stylesheet in nuxt.config.ts
+   (app.head.link) instead of an @import here — an @import chains requests
+   (main CSS → discover @import → fetch font CSS → fetch fonts) and blocks
+   render. Loading it from <head> lets the browser start it immediately. */
 
 html {
     scroll-behavior: smooth;
@@ -8,4 +11,80 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     @apply text-slate-700 bg-gray-100;
+}
+
+/* =========================================================
+   Motion system
+   Reusable keyframes + scroll-reveal utilities used across
+   the storefront. All motion is gated behind prefers-reduced-motion.
+   ========================================================= */
+
+@keyframes ttk-float {
+    0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
+    50%      { transform: translateY(-14px) rotate(var(--tilt, 0deg)); }
+}
+
+@keyframes ttk-float-soft {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+@keyframes ttk-shine {
+    0%   { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+    35%  { opacity: 0.9; }
+    100% { transform: translateX(220%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes ttk-gradient-pan {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes ttk-blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(3%, -4%) scale(1.08); }
+    66%      { transform: translate(-3%, 3%) scale(0.96); }
+}
+
+/* --- Animated gradient text (used for hero headline accent) --- */
+.ttk-gradient-text {
+    background-image: linear-gradient(100deg, #008989, #06b6b6, #14b8a6, #008989);
+    background-size: 220% 220%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: ttk-gradient-pan 6s ease-in-out infinite;
+}
+
+/* --- Floating helpers --- */
+.ttk-float      { animation: ttk-float 6s ease-in-out infinite; }
+.ttk-float-soft { animation: ttk-float-soft 5s ease-in-out infinite; }
+
+/* --- Scroll reveal ---
+   Uses a keyframe animation (not a transition) on purpose: a `transition` on
+   `opacity/transform` gets clobbered by Tailwind's `transition-colors` utility
+   when both sit on the same element, and it also fails to play for elements
+   already on-screen at load. An animation avoids both problems. The directive
+   strips the classes on `animationend` so hover transforms keep working. */
+@keyframes ttk-reveal {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+.reveal.reveal-in {
+    animation: ttk-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ttk-float,
+    .ttk-float-soft,
+    .ttk-gradient-text { animation: none; }
+    .reveal { opacity: 1; }
+    .reveal.reveal-in { animation: none; }
 }

@@ -20,6 +20,7 @@ export const useDecksLP = {
             description: 'Kartu Deep - 50 pertanyaan deep talk untuk saling mengenal lebih dalam. Cocok untuk pasangan & sahabat. Semi anti-air, bilingual ID/EN. Mulai ngobrol lebih bermakna!'
         },
         slug: 'deep',
+        price: 43000,
         description: ``,
         descriptionComponent: ProductDescriptionDeep,
         href: '/cards/deep',
@@ -57,6 +58,7 @@ export const useDecksLP = {
             description: 'Kartu Hangout - game nongkrong seru dengan pertanyaan ringan tapi bikin ngakak. Cocok untuk kenalan baru sampai sahabat lama. Anti awkward silence! '
         },
         slug: 'hangout',
+        price: 43000,
         description: ``,
         descriptionComponent: ProductDescriptionHangout,
         img_logo: '/images/logo/hangout_logo.png',
@@ -81,6 +83,7 @@ export const useDecksLP = {
             description: 'Kartu This or That - game pilihan seru untuk mengenal karakter teman & pasangan. Tanpa dare, tanpa awkward. Cocok untuk nongkrong & first date! '
         },
         slug: 'tot',
+        price: 40000,
         description: ``,
         descriptionComponent: ProductDescriptionToT,
         img_logo: '/images/logo/tot_logo.png',
@@ -102,6 +105,7 @@ export const useDecksLP = {
             description: 'Kartu Family 99 - ice breaking seru untuk kumpul keluarga & gathering. 99 pertanyaan yang bikin suasana cair dan semua generasi bisa ikut main! '
         },
         slug: `family99`,
+        price: 44000,
         description: ``,
         descriptionComponent: ProductDescriptionF99,
         img_logo: '/images/logo/family99_logo.png',
@@ -123,6 +127,7 @@ export const useDecksLP = {
             description: 'Kartu Badboy - 50 pertanyaan berani khusus buat sirkel cowok. Nongkrong jadi lebih jujur & seru. Tanpa dare, langsung ke intinya. Berani coba? '
         },
         slug: `badboy`,
+        price: 40000,
         description: null,
         descriptionComponent: ProductDescriptionBadboy,
         img_logo: '/images/logo/badboy_logo.png',
@@ -144,6 +149,7 @@ export const useDecksLP = {
             description: 'Kartu This or That 2 - versi upgrade dengan konteks di setiap kartu. Diskusi lebih seru & dalam. Cocok untuk yang sudah main versi pertama! '
         },
         slug: `tot-2`,
+        price: 46000,
         description: null,
         descriptionComponent: ProductDescriptionToT2,
         img_logo: '/images/logo/tot2_logo.png',
@@ -165,6 +171,7 @@ export const useDecksLP = {
             description: 'Kartu Love Sparks - permainan kartu untuk pasangan yang ingin lebih terhubung. Perkuat koneksi emosional lewat pertanyaan yang hangat & intim. '
         },
         slug: `love_sparks`,
+        price: 43000,
         description: null,
         descriptionComponent: ProductDescriptionLoveSparks,
         img_logo: '/images/logo/love_sparks.png',

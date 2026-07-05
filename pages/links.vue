@@ -8,6 +8,9 @@ useHead({
     meta: [
         { name: 'description', content: 'Temukan semua varian kartu Toko Tangan Kanan di marketplace favoritmu.' },
         { property: 'og:title', content: 'Toko Tangan Kanan – Belanja Sekarang' },
+        // Link-in-bio landing page: keep it out of the index so it doesn't
+        // dilute topical focus, but still let bots follow the outbound links.
+        { name: 'robots', content: 'noindex, follow' },
     ],
 })
 
