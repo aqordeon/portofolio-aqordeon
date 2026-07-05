@@ -26,8 +26,24 @@ export const useDecksLP = {
         img_logo: '/images/logo/deep_logo.png',
         images: [
             {
+                src: "/images/cards/deep-cards-1.webp",
+                alt: "Kemasan kartu Deep beserta contoh momen - permainan deep talk untuk pasangan dan sahabat yang ingin saling mengenal lebih dalam"
+            },
+            {
                 src: "/images/cards/deep1-4x5.webp",
                 alt: "Kemasan kartu Deep beserta contoh kartu pertanyaan - permainan deep talk untuk pasangan dan sahabat yang ingin saling mengenal lebih dalam"
+            },
+            {
+                src: "/images/cards/deep-cards-2.webp",
+                alt: "Kemasan kartu Deep premium packaging - permainan deep talk untuk pasangan dan sahabat yang ingin saling mengenal lebih dalam"
+            },
+            {
+                src: "/images/cards/deep-cards-3.webp",
+                alt: "Kartu Deep tampak depan, belakang dan panduan - permainan deep talk untuk pasangan dan sahabat yang ingin saling mengenal lebih dalam"
+            },
+            {
+                src: "/images/cards/deep-cards-4.webp",
+                alt: "Kartu Deep dan packaging tampak berdiri - permainan deep talk untuk pasangan dan sahabat yang ingin saling mengenal lebih dalam"
             },
         ],
         link_olshop: getShopLinks('deep'),
