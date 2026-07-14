@@ -132,6 +132,18 @@ export const useDecksLP = {
                 src: '/images/reviews/hangout/review-1.webp',
                 alt: 'Screenshot ulasan kartu Hangout di Shopee dari pembeli 1',
             },
+            {
+                src: '/images/reviews/hangout/review-2.webp',
+                alt: 'Screenshot ulasan kartu Hangout di Shopee dari pembeli 2',
+            },
+            {
+                src: '/images/reviews/hangout/review-3.webp',
+                alt: 'Screenshot ulasan kartu Hangout di Shopee dari pembeli 3',
+            },
+            {
+                src: '/images/reviews/hangout/review-4.webp',
+                alt: 'Screenshot ulasan kartu Hangout di Shopee dari pembeli 4',
+            },
         ],
     },
     tot: {
