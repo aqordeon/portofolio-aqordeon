@@ -150,6 +150,14 @@
                     <iframe data-testid="embed-iframe" style="border-radius:12px" :src="product?.link_spotify" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
             </section>
+
+            <!-- Section: Reviews (testimoni teks + galeri screenshot) -->
+            <ProductReviews
+                :reviews="product?.reviews ?? []"
+                :images="product?.review_images ?? []"
+                :rating="deckMeta?.rating"
+                :rating-count="deckMeta?.rating_count"
+            />
         </div>
     </div>
 
@@ -299,6 +307,18 @@ const productJsonLd = {
                 bestRating: 5,
                 worstRating: 1,
             },
+        }
+        : {}),
+    // Individual reviews — only emitted alongside a real aggregateRating, so no
+    // structured data ships until real Shopee ratings are set on the deck.
+    ...(deckMeta?.rating && deckMeta?.rating_count && (product as any)?.reviews?.length
+        ? {
+            review: (product as any).reviews.map((r: { author: string; rating: number; text: string }) => ({
+                '@type': 'Review',
+                reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+                author: { '@type': 'Person', name: r.author },
+                reviewBody: r.text,
+            })),
         }
         : {}),
     // Only emit offers when a real price is set (price 0 = placeholder).

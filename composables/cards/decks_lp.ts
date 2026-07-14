@@ -32,7 +32,28 @@ export const useDecksLP = {
             },
         ],
         link_olshop: getShopLinks('deep'),
-        link_spotify: `https://open.spotify.com/embed/playlist/4t8jBno2EAVan6AIr3elty?utm_source=generator`
+        link_spotify: `https://open.spotify.com/embed/playlist/4t8jBno2EAVan6AIr3elty?utm_source=generator`,
+        reviews: [
+            {
+                author: '3*****2',
+                rating: 5,
+                date: 'Jan 2026',
+                text: 'Suka banget..bisa buat bahan obrolan tanpa mikir hehe.. ditunggu edisi selanjutnya',
+            },
+            {
+                author: 's*****t',
+                rating: 5,
+                date: 'Jun 2026',
+                text: 'Biar ga bosen dan yg diobrolin ada aja sama pasangan, temen, or keluarga.. thanxx',
+            },
+        ],
+        //   public/images/reviews/deep/  (lihat README di folder itu)
+        review_images: [
+            // {
+            //     src: '/images/reviews/deep/review-1.webp',
+            //     alt: 'Screenshot ulasan pembeli kartu Deep di Shopee',
+            // },
+        ],
     },
     hangout: {
         name: 'Hangout',
