@@ -94,7 +94,45 @@ export const useDecksLP = {
             // },
         ],
         link_olshop: getShopLinks('hangout'),
-        link_spotify: `https://open.spotify.com/embed/playlist/1wGrAVGey3vEl9ZTBTXMh3?utm_source=generator`
+        link_spotify: `https://open.spotify.com/embed/playlist/1wGrAVGey3vEl9ZTBTXMh3?utm_source=generator`,
+        reviews: [
+            {
+                author: 're******ag',
+                rating: 5,
+                date: 'Feb 2026',
+                text: 'Huuuaaaaa gk bisa berkata-kata terbaiikk pkoknya 🤩thank you',
+            },
+            {
+                author: 'u*****7',
+                rating: 5,
+                date: 'Feb 2026',
+                text: 'Pertanyaan" nya asik buat main rame-rame , recomen buat di beli kalau kalian ga mau kehabisan topik sm temen ,',
+            },
+            {
+                author: 'h*****y',
+                rating: 5,
+                date: 'Des 2025',
+                text: 'Isi kartu banyak, pertanyaan pertanyaannya juga umum jadi asyik untuk mengisi waktu',
+            },
+            {
+                author: 'ri*****29',
+                rating: 5,
+                date: 'Okt 2025',
+                text: 'Bagus sudah sesuai lah seru kartunya dan pertanyaan2 di kartunya bagus jg untuk memancing agar bisa diskusi bersama dan seru2 an bersama',
+            },
+            {
+                author: 'r*****3',
+                rating: 5,
+                date: 'Jun 2024',
+                text: 'desainnya bagus, isinya seru bisa buat games sama temen” kalo lagi main. recomend👍',
+            },
+        ],
+        review_images: [
+            {
+                src: '/images/reviews/hangout/review-1.webp',
+                alt: 'Screenshot ulasan kartu Hangout di Shopee dari pembeli 1',
+            },
+        ],
     },
     tot: {
         name: 'This or That',
