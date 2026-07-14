@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white">
-        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-4xl xl:max-w-6xl lg:px-8">
+        <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:max-w-4xl xl:max-w-6xl lg:px-8">
             <!-- Breadcrumb -->
             <nav class="mb-8 text-sm" aria-label="Breadcrumb">
                 <ol class="flex flex-wrap items-center gap-x-2 text-gray-500">
