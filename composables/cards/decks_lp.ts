@@ -63,7 +63,6 @@ export const useDecksLP = {
                 text: 'Biar ga bosen dan yg diobrolin ada aja sama pasangan, temen, or keluarga.. thanxx',
             },
         ],
-        //   public/images/reviews/deep/  (lihat README di folder itu)
         review_images: [
             // {
             //     src: '/images/reviews/deep/review-1.webp',
@@ -79,7 +78,7 @@ export const useDecksLP = {
             description: 'Kartu Hangout - game nongkrong seru dengan pertanyaan ringan tapi bikin ngakak. Cocok untuk kenalan baru sampai sahabat lama. Anti awkward silence! '
         },
         slug: 'hangout',
-        price: 43000,
+        price: 42000,
         description: ``,
         descriptionComponent: ProductDescriptionHangout,
         img_logo: '/images/logo/hangout_logo.png',
@@ -189,6 +188,90 @@ export const useDecksLP = {
         ],
         link_olshop: getShopLinks('family99'),
         link_spotify: `https://open.spotify.com/embed/playlist/4ymDR3ICyNFqVyko16ZRqa?utm_source=generator`,
+        reviews: [
+            {
+                author: 'Y** S**a',
+                rating: 5,
+                date: 'Mar 2026',
+                text: 'Lumayan buat ide permainan buat game bareng keluarga',
+            },
+            {
+                author: 'n**s',
+                rating: 5,
+                date: 'Sep 2024',
+                text: 'Pengiriman cepat kali thanks. Ukurannya pas buat masuk kantong, aman klo ada nongkrong dadakan 👍 suka jg sama konsep bilingualnya, versi indo dan english',
+            },
+            {
+                author: 'Sugiri',
+                rating: 5,
+                date: 'Jan 2025',
+                text: 'Mantap paket diterima sesuai pesanan dlm kondisi baik mulus tanpa cacat kartu Quiz family 99 nya bgs thanks Lazada & Seller',
+            },
+            {
+                author: 'zakkymunam',
+                rating: 5,
+                date: 'Dec 2025',
+                text: 'Warna: Warna tidak pucat, terlihat jelas. Desain: Desain bagus, kata mudah terbaca. Ketebalan: Cukup tebal dan tidak mudah robek. Barang bagus overall',
+            },
+            {
+                author: 'troy_panggabean_27',
+                rating: 5,
+                date: 'Jun 2026',
+                text: 'Desain: kartu nya bagus. Ketebalan: baik. Barang pesanan sdh datang, di coba dulu. Datang tepat waktu dn sesuai pesanan. Mainan nya keren dn menarik sbg acara keluarga',
+            },
+            {
+                author: 'rezaprelovedbag',
+                rating: 5,
+                date: 'Feb 2026',
+                text: 'Menguji pengetahuan saat ada acara lomba 🤠 maaciiii yooo luar biasaaa',
+            },
+            {
+                author: 'd*****4',
+                rating: 5,
+                date: 'Jan 2026',
+                text: 'Warna: bagus. Kualitas: bagus. Barang bagus, cocok main sm teman pas lagi ngumpull',
+            },
+            {
+                author: 'a*****0',
+                rating: 5,
+                date: 'Apr 2026',
+                text: 'Desain: desain simple dan minimalis. Ketebalan: cukup tebal. Fungsi: bagus',
+            },
+        ],
+        review_images: [
+            {
+                src: '/images/reviews/f99/review-1.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 1',
+            },
+            {
+                src: '/images/reviews/f99/review-2.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 2',
+            },
+            {
+                src: '/images/reviews/f99/review-3.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 3',
+            },
+            {
+                src: '/images/reviews/f99/review-4.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 4',
+            },
+            {
+                src: '/images/reviews/f99/review-5.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 5',
+            },
+            {
+                src: '/images/reviews/f99/review-6.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 6',
+            },
+            {
+                src: '/images/reviews/f99/review-7.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 7',
+            },
+            {
+                src: '/images/reviews/f99/review-9.webp',
+                alt: 'Screenshot ulasan kartu Family di Shopee pembeli 9',
+            },
+        ],
     },
     badboy: {
         name: `Badboy`,
