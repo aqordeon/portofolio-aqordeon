@@ -1,4 +1,33 @@
 <script setup lang='ts'>
+/**
+ * Buzzer "adu cepat" realtime untuk Family99.
+ *
+ * PENTING — supaya lock bekerja lintas device, jalankan setup ini SEKALI di
+ * Supabase SQL editor. Tanpa ini: device lain tidak pernah jadi TERKUNCI, dan
+ * update yang diblokir RLS gagal DIAM-DIAM (0 baris, tanpa error).
+ *
+ *   -- 1. Tabel
+ *   create table family99_buzzer (
+ *     room            text primary key,
+ *     pressed_by      text,
+ *     pressed_by_name text,
+ *     pressed_at      timestamptz
+ *   );
+ *
+ *   -- 2. RLS: izinkan anon select / insert / update
+ *   alter table family99_buzzer enable row level security;
+ *   create policy "buzzer read"   on family99_buzzer for select using (true);
+ *   create policy "buzzer insert" on family99_buzzer for insert with check (true);
+ *   create policy "buzzer update" on family99_buzzer for update using (true) with check (true);
+ *
+ *   -- 3. Realtime: daftarkan tabel + REPLICA IDENTITY FULL (wajib agar UPDATE
+ *   --    dengan filter `room=eq.*` terkirim ke client lain)
+ *   alter publication supabase_realtime add table family99_buzzer;
+ *   alter table family99_buzzer replica identity full;
+ *
+ * Setelah itu cek juga di Dashboard → Database → Replication bahwa
+ * `family99_buzzer` tercentang.
+ */
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import Horn from '~/assets/audio/horn.mp3'
 import Wrong from '~/assets/audio/wrong.mp3'
@@ -43,15 +72,17 @@ const joinRoom = async () => {
 
     // Pastikan baris room ada. ignoreDuplicates supaya user kedua yang masuk
     // tidak menimpa state room yang sudah berjalan.
-    await supabase
+    const { error: upsertError } = await supabase
         .from('family99_buzzer')
         .upsert({ room: room.value }, { onConflict: 'room', ignoreDuplicates: true })
+    if (upsertError) console.error('[buzzer] upsert gagal (cek RLS insert):', upsertError)
 
-    const { data } = await supabase
+    const { data, error: selectError } = await supabase
         .from('family99_buzzer')
         .select('pressed_by, pressed_by_name')
         .eq('room', room.value)
         .single()
+    if (selectError) console.error('[buzzer] select gagal (cek RLS select / baris room):', selectError)
 
     applyRow(data)
 
@@ -78,6 +109,11 @@ const joinRoom = async () => {
             onlineCount.value = Object.keys(channel.presenceState()).length
         })
         .subscribe(async (status: string) => {
+            // CHANNEL_ERROR / TIMED_OUT di sini biasanya berarti Realtime belum
+            // di-enable untuk tabel ini (lihat setup SQL di atas).
+            if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+                console.error('[buzzer] realtime gagal subscribe:', status)
+            }
             if (status === 'SUBSCRIBED') {
                 await channel.track({ id: playerId.value, name: playerName.value })
             }
@@ -94,7 +130,7 @@ const onClickBuzzer = async () => {
     // Inilah inti "adu cepat"-nya: `.is('pressed_by', null)` membuat update ini
     // hanya berhasil untuk orang PERTAMA yang sampai ke database. Postgres
     // mengunci baris, jadi user kedua dapat 0 baris walau selisihnya 1ms.
-    const { data } = await supabase
+    const { data, error } = await supabase
         .from('family99_buzzer')
         .update({
             pressed_by: playerId.value,
@@ -104,6 +140,9 @@ const onClickBuzzer = async () => {
         .eq('room', room.value)
         .is('pressed_by', null)
         .select('pressed_by, pressed_by_name')
+    // Kalau update SELALU balik 0 baris tanpa error, biasanya RLS update
+    // memblokir diam-diam ATAU baris room belum ada. Log ini bantu bedakan.
+    if (error) console.error('[buzzer] update gagal (cek RLS update):', error)
 
     if (data && data.length === 1) {
         applyRow(data[0])
@@ -126,12 +165,13 @@ const onClickBuzzer = async () => {
 const onClickReset = async () => {
     isLoading.value = true
 
-    const { data } = await supabase
+    const { data, error } = await supabase
         .from('family99_buzzer')
         .update({ pressed_by: null, pressed_by_name: null, pressed_at: null })
         .eq('room', room.value)
         .select('pressed_by, pressed_by_name')
         .single()
+    if (error) console.error('[buzzer] reset gagal (cek RLS update):', error)
 
     applyRow(data)
     isLoading.value = false
@@ -148,6 +188,9 @@ const runMethodByKey = (key: string) => {
 }
 
 const onKeydown = (event: KeyboardEvent) => {
+    // event.repeat = true saat tombol ditahan (auto-repeat OS). Diabaikan supaya
+    // satu kali tekan = satu kali kirim, bukan spam update ke database.
+    if (event.repeat) return
     if (event.key === ' ') event.preventDefault()
     runMethodByKey(event.key)
 }
@@ -224,7 +267,7 @@ onUnmounted(() => {
             </div>
 
             <button
-                @click="onClickBuzzer"
+                @pointerdown.prevent="onClickBuzzer"
                 :disabled="isLocked || isLoading"
                 class="rounded-full h-64 w-64 md:h-80 md:w-80 font-bold text-4xl md:text-5xl text-white transition-all shadow-2xl active:scale-95 disabled:active:scale-100"
                 :class="isLocked ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-500'"
