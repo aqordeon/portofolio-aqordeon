@@ -314,6 +314,20 @@ export const useDecksLP = {
         ],
         link_olshop: getShopLinks('badboy'),
         link_spotify: "https://open.spotify.com/embed/playlist/2JPq7VVKrJVEbnj1tNH2ha?utm_source=generator",
+        reviews: [
+            {
+                author: '3*****2',
+                rating: 5,
+                date: 'Jan 2026',
+                text: 'Suka banget..bisa buat bahan obrolan tanpa mikir hehe.. ditunggu edisi selanjutnya',
+            },
+        ],
+        review_images: [
+            {
+                src: '/images/reviews/badboy/review-1.webp',
+                alt: 'Screenshot ulasan kartu Badboy di Shopee pembeli 1',
+            },
+        ],
     },
     "tot-2": {
         name: `This or That 2`,
