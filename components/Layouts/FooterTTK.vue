@@ -31,6 +31,7 @@ const navigation = {
     main: [
         { name: 'Beranda', href: '/' },
         { name: 'Semua Kartu', href: '/cards' },
+        { name: 'Blog', href: '/blog' },
         { name: 'Tentang Kami', href: '/tentang-kami' },
         { name: 'FAQ', href: '/faq' },
     ],

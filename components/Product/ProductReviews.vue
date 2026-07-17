@@ -50,6 +50,22 @@ const averageRating = computed(() => {
 
 const totalCount = computed(() => props.ratingCount ?? props.reviews.length)
 
+// --- Marquee track ---
+// The track holds two identical halves so translating it by -50% lands exactly
+// on the start of the second half, making the loop seamless. With few images the
+// base sequence is repeated first so the track is always wider than the viewport.
+const marqueeEnabled = computed(() => props.images.length > 1)
+
+const marqueeBase = computed(() => {
+    const repeat = Math.max(1, Math.ceil(6 / props.images.length))
+    return Array.from({ length: repeat }, () => props.images).flat()
+})
+
+const marqueeTrack = computed(() => [...marqueeBase.value, ...marqueeBase.value])
+
+/** ~6s per image keeps the pace readable regardless of how many there are. */
+const marqueeDuration = computed(() => `${marqueeBase.value.length * 6}s`)
+
 // --- Lightbox for review screenshots ---
 const lightboxOpen = ref(false)
 const activeIndex = ref(0)
@@ -103,15 +119,28 @@ function openLightbox(index: number) {
         <!-- Screenshot gallery -->
         <div v-if="hasImages" :class="hasReviews ? 'mt-10' : ''">
             <h3 v-if="hasReviews" class="mb-4 text-sm font-medium text-gray-500">Bukti ulasan dari pembeli</h3>
-            <ul role="list" class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                <li v-for="(image, index) in images" :key="image.src">
-                    <button type="button" @click="openLightbox(index)"
-                        class="group block w-full overflow-hidden rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2">
-                        <img :src="image.src" :alt="image.alt" width="400" height="400" loading="lazy" decoding="async"
-                            class="aspect-square w-full object-cover transition-transform duration-200 group-hover:scale-105" />
-                    </button>
-                </li>
-            </ul>
+            <div v-if="marqueeEnabled" class="marquee -mx-4 overflow-hidden px-4 sm:mx-0 sm:px-0">
+                <ul role="list" class="marquee-track flex w-max items-center"
+                    :style="{ '--marquee-duration': marqueeDuration }">
+                    <!-- Spacing lives on the item, not as a flex `gap`: the track must be an
+                         exact 2x tile so translating -50% lands seamlessly on the copy. -->
+                    <li v-for="(image, index) in marqueeTrack" :key="`${index}-${image.src}`" class="pr-3"
+                        :aria-hidden="index >= marqueeBase.length || undefined">
+                        <button type="button" :tabindex="index >= marqueeBase.length ? -1 : undefined"
+                            @click="openLightbox(index % images.length)"
+                            class="block overflow-hidden rounded-lg border border-gray-200 transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2">
+                            <img :src="image.src" :alt="image.alt" loading="lazy" decoding="async"
+                                class="review-shot" />
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- A lone screenshot has nothing to scroll past, so it just sits there. -->
+            <button v-else type="button" @click="openLightbox(0)"
+                class="block overflow-hidden rounded-lg border border-gray-200 transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2">
+                <img :src="images[0].src" :alt="images[0].alt" loading="lazy" decoding="async" class="review-shot" />
+            </button>
         </div>
 
         <!-- Lightbox -->
@@ -142,3 +171,62 @@ function openLightbox(index: number) {
         </TransitionRoot>
     </section>
 </template>
+
+<style scoped>
+.marquee {
+    /* Fade the images out at both edges so they enter and leave, rather than
+       being clipped mid-scroll. */
+    mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
+}
+
+.marquee-track {
+    animation: marquee-scroll var(--marquee-duration, 36s) linear infinite;
+}
+
+/* Marketplace screenshots arrive at whatever ratio and dimension they were
+   exported at. These are a ceiling, not a fixed size: a large capture scales
+   down to fit the row, a small one is left at its native size rather than
+   stretched — they are text-heavy, and upscaling turns the text to mush.
+   Both dimensions stay auto, so the ratio is preserved and nothing is cropped. */
+.review-shot {
+    display: block;
+    width: auto;
+    max-width: min(80vw, 32rem);
+    max-height: 13rem;
+}
+
+@media (min-width: 640px) {
+    .review-shot {
+        max-height: 16rem;
+    }
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* Half the track is the duplicated copy, so this lands back on frame 0. */
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee {
+        overflow-x: auto;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .marquee-track {
+        animation: none;
+    }
+}
+</style>
