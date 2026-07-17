@@ -43,23 +43,28 @@
                 <div class="col-span-4 mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
                     <h1 class="text-3xl font-bold tracking-tight text-justify ">{{ product?.title }}</h1>
 
-                    <!-- <div class="mt-3">
-                        <h2 class="sr-only">Product information</h2>
-                        <p class="text-3xl tracking-tight ">{{ product?.price }}</p>
-                    </div> -->
-
-                    <!-- Reviews -->
-                    <!-- <div class="mt-3">
-                        <h3 class="sr-only">Reviews</h3>
-                        <div class="flex items-center">
+                    <!-- Rating -->
+                    <div v-if="deckMeta?.rating" class="mt-3">
+                        <h2 class="sr-only">Rating</h2>
+                        <div class="flex items-center gap-x-2">
                             <div class="flex items-center">
                                 <StarIcon v-for="rating in [0, 1, 2, 3, 4]" :key="rating"
-                                    :class="[product?.rating > rating ? 'text-indigo-500' : 'text-gray-300', 'size-5 shrink-0']"
+                                    :class="[deckMeta.rating > rating ? 'text-primary' : 'text-gray-300', 'size-5 shrink-0']"
                                     aria-hidden="true" />
                             </div>
-                            <p class="sr-only">{{ product?.rating }} out of 5 stars</p>
+                            <p class="text-sm text-gray-600">
+                                <span class="font-semibold text-gray-900">{{ deckMeta.rating }}</span>
+                                <span v-if="deckMeta.rating_count"> dari {{ deckMeta.rating_count }} penilaian</span>
+                            </p>
+                            <p class="sr-only">{{ deckMeta.rating }} dari 5 bintang</p>
                         </div>
-                    </div> -->
+                    </div>
+
+                    <!-- Price -->
+                    <div v-if="product?.price" class="mt-3">
+                        <h2 class="sr-only">Harga</h2>
+                        <p class="text-3xl font-semibold tracking-tight text-gray-900">{{ formattedPrice }}</p>
+                    </div>
 
                     <!-- Section: Description -->
                     <div class="mt-6">
@@ -245,6 +250,14 @@ if (!product) {
         fatal: true,
     })
 }
+
+const formattedPrice = product?.price
+    ? new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+    }).format(product.price)
+    : ''
 
 useSeoMeta({
     title: () => product?.meta?.title ?? 'Kartu Permainan Toko Tangan Kanan',
