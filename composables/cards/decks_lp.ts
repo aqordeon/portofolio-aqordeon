@@ -336,6 +336,50 @@ export const useDecksLP = {
         ],
         link_olshop: getShopLinks('tot-2'),
         link_spotify: null,
+        reviews: [
+            {
+                author: '3*****2',
+                rating: 5,
+                date: 'Jan 2026',
+                text: 'Suka banget..bisa buat bahan obrolan tanpa mikir hehe.. ditunggu edisi selanjutnya',
+            },
+            {
+                author: 'Mirna',
+                rating: 5,
+                date: 'Jul 2026',
+                text: 'Kertasnya bagus, Pertanyaannya seru. Bisa nambah2 games di warungku.',
+            },
+            {
+                author: 'V***e',
+                rating: 5,
+                date: 'Jan 2026',
+                text: 'Seruu bangettt buat main bareng temen atau pasangan',
+            },
+            {
+                author: 'a**a r**a',
+                rating: 5,
+                date: 'Oct 2025',
+                text: 'Kualitas kartunya bagus, cuma ternyata gak di warp pake plastik bening lagi ya langsung kardus gitu aja, next bisa di perbaiki lagi.',
+            },
+        ],
+        review_images: [
+            {
+                src: '/images/reviews/tot2/review-1.webp',
+                alt: 'Screenshot ulasan kartu This or That 2 di Tiktok pembeli 1',
+            },
+            {
+                src: '/images/reviews/tot2/review-2.webp',
+                alt: 'Screenshot ulasan kartu This or That 2 di Shopee pembeli 2',
+            },
+            {
+                src: '/images/reviews/tot2/review-3.webp',
+                alt: 'Screenshot ulasan kartu This or That 2 di Tiktok pembeli 3',
+            },
+            {
+                src: '/images/reviews/tot2/review-4.webp',
+                alt: 'Screenshot ulasan kartu This or That 2 di Tokopedia pembeli 4',
+            },
+        ],
     },
     "love_sparks": {
         name: `Love Sparks`,
