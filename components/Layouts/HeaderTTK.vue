@@ -31,8 +31,8 @@
                         </svg>
                     </span>
                 </button>
-                <!-- <NuxtLink href="/tentang-kami" class="text-sm/6 font-semibold ">Tentang kami</NuxtLink>
-                <NuxtLink href="/kontak" class="text-sm/6 font-semibold ">Kontak</NuxtLink> -->
+                <!-- <NuxtLink href="/kontak" class="text-sm/6 font-semibold ">Kontak</NuxtLink> -->
+                <NuxtLink href="/tentang-kami" class="text-sm/6 font-semibold" :class="$route.path === '/tentang-kami' ? 'text-primary' : 'text-gray-900 hover:text-primary'">Tentang kami</NuxtLink>
                 <NuxtLink href="/faq" class="text-sm/6 font-semibold" :class="$route.path === '/faq' ? 'text-primary' : 'text-gray-900 hover:text-primary'">FAQ</NuxtLink>
             </div>
         </nav>
@@ -67,6 +67,10 @@
                             </NuxtLink>
                         </div>
                         <div class="py-6">
+                            <NuxtLink href="/tentang-kami" @click="mobileMenuOpen = false"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50">
+                                Tentang kami
+                            </NuxtLink>
                             <NuxtLink href="/faq" @click="mobileMenuOpen = false"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold hover:bg-gray-50">
                                 FAQ
