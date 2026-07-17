@@ -428,6 +428,30 @@ export const useDecksLP = {
         ],
         link_olshop: getShopLinks('love_sparks'),
         link_spotify: "https://open.spotify.com/embed/playlist/29gNjlJTZcsbLTw8PF78Ad?utm_source=generator",
+        reviews: [
+            {
+                author: 'ikarostika1977',
+                rating: 5,
+                date: 'Feb 2026',
+                text: 'Seruuu.. valentine kali ini jadi lebih bermakna karena kartu ini, makasih admin baikkk... jangan ragu beli disini totally worth it 💗💗🥰',
+            },
+            {
+                author: 'Y***h',
+                rating: 5,
+                date: 'Mar 2026',
+                text: 'Pertanyaan2nya oke dan ada Spotify playlistnya',
+            },
+        ],
+        review_images: [
+            {
+                src: '/images/reviews/love_sparks/review-1.webp',
+                alt: 'Screenshot ulasan kartu Love Sparks di Shopee pembeli 1',
+            },
+            {
+                src: '/images/reviews/love_sparks/review-2.webp',
+                alt: 'Screenshot ulasan kartu Love Sparks di Tiktok pembeli 2',
+            },
+        ],
     },
     // xxx: {
     //     name: xxx,
