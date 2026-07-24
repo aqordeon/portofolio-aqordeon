@@ -82,8 +82,17 @@ export const deckPairs: Record<string, DeckPair[]> = {
             slug: 'berani-gak',
             eyebrow: 'Masih kurang nantang?',
             headline: 'Naik level ke Berani Gak?',
-            body: 'Kartu tantangan buat sirkel yang nongkrongnya nggak mau adem-adem aja. Halaman detailnya belum ada di sini, tapi kartunya sudah bisa dibeli langsung di marketplace.',
-            cta: 'Lihat Berani Gak? di Shopee',
+            body: 'Kalau Badboy bikin cerita jujur keluar, Berani Gak? menantang buat benar-benar melakukannya — truth dan dare sekaligus dalam satu kartu.',
+            cta: 'Lihat Berani Gak?',
+        },
+    ],
+    'berani-gak': [
+        {
+            slug: 'badboy',
+            eyebrow: 'Satu meja, dua nuansa',
+            headline: 'Suka tantangannya? Coba Badboy',
+            body: '50 pertanyaan berani soal pengalaman pribadi dan sisi "bad" yang jarang diceritakan. Tanpa dare, tapi jawabannya justru sering lebih bikin kaget.',
+            cta: 'Lihat Badboy',
         },
     ],
 }
